@@ -26,7 +26,7 @@ class Twitter
   # Gets the tweets with mentions since the last time checked
   def get_mentions
     # Get id of last tweet checked
-    last_id = UpdateHistory.last_id
+    last_id = CheckHistory.last_id
     
     if(last_id == nil)
       # Get all tweets
@@ -38,7 +38,7 @@ class Twitter
 
     # Update last tweet checked in db
     if(tweets.count > 0)
-      UpdateHistory.set_last_id(tweets.first.id)
+      CheckHistory.set_last_id(tweets.first.id)
     end
 
     return tweets
