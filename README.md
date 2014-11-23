@@ -9,6 +9,11 @@ Color My Hex is a Twitter Bot that helps you work with hex color codes.
 
 The app is hosted on Heroku at [ColorMyHex](http://colormyhex.herokuapp.com) and uses the Twitter account [@colormyhex](https://twitter.com/colormyhex)
 
+## Gems used ##
+* Twitter gem
+* Colorscore gem
+* Chunky PNG
+
 ## Installation ##
 
 1. Run `bundle install` 
@@ -19,10 +24,4 @@ The app is hosted on Heroku at [ColorMyHex](http://colormyhex.herokuapp.com) and
 consumer_key: XXX
 consumer_secret: XXX
 access_token: XXX
-access_token_secret: XXX
-```
-
-## Gems used ##
-* Twitter gem
-* Colorscore gem
-* Chunky PNG
+access_token_secret: XXX```
