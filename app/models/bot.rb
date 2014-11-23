@@ -32,7 +32,7 @@ class Bot
   def self.tweet_pic_for_hex(tweet)
 
     # Check for hex value in tweet, of forms #ffffff and #fff
-    match_values = tweet.text.match(/(#[a-z\d]{6}|#[a-z\d]{3})/i)
+    match_values = tweet.text.match(/(#[a-f\d]{6}|#[a-f\d]{3})/i)
 
     # If no matches were found
     if(match_values != nil)
