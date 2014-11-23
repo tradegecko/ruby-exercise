@@ -39,7 +39,7 @@ class Bot
       # Get the matched hex value
       hex_value = match_values[0]
       # Post tweet with image
-      @@tweet_api.post_tweet_with_color(tweet, hex_value, Image.get_image_url_for_hex(hex_value))
+      @@tweet_api.post_tweet_with_color(tweet, hex_value, Image.get_image_for_hex(hex_value))
       return true
     end
 
@@ -55,7 +55,7 @@ class Bot
       media_url =  media.first.media_url.to_s
       hex = Image.get_hex_value(media_url)
       # Post tweet with hex value and sample color image
-      @@tweet_api.post_tweet_with_hex(tweet, hex, Image.get_image_url_for_hex(hex))
+      @@tweet_api.post_tweet_with_hex(tweet, hex, Image.get_image_for_hex(hex))
     end
   end
 

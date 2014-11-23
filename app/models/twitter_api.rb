@@ -44,4 +44,18 @@ class TwitterApi
     return tweets
   end
 
+  # Tweet
+  def post_tweet_with_color(tweet, hex, media)
+    handle = tweet.user.screen_name.to_s
+    new_tweet = "@#{handle} This is what #{hex} looks like."
+    @client.update_with_media(new_tweet, media, options = {:in_reply_to_status => tweet})
+  end
+
+  # Tweet
+  def post_tweet_with_hex(tweet, hex, media)
+    handle = tweet.user.screen_name.to_s
+    new_tweet = "@#{handle} The dominant color for the pic seems to be the hex value #{hex}. Here is a sample image for it."
+    @client.update_with_media(new_tweet , media, options = {:in_reply_to_status => tweet})
+  end
+
 end
