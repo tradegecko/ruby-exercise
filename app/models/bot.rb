@@ -1,10 +1,10 @@
 require 'image'
-require 'twitter'
+require 'twitter_api'
 
 # Twitter bot that checks the past mentions and replies
 class Bot
 
-  @@tweet_api = Twitter.new
+  @@tweet_api = TwitterApi.new
 
   def self.run_bot
 

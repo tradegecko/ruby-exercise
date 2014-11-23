@@ -1,1 +1,5 @@
 <h3>Our Gecko robots are working hard on their magic.</h3>
+
+<% @tweets.each do |tweet| %>
+	<h3><%= tweet.text %></h3>
+<% end %>

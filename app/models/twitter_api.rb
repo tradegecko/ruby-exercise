@@ -2,7 +2,7 @@ require 'twitter'
 require 'yaml'
 
 # Interface to access Twitter's REST API
-class Twitter
+class TwitterApi
 
   def initialize
     # Load keys and tokens from config.yml
