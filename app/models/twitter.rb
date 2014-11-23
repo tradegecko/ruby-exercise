@@ -23,4 +23,25 @@ class Twitter
 
   end
 
+  # Gets the tweets with mentions since the last time checked
+  def get_mentions
+    # Get id of last tweet checked
+    last_id = UpdateHistory.last_id
+    
+    if(last_id == nil)
+      # Get all tweets
+      tweets = @client.mentions_timeline
+    else
+      # Get all tweets since last id
+      tweets = @client.mentions_timeline(since_id: last_id)
+    end
+
+    # Update last tweet checked in db
+    if(tweets.count > 0)
+      UpdateHistory.set_last_id(tweets.first.id)
+    end
+
+    return tweets
+  end
+
 end
