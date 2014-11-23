@@ -1,0 +1,14 @@
+<h3>The bot has finished running</h3>
+<br>
+<div class="center">
+	<% if(@tweets.count > 0) %>
+		<h3>THE FOLLOWING TWEETS WERE REPLIED</h3>
+		<% @tweets.each do |tweet| %>
+			<h4><%= tweet.text %></h4>
+		<% end %>
+	<% else %>
+		<h4>No new tweets to reply to!</h4>
+	<% end %>
+	<%= link_to("Run again", robots_run_path, class:"btn") %><br><br><br>
+	<%= link_to("Go back", root_path, class:"btn") %>
+</div>

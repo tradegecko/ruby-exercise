@@ -11,3 +11,34 @@ h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
 }
+
+h4 {
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.center {
+	text-align:center;
+}
+
+.btn {
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 17px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
