@@ -1,32 +1,27 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-# Overview #
+# Color My Hex #
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+Color My Hex is a Twitter Bot that helps you work with hex color codes.
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
+* If you tweet to @colormyhex with a hex value, it will reply with an image of the associated color
+* If you tweet to @colormyhex with an image, it will reply with the hex code of the most dominant color in the image
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
+## Hosting ##
 
-Your code should be performant and intuitive.
+The app is hosted on Heroku at [ColorMyHex](http://colormyhex.herokuapp.com) and uses the Twitter account [@colormyhex](https://twitter.com/colormyhex)
 
-Any questions, please ask.
+## Gems used ##
+* Twitter gem
+* Colorscore gem
+* Chunky PNG
 
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
+## Installation ##
 
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
+1. Run `bundle install` 
+2. Create an app at  [Twitter App Dev](https://apps.twitter.com)
+3. Add a file with the below code at `/config/twitter.yml` with twitter access tokens that you get from your [Twitter App Dashboard](https://apps.twitter.com)
 
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+- ```ruby
+consumer_key: XXX
+consumer_secret: XXX
+access_token: XXX
+access_token_secret: XXX```
