@@ -20,6 +20,10 @@ module Sentwix
       return nil if topic.nil? || topic.strip.eql?("")
       @client.search(topic, options)
     end
+
+    def tweet(message)
+      @client.update(message)
+    end
     
   end
 end

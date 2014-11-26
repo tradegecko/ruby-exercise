@@ -14,4 +14,10 @@ describe Sentwix::TwitterWrapper do
     end
   end
 
+  describe '#tweet' do
+    it 'posts a message' do
+      expect(subject.tweet("New message")).to be_a Twitter::Tweet
+    end
+  end
+
 end
