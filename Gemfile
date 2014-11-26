@@ -14,10 +14,16 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'shoulda-matchers', require: false
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 gem 'bcrypt', '~> 3.1.7'
