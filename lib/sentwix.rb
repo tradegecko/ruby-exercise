@@ -5,7 +5,7 @@ module Sentwix
 
   class InvalidMovieError < StandardError; end
 
-  DATA_UNAVAILABLE = "Data unavailable"
+  DATA_UNAVAILABLE = "unavailable"
   DATA_LIMIT = 50
 
   def self.analyze_movie(movie_title)
