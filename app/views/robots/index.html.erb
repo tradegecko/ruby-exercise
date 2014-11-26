@@ -1,23 +1,26 @@
-<h2>Welcome to Sentwix!</h2>
-<h3>Get live feedback from the crowd on Movies!</h3>
+<div class="container">
+  <h2>Welcome to Sentwix!</h2>
 
-<h4>How it works... Add movies you are curious about and Sentwix will perform a sentiment analysis from live tweets to the public's opinion on the movie! The analysis will be posted back on your twitter wall.</h4>
+  <h3>An Automated Movie Rating System</h3>
 
-
-<p>Enter in the movie that you like</p>
-
-<%= flash[:notice] if flash[:notice] %>
-<%= flash[:error] if flash[:error] %>
-
-<%= form_for @movie do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
-<% end %>
+  <h4>How it works... Add movies you are curious about and Sentwix will perform a sentiment analysis from live tweets to the public's opinion on the movie! The analysis will be posted back on your twitter wall every hour.</h4>
 
 
-<ul>
-  <% @movies.each do |movie| %>
-    <li><p><%= movie.title %></p></li> | <%= link_to "(Remove)", movie_path(movie), method: :delete %>
+  <p>Enter in the movie that you like</p>
+
+  <%= flash[:notice] if flash[:notice] %>
+  <%= flash[:error] if flash[:error] %>
+
+  <%= form_for @movie do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit %>
   <% end %>
-</ul>
+
+
+  <ul>
+    <% @movies.each do |movie| %>
+      <li><p><%= movie.title %> <small><%= link_to "(Remove)", movie_path(movie), method: :delete %></small></p></li>
+    <% end %>
+  </ul>
+</div>
