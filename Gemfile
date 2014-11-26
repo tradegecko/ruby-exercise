@@ -9,9 +9,11 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'twitter'
+gem 'whenever', :require => false
 
 group :development do
   gem 'spring'
+  gem 'capistrano-rails'
 end
 
 group :test do
@@ -27,14 +29,5 @@ group :development, :test do
 end
 
 gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+gem 'unicorn'
 gem 'rails_12factor', group: :production
