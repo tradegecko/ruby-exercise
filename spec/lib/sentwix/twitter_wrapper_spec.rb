@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Sentwix::TwitterWrapper do
+describe Sentwix::TwitterWrapper, :vcr do
 
   subject { Sentwix::TwitterWrapper.new }
 

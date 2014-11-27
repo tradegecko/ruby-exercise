@@ -17,6 +17,8 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development, :test do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Sentwix do
+describe Sentwix, :vcr do
 
   subject { Sentwix }
   let(:topic) { 'Penguins Of Madagascar' }

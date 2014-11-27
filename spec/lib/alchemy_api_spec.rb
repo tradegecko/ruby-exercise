@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe AlchemyAPI do
+describe AlchemyAPI, :vcr do
   describe '.sentiment' do
 
     subject { AlchemyAPI }
