@@ -1,3 +1,9 @@
+desc 'Perform analysis and refresh tweet'
+task :run => [:environment] do
+  Rake::Task[:analysis].invoke
+  Rake::Task[:refresh_tweets].invoke
+end
+
 desc 'Perform analysis on Movies'
 task :analysis => [:environment] do
   puts "Rake task :analysis start"
