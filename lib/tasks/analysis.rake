@@ -9,9 +9,9 @@ task :analysis => [:environment] do
   puts "Rake task :analysis start"
   results = Movie.analyze_all
   results.each do |result|
-    title = result[:movie].title.truncate(27)
+    title = result[:movie].title.truncate(60)
     rating = result[:result].map{ |pair| "#{pair[0]}-#{pair[1]}" }.join(" ")
-    message = "#{title} => #{rating}"
+    message = "#{title}. Scoring: #{rating}"
     Sentwix::TwitterWrapper.new.tweet(message)
   end
   puts "Rake task :analysis completed"
