@@ -20,7 +20,7 @@ describe Sentwix::TwitterWrapper do
     end
   end
 
-  describe '#statuses' do
+  describe '#user_timeline' do
     it 'returns an array' do
       expect(subject.user_timeline).to be_a Array 
     end
