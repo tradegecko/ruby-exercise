@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
     else
       flash[:error] = @movie.errors.full_messages
       @movies = Movie.all
+      @tweets = Tweet.all
       render 'robots/index'
     end
   end
