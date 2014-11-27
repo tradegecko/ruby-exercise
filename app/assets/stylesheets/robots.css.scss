@@ -12,7 +12,6 @@ $body-font: 'Raleway';
 $body-font-weight: 300;
 $body-font-color: #6f6f6f;
 
-
 body {
   background-image: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
   color: $body-font-color;
@@ -59,6 +58,26 @@ p,ul,li,a,label,button {
      .main-content .left {
        width: 66%;
        float: left;
+       div.tweet {
+         background-color: #ecf0f1;
+         border-radius: 6px;
+         padding: 10px 15px;
+         margin: 10px 0;
+         width: 90%;
+       }
+       p.text {
+         font-size: 1em;
+         color: #34495e;
+         line-height: 1.5em;
+       }
+       p.datetime{
+         font-size: 0.65em;
+         color: #2c3e50;
+         font-weight: 500;
+         small {
+           color: #e67e22; 
+         }
+       }
      }
      .main-content .right {
        width: 33%;
