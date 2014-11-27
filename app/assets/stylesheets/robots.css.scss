@@ -1,19 +1,71 @@
 // Place all the styles related to the robots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- body {
-  background: #2e3033;
-  color: white;
- }
+
+$bg-color: #fff;
+
+$header-font: 'Raleway';
+$header-font-weight: 800;
+$header-font-color: #fff;
+
+$body-font: 'Raleway';
+$body-font-weight: 300;
+$body-font-color: #6f6f6f;
 
 
-h2, h3 {
-  color: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+body {
+  background-image: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
+  color: $body-font-color;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+  color: $header-font-color;
+  font-family: $header-font, Helvetica, Arial, sans-serif;
+  font-weight: $header-font-weight;
   text-align: center;
+}
+
+p,ul,li,a,label,button {
+  font-family: $body-font, Helvetica, Arial, sans-serif;
+  font-weight: $body-font-weight;
+  text-align: left;
+}
+
+.clearfix {
+  clear: both;
 }
 
 .container {
   width: 960px;
-  margin: 0 auto;
+  border-radius: 4px;
+  background: #fff;
+  margin: 35px auto;
+  padding-bottom: 60px;
+
+  .header {
+    background-color: #3498db;
+    padding: 10px 30px;
+    border-radius: 4px;
+  }
+  .body {
+     width: 75%;
+     margin: 0 auto;
+
+     p {
+       line-height: 2em;
+     }
+
+     .main-content .left {
+       width: 66%;
+       float: left;
+     }
+     .main-content .right {
+       width: 33%;
+       float: right;
+       .enter-movie-label {
+         font-weight: 500;
+       }
+     }
+  }
 }

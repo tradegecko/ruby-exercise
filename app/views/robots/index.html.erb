@@ -1,26 +1,48 @@
 <div class="container">
-  <h2>Welcome to Sentwix!</h2>
 
-  <h3>An Automated Movie Rating System</h3>
+  <div class="header">
+    <h2>Welcome to Sentwix!</h2>
+    <h3>An Automated Movie Rating System</h3>
+  </div>
 
-  <h4>How it works... Add movies you are curious about and Sentwix will perform a sentiment analysis from live tweets for that movie! The analysis will be posted back on your twitter wall every hour.</h4>
+  <div class="body">
+    <div class="description">
+      <p>
+        How it works... Add movies you are curious about and Sentwix
+        will perform a sentiment analysis from live tweets for that movie!
+        The analysis will be posted back on your twitter wall every hour.
+      </p>
+    </div>
+
+    <div class="main-content">
+      <div class="left">
+        <p>
+          Amet libero sequi consequatur minima assumenda esse! Quos cumque nihil nostrum accusantium molestias. Sequi culpa commodi est nobis qui voluptatum voluptatibus? Repudiandae eum accusamus possimus quisquam quam autem. Beatae earum?
+        </p>
+      </div>
+
+      <div class="right">
+        <p class="enter-movie-label">Enter in the movie that you like</p>
+
+        <%= flash[:notice] if flash[:notice] %>
+        <%= flash[:error] if flash[:error] %>
+
+        <%= form_for @movie do |f| %>
+          <%= f.text_field :title %>
+          <%= f.submit %>
+        <% end %>
+
+        <ul>
+          <% @movies.each do |movie| %>
+            <li><p><%= movie.title %> <small><%= link_to "(Remove)", movie_path(movie), method: :delete %></small></p></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
 
 
-  <p>Enter in the movie that you like</p>
-
-  <%= flash[:notice] if flash[:notice] %>
-  <%= flash[:error] if flash[:error] %>
-
-  <%= form_for @movie do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.submit %>
-  <% end %>
-
-
-  <ul>
-    <% @movies.each do |movie| %>
-      <li><p><%= movie.title %> <small><%= link_to "(Remove)", movie_path(movie), method: :delete %></small></p></li>
-    <% end %>
-  </ul>
+   
+  </div>
 </div>
