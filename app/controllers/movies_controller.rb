@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
+    @tweets = Tweet.all
 
     if @movie.save
       flash[:notice] = "New movie added!"
