@@ -18,33 +18,15 @@
 
     <div class="main-content">
       <div class="left">
-        <p>
-          Amet libero sequi consequatur minima assumenda esse! Quos cumque nihil nostrum accusantium molestias. Sequi culpa commodi est nobis qui voluptatum voluptatibus? Repudiandae eum accusamus possimus quisquam quam autem. Beatae earum?
-        </p>
+        <%= render partial: 'robots/left' %>
       </div>
 
       <div class="right">
-        <p class="enter-movie-label">Enter movie to analyze</p>
-
-        <%= flash[:notice] if flash[:notice] %>
-        <%= flash[:error] if flash[:error] %>
-
-        <%= form_for @movie do |f| %>
-          <%= f.text_field :title %>
-          <%= f.submit %>
-        <% end %>
-
-        <ul>
-          <% @movies.each do |movie| %>
-            <li><p><%= movie.title %> <small><%= link_to "(Remove)", movie_path(movie), method: :delete %></small></p></li>
-          <% end %>
-        </ul>
+        <%= render partial: 'robots/right' %>
       </div>
 
       <div class="clearfix"></div>
     </div>
-
-
    
   </div>
 </div>

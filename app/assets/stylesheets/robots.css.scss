@@ -66,6 +66,19 @@ p,ul,li,a,label,button {
        .enter-movie-label {
          font-weight: 500;
        }
+       input {
+         margin-bottom: 2em;
+       }
+       p.movie-list-label {
+         font-weight: 500;
+       }
+       div.movie-item {
+         margin-bottom: 1.8em;
+       }
+       p.movie-title, p.movie-remove {
+         font-size: 0.8em;
+         line-height: 0.6em;
+       }
      }
   }
 }

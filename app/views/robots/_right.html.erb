@@ -1,0 +1,20 @@
+<p class="enter-movie-label">Enter movie to analyze</p>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:error] %>
+  <p class"error"><%= flash[:error]%></p>
+<% end %>
+
+<%= form_for @movie do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+
+<p class="movie-list-label">List of Movies</p>
+<div class="movie-list">
+  <%= render(@movies) || "No movies added yet." %>
+</div>
+
