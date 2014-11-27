@@ -1,3 +1,3 @@
 every 1.hour do
-  rake 'analysis'
+  rake 'run'
 end
