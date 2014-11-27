@@ -8,9 +8,11 @@
   <div class="body">
     <div class="description">
       <p>
-        How it works... Add movies you are curious about and Sentwix
-        will perform a sentiment analysis from live tweets for that movie!
-        The analysis will be posted back on your twitter wall every hour.
+        How it works... Add movies to the list on the left and Sentwix
+        will grab live tweets, perform sentiment analysis and give a rating
+        for that movie based on the tweets! Results of the analysis can also be
+        viewed at
+        <%= link_to "Kenneth's Twitter Page", 'https://twitter.com/kennethlimjf' %>
       </p>
     </div>
 
@@ -22,7 +24,7 @@
       </div>
 
       <div class="right">
-        <p class="enter-movie-label">Enter in the movie that you like</p>
+        <p class="enter-movie-label">Enter movie to analyze</p>
 
         <%= flash[:notice] if flash[:notice] %>
         <%= flash[:error] if flash[:error] %>
