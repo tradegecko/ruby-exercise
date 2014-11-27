@@ -3,7 +3,12 @@ class Movie < ActiveRecord::Base
 
   def self.analyze_all
     results = []
-    all.each { |movie| results << {movie: movie, result: Sentwix.analyze_movie(movie.title)} }
+    all.each do |movie|
+      results << {
+        movie: movie,
+        result: Sentwix.analyze_movie(movie.title)
+      }
+    end
     results
   end
 end

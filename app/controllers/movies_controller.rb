@@ -13,8 +13,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
+    movie = Movie.find(params[:id]).destroy
     flash[:notice] = "Movie #{movie.title} removed"
     redirect_to root_path
   end
