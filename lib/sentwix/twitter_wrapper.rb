@@ -7,6 +7,7 @@ module Sentwix
       access_token: ENV['TWITTER_ACCESS_TOKEN'],
       access_token_secret: ENV['TWITTER_ACCESS_TOKEN_SECRET']
     }
+    TWEETS_DATA_LIMIT = 50
 
     def initialize
       @client = Twitter::REST::Client.new do |config|
@@ -23,6 +24,10 @@ module Sentwix
 
     def tweet(message)
       @client.update(message)
+    end
+
+    def user_timeline
+      @client.user_timeline(nil, {count: TWEETS_DATA_LIMIT})
     end
     
   end

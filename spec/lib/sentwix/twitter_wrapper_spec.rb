@@ -20,4 +20,14 @@ describe Sentwix::TwitterWrapper do
     end
   end
 
+  describe '#statuses' do
+    it 'returns an array' do
+      expect(subject.user_timeline).to be_a Array 
+    end
+
+    it 'contains a Tweet object' do
+      expect(subject.user_timeline).to include Twitter::Tweet
+    end
+  end
+
 end
