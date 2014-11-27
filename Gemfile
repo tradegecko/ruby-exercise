@@ -12,7 +12,6 @@ gem 'twitter'
 gem 'whenever', :require => false
 
 group :development do
-  gem 'spring'
   gem 'capistrano-rails'
 end
 
