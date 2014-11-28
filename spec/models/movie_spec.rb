@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Movie do
   it { validate_presence_of :title }
+  it { validate_uniqueness_of :title }
 
   describe '.analyze_all' do
     before { 5.times{ FactoryGirl.create(:movie) } }

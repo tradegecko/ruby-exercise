@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :movie do
-    title Faker::Name.title
+    sequence(:title) { |n| "title-#{n}" }
   end
 end
