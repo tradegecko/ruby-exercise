@@ -1,9 +1,9 @@
 class MoviesController < ApplicationController
   def create
-    @movie = Movie.new(movie_params)
+    @movie = Movie.find_or_create_by(movie_params)
 
-    if @movie.save
-      flash[:notice] = "New movie added!"
+    if @movie.persisted?
+      flash[:notice] = "Movie is in the list."
       redirect_to root_path
     else
       flash[:error] = @movie.errors.full_messages
