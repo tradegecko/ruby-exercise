@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 describe Movie do
-  it { validate_presence_of :title }
-  it { validate_uniqueness_of :title }
+
+  describe 'associations' do
+    it { should have_many :analyses }
+  end
+
+  describe 'validations' do
+    it { validate_presence_of :title }
+    it { validate_uniqueness_of :title }
+  end
 
   describe '.analyze_all' do
     before { 5.times{ FactoryGirl.create(:movie) } }
