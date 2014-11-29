@@ -6,7 +6,7 @@ class Analysis < ActiveRecord::Base
   def populate_analysis
     %w(positive neutral negative).map { |method| send("#{method}=", 0) }
     tweets.group_by{ |tweet| tweet.sentiment }
-          .map { |type, group| send("#{type}=", group.count) }
+          .map { |type, group| send("#{type}=", group.count) unless type.nil? }
     save
   end
 end

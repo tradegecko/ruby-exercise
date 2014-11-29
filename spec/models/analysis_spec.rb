@@ -27,5 +27,11 @@ describe Analysis do
       results = %w(positive neutral negative).map { |method| analysis.send(method) }
       expect(results).to eq [0,0,0]
     end
+    
+    it 'should skip sentiments that are nil' do
+      tweet = FactoryGirl.create(:tweet, sentiment: nil)
+      analysis = Analysis.create
+      expect{analysis.populate_analysis}.not_to raise_error
+    end
   end
 end
