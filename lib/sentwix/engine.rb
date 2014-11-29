@@ -12,7 +12,7 @@ module Sentwix
     class << self
 
       def analyze_all_movies
-        Movie.all.each{ |movie| analyze(movie) }
+        Movie.active.each{ |movie| analyze(movie) }
       end
 
       def analyze(movie)

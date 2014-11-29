@@ -5,6 +5,8 @@ class Movie < ActiveRecord::Base
   validates_presence_of :title
   validates_uniqueness_of :title
 
+  enum state: { inactive: 0, active: 1 }
+
   def self.analyze_all
     results = []
     all.each do |movie|
