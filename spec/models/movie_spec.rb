@@ -4,6 +4,7 @@ describe Movie do
 
   describe 'associations' do
     it { should have_many :analyses }
+    it { should have_many :tweets }
   end
 
   describe 'validations' do
