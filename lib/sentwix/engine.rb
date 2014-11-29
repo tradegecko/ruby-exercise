@@ -37,7 +37,7 @@ module Sentwix
         tweets = []
         unpersisted_tweets.each do |unpersisted_tweet|
           db_tweets = Tweet.where("object -> 'id' = '#{unpersisted_tweet.object['id']}'")
-          tweets << (db_tweets.first || unpersisted_tweet.save)
+          tweets << (db_tweets.first || Tweet.create(unpersisted_tweet.attributes))
         end
         tweets
       end

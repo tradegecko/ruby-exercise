@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129121829) do
+ActiveRecord::Schema.define(version: 20141129150432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20141129121829) do
   end
 
   create_table "tweets", force: true do |t|
-    t.hstore  "object",                null: false
-    t.integer "sentiment", default: 0
+    t.hstore  "object",    null: false
     t.integer "movie_id"
+    t.integer "sentiment"
   end
 
 end
