@@ -10,12 +10,26 @@ module Sentwix
     TWEETS_SEARCH_LIMIT = 30
 
     class << self
+
+      def analyze_all_movies
+        Movie.all.each{ |movie| analyze(movie) }
+      end
+
+      def analyze(movie)
+        new_tweets = fetch_tweets(movie)
+        persisted_tweets = store_tweets(new_tweets)
+        persisted_tweets.select{ |t| t.sentiment.nil? }.each do |tweet|
+          TweetSentimentWorker.perform_async(tweet.id)
+        end
+        analysis = Analysis.create(tweets: persisted_tweets)
+      end
+
       def fetch_tweets(movie)
         twitter = TwitterWrapper.new
         search_results = twitter.search(movie.title, result_type: "recent")
                                 .take(TWEETS_SEARCH_LIMIT)
         tweets = []
-        search_results.each{ |tweet| tweets << Tweet.new(object: tweet.attrs) }
+        search_results.each{ |tweet| tweets << Tweet.new(object: tweet.attrs, movie_id: movie.id) }
         tweets
       end
 
@@ -27,6 +41,7 @@ module Sentwix
         end
         tweets
       end
+
     end
   end
 end

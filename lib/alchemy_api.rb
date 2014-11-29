@@ -6,6 +6,7 @@ require 'json'
 module AlchemyAPI
 
   class DataInvalidError < StandardError; end
+  class ServiceUnavailableError < StandardError; end
 
   BASE_URL = 'http://access.alchemyapi.com/calls'
   TEXT_SENTIMENT_ENDPOINT = '/text/TextGetTextSentiment'
