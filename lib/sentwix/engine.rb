@@ -4,6 +4,9 @@ module Sentwix
     # Use 30 here because by Central Limit Theorem, 30 is the
     # minimum sample size required for the distribution of sample
     # means to approach a normal distribution
+    #
+    # Keep this to minimum required because there is a limit of how much
+    # sentiment analysis we can do in a peroid of time.
     TWEETS_SEARCH_LIMIT = 30
 
     class << self
