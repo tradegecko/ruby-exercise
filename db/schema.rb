@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128135406) do
+ActiveRecord::Schema.define(version: 20141128143128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "analyses", force: true do |t|
     t.integer  "movie_id"
@@ -32,8 +33,7 @@ ActiveRecord::Schema.define(version: 20141128135406) do
   end
 
   create_table "tweets", force: true do |t|
-    t.string   "text"
-    t.datetime "created_at"
+    t.hstore "object"
   end
 
 end
