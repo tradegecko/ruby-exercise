@@ -16,8 +16,12 @@ module Sentwix
         tweets
       end
 
-      def store_tweets(tweets)
-        tweets.each{ |tweet| tweet.save }
+      def store_tweets(unpersisted_tweets)
+        tweets = []
+        unpersisted_tweets.each do |unpersisted_tweet|
+          db_tweets = Tweet.where("object -> 'id' = '#{unpersisted_tweet.object['id']}'")
+          tweets << (db_tweets.first || unpersisted_tweet.save)
+        end
         tweets
       end
     end

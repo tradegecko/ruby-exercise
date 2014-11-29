@@ -25,10 +25,29 @@ describe Sentwix::Engine, :vcr do
   end
 
   describe '.store_tweets' do
-    it 'takes an array of ::Tweets and stores in DB' do
-      tweets = []
-      5.times { tweets << FactoryGirl.build(:tweet) }
-      expect{ subject.store_tweets(tweets) }.to change{ Tweet.count }.by 5
+
+    context 'when fetched tweet object does not exist in DB' do
+      it 'takes an array of ::Tweets and stores in DB' do
+        tweets = []
+        5.times { tweets << FactoryGirl.build(:tweet) }
+        expect{ subject.store_tweets(tweets) }.to change{ Tweet.count }.by 5
+      end
+    end
+
+    context 'when fetched tweet object already exist in DB' do
+      it 'does not save the same tweet object more than once' do
+        persisted_tweet = Tweet.create(object: {id: 1})
+        tweet2 = Tweet.new(object: {id: 1})
+        tweets = [tweet2]
+        expect{ subject.store_tweets(tweets) }.to change{ Tweet.count }.by 0
+      end
+
+      it 'returns the persisted tweet object in array' do
+        persisted_tweet = Tweet.create(object: {id: 1})
+        tweet2 = Tweet.new(object: {id: 1})
+        tweets = [tweet2]
+        expect(subject.store_tweets(tweets).first.id).to eq persisted_tweet.id
+      end
     end
   end
 
