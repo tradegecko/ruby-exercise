@@ -1,5 +1,6 @@
 FactoryGirl.define do
-  factory :tweets do
-    title Faker::Lorem.sentence
+  factory :tweet do
+    sequence(:object) { |n| {id: "#{n}"} }
+    sentiment { [-1,0,1].sample }
   end
 end
