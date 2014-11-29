@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'twitter'
 gem 'whenever', :require => false
+gem 'activerecord-postgres-hstore'
 
 group :development do
   gem 'capistrano-rails'

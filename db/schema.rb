@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141128143128) do
   end
 
   create_table "tweets", force: true do |t|
-    t.hstore "object"
+    t.hstore "object", null: false
   end
 
 end
