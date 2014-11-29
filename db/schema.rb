@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128143128) do
+ActiveRecord::Schema.define(version: 20141129080316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20141128143128) do
     t.integer  "positive"
     t.integer  "neutral"
     t.integer  "negative"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "analysis_tweets", force: true do |t|
+    t.integer  "analysis_id"
+    t.integer  "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
