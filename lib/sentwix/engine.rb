@@ -21,7 +21,7 @@ module Sentwix
         persisted_tweets.select{ |t| t.sentiment.nil? }.each do |tweet|
           TweetSentimentWorker.perform_async(tweet.id)
         end
-        analysis = Analysis.create(tweets: persisted_tweets)
+        analysis = Analysis.create(tweets: persisted_tweets, movie_id: movie.id)
       end
 
       def fetch_tweets(movie)
