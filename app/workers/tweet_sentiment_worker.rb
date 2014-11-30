@@ -10,7 +10,10 @@ class TweetSentimentWorker
       if sen_type = sen_result['docSentiment']
          tweet.sentiment = sen_result['docSentiment']['type']
          tweet.save
-         tweet.analyses.each{ |analysis| analysis.populate_analysis }
+         tweet.analyses.each do |analysis|
+           analysis.populate_analysis
+           analysis.outcome.refresh
+         end
       else
         raise AlchemyAPI::ServiceUnavailableError.new, "Error details: #{sen_result}"
       end
