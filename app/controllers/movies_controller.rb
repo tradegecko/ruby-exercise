@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
     @movie.update(state: 'active')
 
     if @movie.persisted?
+      Sentwix::Engine.analyze(@movie)
       flash[:notice] = "Movie is in the list."
       redirect_to root_path
     else
