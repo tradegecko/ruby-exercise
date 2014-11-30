@@ -27,6 +27,11 @@ class MovieRating
     average_ratings(:year)
   end
 
+  def rating_available?
+    return false if outcomes.nil? || outcomes.empty? || outcomes.map(&:rating).compact.empty?
+    true
+  end
+
   private
 
   def average_ratings(time_unit = :day)
@@ -36,9 +41,9 @@ class MovieRating
   end
 
   def calculate_average(outcomes)
-    return "(analyzing...)" if outcomes.empty?
-    total_sum = outcomes.map(&:rating).reduce(:+)
-    total_count = outcomes.count.to_f
+    return "(analyzing...)" unless rating_available?
+    total_sum = outcomes.map(&:rating).compact.reduce(:+)
+    total_count = outcomes.map(&:rating).compact.count.to_f
     (total_sum / total_count).round(2)
   end
 end
