@@ -78,6 +78,35 @@ p,ul,li,a,label,button {
            color: #e67e22; 
          }
        }
+
+       div.movie-rating-item {
+         background-color: #ecf0f1;
+         border-radius: 6px;
+         padding: 10px 15px;
+         margin: 10px 0;
+         width: 90%;
+         div.movie-image {
+           float: left;
+           width: 25%;
+           img {
+             width: 100px;
+             height: 150px;
+           }
+         }
+         div.description {
+           width: 65%;
+           float: right;
+           p.rating {
+             font-weight: 400;
+           }
+           p.movie-title {
+             font-weight: 600;
+           }
+           p.rating span {
+             font-weight: 300;
+           }
+         }
+       }
      }
      .main-content .right {
        width: 33%;
