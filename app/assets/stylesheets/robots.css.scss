@@ -114,6 +114,11 @@ p,ul,li,a,label,button {
        .enter-movie-label {
          font-weight: 500;
        }
+       .form-section {
+         label {
+           font-size: 0.75em;
+         }
+       }
        input {
          margin-bottom: 2em;
        }

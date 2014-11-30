@@ -9,7 +9,14 @@
 <% end %>
 
 <%= form_for @movie do |f| %>
-  <%= f.text_field :title %>
+  <div class="form-section">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-section">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+  </div>
   <%= f.submit %>
 <% end %>
 

@@ -36,6 +36,7 @@ class MovieRating
   end
 
   def calculate_average(outcomes)
+    return "(analyzing...)" if outcomes.empty?
     total_sum = outcomes.map(&:rating).reduce(:+)
     total_count = outcomes.count.to_f
     (total_sum / total_count).round(2)
