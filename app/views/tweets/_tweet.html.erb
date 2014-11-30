@@ -1,7 +1,7 @@
 <div class="tweet">
-  <p class="text"><%= tweet.text %></p>
+  <p class="text"><%= tweet.object["text"] %></p>
   <p class="datetime">
-    <%= time_format(tweet.created_at) %>,
-    <small><%= time_period(tweet.created_at) %></small>
+    <%= time_format(tweet.object["created_at"]) %>,
+    <small><%= time_period(tweet.object["created_at"]) %></small>
   </p>
 </div>
