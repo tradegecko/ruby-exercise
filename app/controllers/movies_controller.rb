@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def create
     @movie = Movie.find_or_create_by(movie_params)
+    @movie.update(state: 'active')
 
     if @movie.persisted?
       flash[:notice] = "Movie is in the list."
@@ -14,7 +15,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    movie = Movie.find(params[:id]).destroy
+    movie = Movie.find(params[:id])
+    movie.update(state: 'inactive')
     flash[:notice] = "Movie #{movie.title} removed"
     redirect_to root_path
   end
