@@ -1,1 +1,32 @@
-<h3>Our Gecko robots are working hard on their magic.</h3>
+<div class="container">
+
+  <div class="header">
+    <h2>Welcome to Sentwix!</h2>
+    <h3>An Automated Movie Rating System</h3>
+  </div>
+
+  <div class="body">
+    <div class="description">
+      <p>
+        How it works... Add movies to the list on the left and Sentwix
+        will grab live tweets, perform sentiment analysis and give a rating
+        for that movie based on the tweets! Results of the analysis can also be
+        viewed at
+        <%= link_to "Kenneth's Twitter Page", 'https://twitter.com/kennethlimjf' %>
+      </p>
+    </div>
+
+    <div class="main-content">
+      <div class="left">
+        <%= render partial: 'robots/left' %>
+      </div>
+
+      <div class="right">
+        <%= render partial: 'robots/right' %>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+   
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<% @movie_ratings.each do |mr| %>
+  <div class="movie-rating-item">
+    <div class="movie-image">
+      <%= image_tag mr.movie.image_url %>
+    </div>
+    <div class="description">
+      <p class="movie-title"><%= mr.movie.title %></p>
+      <p class="rating">Overall Rating: <span><%= mr.overall_rating %> / 5.00 </span></p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
