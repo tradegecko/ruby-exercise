@@ -1,32 +1,14 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://sentwix.herokuapp.com/)
 # Overview #
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+Sentwix is an automated movie rating system. Movies can be added to Sentwix movie list and a rating will be generated automatically.
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
+How It Works
+Sentwix extracts data from Twitter about a movie and performs a sentiment analysis on the tweet. This is done every hour.
+The mean of the senitment scores for each sample is calculated and then mapped onto a Rating function.
+The overall score reflects the latest rating of the movie based on the hourly analysis.
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
-
-Your code should be performant and intuitive.
-
-Any questions, please ask.
-
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
-
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
-
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+Technical Design
+Data: Postgres, Hstore
+Backend: Ruby on Rails, Sidekiq for background jobs
+Sentiment Analysis: Alchemy API
