@@ -3,6 +3,7 @@ class MathTest
   CORRECT   = "correct"
   WRONG     = "wrong"
   EQU_REGEX = /\s*-?\d+(?:\s*[-\+\*\/]\s*\d+)+/
+  NUM_REGEX = /[^(@[a-zA-Z0-9]*)]\d+/
 
   # Simple two-number equation generator
   def self.genarate_equation
@@ -12,9 +13,12 @@ class MathTest
   end
 
   # Parse equation out of a string with alphabetic characters
-  def self.parse_equation(equation_str=nil)
-    return nil if equation_str.nil?
-    return EQU_REGEX.match(equation_str).to_s
+  def self.parse_equation(str=nil)
+    return str.nil? ? nil : str.scan(EQU_REGEX).first
+  end
+
+  def self.parse_number(str=nil)
+    return str.nil? ? nil : str.scan(NUM_REGEX).first
   end
 
   # Evaluate an quation and make sure the answer is right
@@ -22,7 +26,9 @@ class MathTest
     if question.nil? || answer.nil?
       return WRONG
     else
-      return (eval(parse_equation(question)) == answer.to_i ? CORRECT : WRONG)
+      eval_question = eval(parse_equation(question))
+      eval_answer = eval(parse_number(answer))
+      return eval_question == eval_answer ? CORRECT : WRONG
     end
   end
 
