@@ -37,6 +37,7 @@ class TwitterClient
 
   # Get mentions since last tweet and reply to them
   def self.reply_to_mentions
+    puts "getting mentiones after tweet: #{self.last_tweet_id}"
     tweets = @client.mentions_timeline({:since_id => self.last_tweet_id}) rescue nil
     
     # For new each mention: Get the user's answer and the tweet to which he replied
@@ -45,7 +46,13 @@ class TwitterClient
 
       answer = tweet.text
       question_status_id = tweet.in_reply_to_status_id
-      question = question_status_id.nil? ? nil : @client.status(question_status_id).text
+      begin
+        question = @client.status(question_status_id).text
+      rescue Exception => e
+        puts "For question_status_id: #{question}"
+        puts e
+        question = nil
+      end
 
       unless question.nil?
         result = MathTest.validate_answer(question, answer)
@@ -60,7 +67,7 @@ class TwitterClient
   # Post a new tweet
   def self.tweet
     tweet = @client.update("A new test: #{MathTest.genarate_equation}") rescue nil
-    # self.last_tweet_id = tweet.id unless tweet.nil?
+    self.last_tweet_id = tweet.id unless tweet.nil?
   end
 
   # A setter for last tweet id. Used to filter the mentions 
