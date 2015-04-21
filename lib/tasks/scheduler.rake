@@ -1,6 +1,6 @@
 desc "Heroku scheduler add-on tasks"
 
-require 'social/twitter'
+require 'social/twitter_client'
 task :tweet_and_reply => :environment do
-    Twitter.tweet_and_reply
+    TwitterClient.tweet_and_reply
 end
