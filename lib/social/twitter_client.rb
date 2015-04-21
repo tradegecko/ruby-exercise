@@ -1,6 +1,9 @@
 # A class for handling the tweeting and replying tasks.
-# Called from rake scheduler tasks. 
-# IMPORTANT: make sure you set Twitter client credentials in ENV 
+# Called from rake scheduler tasks.
+# IMPORTANT: make sure you set Twitter client credentials in ENV
+
+require 'math_test'
+
 class TwitterClient
 
   def self.tweet_and_reply
@@ -35,14 +38,28 @@ class TwitterClient
   # Get mentions since last tweet and reply to them
   def self.reply_to_mentions
     tweets = @client.mentions_timeline({:since_id => self.last_tweet_id}) rescue nil
+    
+    # For new each mention: Get the user's answer and the tweet to which he replied
+    # to validate the answer
     tweets.try(:each) do |tweet|
-      puts tweet.text
+
+      answer = tweet.text
+      question_status_id = tweet.in_reply_to_status_id
+      question = question_status_id.nil? ? nil : @client.status(question_status_id).text
+
+      unless question.nil?
+        result = MathTest.validate_answer(question, answer)
+        @client.update(
+          "@#{tweet.user.screen_name} Your answer is #{result}!",
+          :in_reply_to_status_id => tweet.id)
+      end
+
     end
   end
 
   # Post a new tweet
   def self.tweet
-    tweet = @client.update("The scheduler is still alive!") rescue nil
+    tweet = @client.update("A new test: #{MathTest.genarate_equation}") rescue nil
     # self.last_tweet_id = tweet.id unless tweet.nil?
   end
 
