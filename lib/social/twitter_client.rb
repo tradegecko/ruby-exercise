@@ -43,24 +43,23 @@ class TwitterClient
     # For new each mention: Get the user's answer and the tweet to which he replied
     # to validate the answer
     tweets.try(:each) do |tweet|
-
-      answer = tweet.text
-      question_status_id = tweet.in_reply_to_status_id
       begin
-        question = @client.status(question_status_id).text
+        # In order not to reply to old mentions, set the allowed window to 1 day
+        next if tweet.created_at < 1.day.ago
+        
+        answer = tweet.text
+        question_status_id = tweet.in_reply_to_status_id
+        question = @client.status(question_status_id) rescue nil
+        unless question.nil?
+          result = MathTest.validate_answer(question.text, answer)
+          @client.update(
+            "@#{tweet.user.screen_name} Your answer is #{result}!",
+            :in_reply_to_status_id => tweet.id)
+        end
       rescue Exception => e
-        puts "For question_status_id: #{question}"
+        puts "Error for tweet: #{tweet.id}"
         puts e
-        question = nil
       end
-
-      unless question.nil?
-        result = MathTest.validate_answer(question, answer)
-        @client.update(
-          "@#{tweet.user.screen_name} Your answer is #{result}!",
-          :in_reply_to_status_id => tweet.id)
-      end
-
     end
   end
 
