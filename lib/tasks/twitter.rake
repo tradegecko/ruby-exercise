@@ -6,6 +6,11 @@ namespace :twitter do
     bot_name = ENV["BOT_NAME"]
     last_tweet = Timeline.last.tweet_id.to_i
     TwitterClient.mentions_timeline({:since_id => last_tweet}).each do |tweet|
+      #avoid duplicate tweets by exiting if already processed tweets come back
+      if Timeline.find_by_tweet_id tweet.id
+        break
+      end
+
       startup = tweet.text.gsub(bot_name, "").strip
       author = tweet.user.screen_name
       puts "Got a new tweet to process from @#{author} on startup - #{startup}. Off to work."
