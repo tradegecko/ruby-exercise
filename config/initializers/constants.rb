@@ -1,0 +1,2 @@
+ANGEL_URL = "https://api.angel.co/1"
+ANGEL_TOKEN = ENV["ANGELLIST_OAUTH_TOKEN"]
