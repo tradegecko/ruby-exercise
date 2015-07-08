@@ -19,41 +19,41 @@ class Angel
   end
 
   def get_similar startup_name
-    @startup = find_startup startup_name
-    unless @startup.present?
+    startup = find_startup startup_name
+    unless startup.present?
       puts "Couldn't find the startup from search."
       return false
     end
 
-    puts "Found the startup from search. Getting more info. ID - #{@startup["id"]}"
+    puts "Found the startup from search. Getting more info. ID - #{startup["id"]}"
 
-    fetch_info @startup["id"].to_s
-    if @startup["hidden"]
+    startup = fetch_info startup["id"].to_s
+    if startup["hidden"]
       puts "Startup have it's details hidden. Couldn't proceed."
       return false
     end
 
-    if @startup["markets"].present?
-      puts "Got more Info about the Startup. Fetching Market Tags and their children count. ID - #{@startup["id"]}"
-      tags_hash = fetch_tag_children @startup["markets"]
-    elsif @startup["locations"].present?
-      puts "The startup has no Market tags. Fetching from Location tags. ID - #{@startup["id"]}"
-      tags_hash = fetch_tag_children @startup["locations"]
+    if startup["markets"].present?
+      puts "Got more Info about the Startup. Fetching Market Tags and their children count. ID - #{startup["id"]}"
+      tags_hash = fetch_tag_children startup["markets"]
+    elsif startup["locations"].present?
+      puts "The startup has no Market tags. Fetching from Location tags. ID - #{startup["id"]}"
+      tags_hash = fetch_tag_children startup["locations"]
     else
-      puts "The startup has no Location Tags or Market tags. Couldn't proceed. ID - #{@startup["id"]}"
+      puts "The startup has no Location Tags or Market tags. Couldn't proceed. ID - #{startup["id"]}"
       return false
     end
 
-    puts "Got Tag Information. Getting startups from the tag. ID - #{@startup["id"]}"
-    @similar = {}
+    puts "Got Tag Information. Getting startups from the tag. ID - #{startup["id"]}"
+    similar = {}
     tags_hash.each do |k, v|
-      @similar = find_startup_by_tag k
-      if @similar.present?
+      similar = find_startup_by_tag k
+      if similar.present?
         puts "Found a similar startup!"
         break
       end
     end
-    return @similar
+    return similar
   end
 
   def find_startup startup_name
@@ -70,7 +70,7 @@ class Angel
 
   def fetch_info id
     fetch_url = @angel_url + '/startups/' + id + '?access_token=' + @angel_token
-    @startup = get_data fetch_url
+    return get_data fetch_url
   end
 
   def fetch_tag_children tags
