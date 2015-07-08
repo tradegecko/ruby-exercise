@@ -1,8 +1,0 @@
-{
-  "name": "Tweet like a Gecko.",
-  "description": "A barebones Twitter bot in Ruby",
-  "repository": "https://github.com/tradegecko/ruby-exercise",
-  "logo": "https://go.tradegecko.com/images/tg-logo-big.png",
-  "keywords": ["ruby", "twitter"],
-  "addons": ["scheduler:standard"]
-}
