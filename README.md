@@ -30,3 +30,9 @@ Notes:
     - Snowball poems 
     - Sports results
     - Battleships
+
+### To tweet a quote ###
+> bundle exec rake bot:tweet\_a\_quote
+
+### To handle user stream with auto replies ###
+> bundle exec rake twitter\_streamer:start
