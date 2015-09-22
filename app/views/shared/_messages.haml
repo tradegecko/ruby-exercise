@@ -1,0 +1,6 @@
+- flash.each do |type, message|
+  :javascript
+    $(function() {
+      humane.log('#{message}', { timeout: 5000, clickToClose: true, addnCls: 'humane-jackedup-#{type} humane-message' })
+    });
+

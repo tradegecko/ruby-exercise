@@ -1,8 +1,8 @@
 {
-  "name": "Tweet like a Gecko.",
-  "description": "A barebones Twitter bot in Ruby",
-  "repository": "https://github.com/tradegecko/ruby-exercise",
+  "name": "SpotifyCaster",
+  "description": "TwitterBot that tweets random song",
+  "repository": "https://github.com/ChunAllen/ruby-exercise",
   "logo": "https://go.tradegecko.com/images/tg-logo-big.png",
-  "keywords": ["ruby", "twitter"],
+  "keywords": ["ruby", "twitter", "spotify"],
   "addons": ["scheduler:standard"]
 }

@@ -1,0 +1,21 @@
+%h1 Welcome to Spotifycaster
+
+.button-actions
+  = link_to "Tweet Requested Songs", send_requests_path, class: "btn"
+  = link_to "Tweet Random Song", send_random_song_path, class: "btn"
+
+.main
+  .container
+    %a.twitter-timeline{"data-widget-id" => "639496940288241665", href: "https://twitter.com/spotifycaster"}
+
+:javascript
+  ! function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+          p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = p + "://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }
+  }(document, "script", "twitter-wjs");
