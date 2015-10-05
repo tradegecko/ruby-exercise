@@ -1,8 +1,11 @@
 development:
   adapter: postgresql
+  host:    localhost
   encoding: unicode
   database: twitter_bot_development
   pool: 5
+  username: felix
+  password: gbjrfnvi58tjvj569f
 
 test:
   adapter: postgresql
