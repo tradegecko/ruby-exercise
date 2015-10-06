@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 
 gem 'twitter', '~> 5.15.0'
+gem 'wikipedia-client', '~> 1.5.0'

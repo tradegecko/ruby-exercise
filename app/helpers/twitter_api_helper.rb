@@ -1,4 +1,5 @@
 module TwitterApiHelper 
+  require 'wikipedia'
 
   def TwitterApiHelper.initClient
     client = Twitter::REST::Client.new do |config|
@@ -21,9 +22,16 @@ module TwitterApiHelper
     lastMention = client.mentions_timeline(:count => 1)[0]
     text = lastMention.text
     sender = lastMention.user.screen_name    
-    
-    #  :in_reply_to_status (Twitter::Tweet)
-    client.update("Hi @#{sender}, how are you?")
+   
+    if text.include? "!w"
+      query = text.sub(/^.*!w(.*)/, '\1').strip
+      page = Wikipedia.find(query)
+      startOfPage = page.text.slice(0,120)
+      client.update("@#{sender} #{startOfPage}")
+    else 
+      #  :in_reply_to_status (Twitter::Tweet)
+      client.update("Hi @#{sender}, how are you?")
+    end
 
     text
   end
