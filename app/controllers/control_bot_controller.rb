@@ -6,4 +6,7 @@ class ControlBotController < ApplicationController
     @result = TwitterApiHelper.getUserName
   end
 
+  def reply
+   @mention = TwitterApiHelper.answerToMentions 
+  end
 end

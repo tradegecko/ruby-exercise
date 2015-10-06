@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   match '/status',              to: 'internal#status',  via: 'get'
   match '/controlbot',          to: 'control_bot#view',  via: 'get'
+  match '/reply',               to: 'control_bot#reply',  via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
