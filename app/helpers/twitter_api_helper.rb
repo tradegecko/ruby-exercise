@@ -19,28 +19,27 @@ module TwitterApiHelper
 
   def TwitterApiHelper.answerToMentions
     client = initClient
-    lastMention = client.mentions_timeline(:count => 1)[0]
+    lastMentions = client.mentions_timeline(:count => 10)
 
-    unless Answeredmention.where(tweetid: lastMention.id).exists?
-      text = lastMention.text
-      sender = lastMention.user.screen_name    
-   
-      if text.include? "!w"
-        query = text.sub(/^.*!w(.*)/, '\1').strip
-        page = Wikipedia.find(query)
-        startOfPage = page.text.slice(0,120)
-        client.update("@#{sender} #{startOfPage}")
-      else 
-        #  :in_reply_to_status (Twitter::Tweet)
-        client.update("Hi @#{sender}, how are you?")
+    lastMentions.each do |mention|
+      unless Answeredmention.where(tweetid: mention.id).exists?
+        text = mention.text
+        sender = mention.user.screen_name    
+     
+        if text.include? "!w"
+          query = text.sub(/^.*!w(.*)/, '\1').strip
+          page = Wikipedia.find(query)
+          startOfPage = page.text.slice(0,120)
+          client.update("@#{sender} #{startOfPage}")
+        else 
+          #  :in_reply_to_status (Twitter::Tweet)
+          client.update("Hi @#{sender}, how are you?")
+        end
+
+        Answeredmention.new(tweetid: mention.id).save
       end
+    end 
 
-      mention = Answeredmention.new(tweetid: lastMention.id)
-      mention.save
-    end
-
-    text
   end
-
 end
 
