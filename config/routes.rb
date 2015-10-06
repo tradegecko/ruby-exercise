@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'robots#index'
 
-  match '/status',      to: 'internal#status',  via: 'get'
+  match '/status',              to: 'internal#status',  via: 'get'
+  match '/controlbot',          to: 'control_bot#view',  via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

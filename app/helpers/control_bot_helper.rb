@@ -1,0 +1,2 @@
+module ControlBotHelper
+end
