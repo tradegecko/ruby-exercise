@@ -11,12 +11,6 @@ module TwitterApiHelper
     client
   end
 
-  def TwitterApiHelper.getUserName
-    client = initClient
-    user = client.user("fxsperling")
-    user.name
-  end
-
   def TwitterApiHelper.answerToMentions
     client = initClient
     lastMentions = client.mentions_timeline(:count => 10)
@@ -34,7 +28,6 @@ module TwitterApiHelper
           startOfPage = page.text.slice(0,120)
           client.update("@#{sender} #{startOfPage}")
         else 
-          #  :in_reply_to_status (Twitter::Tweet)
           now = Time.now.strftime("%T")
           client.update("Hi @#{sender}, how are you? Did you know it's #{now} already?")
         end
