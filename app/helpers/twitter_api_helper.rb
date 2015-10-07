@@ -14,13 +14,15 @@ module TwitterApiHelper
   def TwitterApiHelper.answerToMentions
     client = initClient
     lastMentions = client.mentions_timeline(:count => 10)
-    activity = "replied to: "
+    activity = ""
 
     lastMentions.each do |mention|
       unless Answeredmention.where(tweetid: mention.id).exists?
         text = mention.text
         sender = mention.user.screen_name    
-        activity << sender << " "
+        activity = "replied to:\n" if activity.empty?
+        activity << text
+        activity << " from " << sender << "\n"
        
         if text.include? "!w"
           query = text.sub(/^.*!w(.*)/, '\1').strip
@@ -35,6 +37,8 @@ module TwitterApiHelper
         Answeredmention.new(tweetid: mention.id).save
       end
     end 
+
+    activity = "no new tweets found" if activity.empty?
     activity
 
   end
