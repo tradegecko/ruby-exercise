@@ -36,7 +36,7 @@ module TwitterApiHelper
         else 
           #  :in_reply_to_status (Twitter::Tweet)
           now = Time.now.strftime("%T")
-          client.update("Hi @#{sender}, how are you? Did you it's #{now} already?")
+          client.update("Hi @#{sender}, how are you? Did you know it's #{now} already?")
         end
 
         Answeredmention.new(tweetid: mention.id).save
