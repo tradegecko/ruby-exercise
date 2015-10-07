@@ -20,12 +20,14 @@ module TwitterApiHelper
   def TwitterApiHelper.answerToMentions
     client = initClient
     lastMentions = client.mentions_timeline(:count => 10)
+    activity = "replied to: "
 
     lastMentions.each do |mention|
       unless Answeredmention.where(tweetid: mention.id).exists?
         text = mention.text
         sender = mention.user.screen_name    
-     
+        activity << sender << " "
+       
         if text.include? "!w"
           query = text.sub(/^.*!w(.*)/, '\1').strip
           page = Wikipedia.find(query)
@@ -40,6 +42,7 @@ module TwitterApiHelper
         Answeredmention.new(tweetid: mention.id).save
       end
     end 
+    activity
 
   end
 end
