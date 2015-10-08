@@ -14,6 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
 *.swp
 *~
+
+# Ignore env files with tokens & secrets
+config/secrets.yml

@@ -3,10 +3,10 @@ module TwitterApiHelper
 
   def self.init_client
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "vnZffQpHom39ewCmM6xkk1Ve6"
-      config.consumer_secret     = "Ftc7XwTndlbrbc3s71VfF2G4OSgdZRicsN971nZMV1AIHW0i37"
-      config.access_token        = "3791732720-wtRG6G14r7Au6o37HVZJgmrYOJdYdksriPmLBix"
-      config.access_token_secret = "yGluyaOq51LbBjzvtW1r2EAWEnyJb3bFzyk8pZsVf4XfH"
+      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY'] 
+      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
     client
   end
