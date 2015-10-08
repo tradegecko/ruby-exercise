@@ -1,7 +1,7 @@
 module TwitterApiHelper 
   require 'wikipedia'
 
-  def TwitterApiHelper.initClient
+  def self.init_client
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "vnZffQpHom39ewCmM6xkk1Ve6"
       config.consumer_secret     = "Ftc7XwTndlbrbc3s71VfF2G4OSgdZRicsN971nZMV1AIHW0i37"
@@ -11,8 +11,8 @@ module TwitterApiHelper
     client
   end
 
-  def TwitterApiHelper.answerToMentions
-    client = initClient
+  def self.answer_to_mentions
+    client = init_client
     lastMentions = client.mentions_timeline(:count => 10)
     activity = [] 
 
@@ -20,7 +20,7 @@ module TwitterApiHelper
       unless Answeredmention.where(tweetid: mention.id).exists?
         text = mention.text
         sender = mention.user.screen_name    
-        activity.push({:sender => sender, :text => text})
+        activity.push({sender: sender, text: text})
        
         if text.include? "!w"
           query = text.sub(/^.*!w(.*)/, '\1').strip
