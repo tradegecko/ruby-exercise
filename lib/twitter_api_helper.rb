@@ -1,4 +1,4 @@
-module TwitterApiHelper 
+class TwitterApiHelper 
   require 'wikipedia'
 
   def self.init_client
