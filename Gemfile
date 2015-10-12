@@ -42,3 +42,13 @@ gem 'rails_12factor', group: :production
 
 gem 'twitter', '~> 5.15.0'
 gem 'wikipedia-client', '~> 1.5.0'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rspec',              '~> 3.0'
+end
+
+group :test do
+  gem 'minitest-reporters', '1.0.5'
+  gem 'guard-minitest',     '2.3.1'
+end
