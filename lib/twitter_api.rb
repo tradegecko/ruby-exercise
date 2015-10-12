@@ -1,7 +1,7 @@
 require 'wikipedia'
 require 'twitter'
 
-class TwitterApiHelper 
+class TwitterApi
 
   def init_client
     Twitter::REST::Client.new do |config|

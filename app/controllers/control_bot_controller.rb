@@ -1,7 +1,7 @@
-require 'twitter_api_helper'
+require 'twitter_api'
 
 class ControlBotController < ApplicationController
   def reply
-   @mention = TwitterApiHelper.answer_to_mentions
+    @mention = TwitterApi.new.answer_to_mentions
   end
 end
