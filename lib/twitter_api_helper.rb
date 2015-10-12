@@ -1,17 +1,18 @@
-class TwitterApiHelper 
-  require 'wikipedia'
+require 'wikipedia'
+require 'twitter'
 
-  def self.init_client
-    client = Twitter::REST::Client.new do |config|
+class TwitterApiHelper 
+
+  def init_client
+    Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_CONSUMER_KEY'] 
       config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
       config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
-    client
   end
 
-  def self.answer_to_mentions
+  def answer_to_mentions
     client = init_client
     lastMentions = client.mentions_timeline(:count => 10)
     activity = [] 
@@ -21,10 +22,9 @@ class TwitterApiHelper
         text = mention.text
         sender = mention.user.screen_name    
         activity.push({sender: sender, text: text})
-       
         reply = process_mention(sender, text)
-        client.update(reply)
 
+        client.update(reply)
         Answeredmention.new(tweetid: mention.id).save
       end
     end 
@@ -32,7 +32,7 @@ class TwitterApiHelper
     activity
   end
 
-  def self.process_mention(sender, text)
+  def process_mention(sender, text)
     if text.include? "!w"
       query = text.sub(/^.*!w(.*)/, '\1').strip
       page = Wikipedia.find(query)
