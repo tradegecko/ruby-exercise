@@ -22,21 +22,28 @@ module TwitterApiHelper
         sender = mention.user.screen_name    
         activity.push({sender: sender, text: text})
        
-        if text.include? "!w"
-          query = text.sub(/^.*!w(.*)/, '\1').strip
-          page = Wikipedia.find(query)
-          startOfPage = page.text.slice(0,120)
-          client.update("@#{sender} #{startOfPage}")
-        else 
-          now = Time.now.strftime("%T")
-          client.update("Hi @#{sender}, how are you? Did you know it's #{now} already?")
-        end
+        reply = process_mention(sender, text)
+        client.update(reply)
 
         Answeredmention.new(tweetid: mention.id).save
       end
     end 
 
     activity
+  end
+
+  def self.process_mention(sender, text)
+    if text.include? "!w"
+      query = text.sub(/^.*!w(.*)/, '\1').strip
+      page = Wikipedia.find(query)
+      tweet = "@#{sender} #{page.text}"
+      reply = tweet.slice(0,140)
+    else 
+      now = Time.now.strftime("%T")
+      reply = "Hi @#{sender}, how are you? Did you know it's #{now} already?"
+    end
+
+    reply
   end
 end
 
