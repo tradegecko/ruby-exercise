@@ -1,7 +1,9 @@
 require 'wikipedia'
 require 'twitter'
+require 'logger'
 
 class TwitterApi
+  @log = Logger.new('log/app.log')
 
   def init_client
     Twitter::REST::Client.new do |config|
@@ -14,7 +16,11 @@ class TwitterApi
 
   def answer_to_mentions
     client = init_client
-    lastMentions = client.mentions_timeline(:count => 10)
+    begin
+      lastMentions = client.mentions_timeline(count: 10)
+    rescue
+      log.error "Could not get mentions"
+    end
     activity = [] 
 
     lastMentions.each do |mention|
@@ -24,7 +30,12 @@ class TwitterApi
         activity.push({sender: sender, text: text})
         reply = process_mention(sender, text)
 
-        client.update(reply)
+        begin
+          client.update(reply)
+        rescue 
+          log.error "Could not send tweet '#{reply}'"
+          next
+        end
         Answeredmention.new(tweetid: mention.id).save
       end
     end 
@@ -35,7 +46,11 @@ class TwitterApi
   def process_mention(sender, text)
     if text.include? "!w"
       query = text.sub(/^.*!w(.*)/, '\1').strip
-      page = Wikipedia.find(query)
+      begin
+        page = Wikipedia.find(query)
+      rescue
+        log.error "Could not retrieve page #{query} from Wikipedia"
+      end
       tweet = "@#{sender} #{page.text}"
       reply = tweet.slice(0,140)
     else 
