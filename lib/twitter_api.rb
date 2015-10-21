@@ -24,7 +24,7 @@ class TwitterApi
     activity = [] 
 
     lastMentions.each do |mention|
-      unless Answeredmention.where(tweetid: mention.id).exists?
+      unless AnsweredMention.where(tweet_id: mention.id).exists?
         text = mention.text
         sender = mention.user.screen_name    
         activity.push({sender: sender, text: text})
@@ -36,7 +36,7 @@ class TwitterApi
           log.error "Could not send tweet '#{reply}'"
           next
         end
-        Answeredmention.new(tweetid: mention.id).save
+        AnsweredMention.new(tweet_id: mention.id).save
       end
     end 
 
