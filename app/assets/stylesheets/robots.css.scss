@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
  body {
   background: #2e3033;
+  color: white;
  }
 
 
@@ -10,4 +11,10 @@ h3 {
   color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
+}
+
+a {
+  color: lightgreen;
+  font-weight: bold;
+  font-size: 0.8em;
 }

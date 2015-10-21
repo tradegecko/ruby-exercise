@@ -1,0 +1,16 @@
+<h3>Result:</h3>
+
+<% if @mention.any? %>
+ Replied to:<br />
+ <% @mention.each do |m| %>
+    <%= m[:sender] %>  
+    <%= m[:text] %> <br />
+ <% end %>
+<% else %>
+ No new mentions found.
+<% end %>
+
+<br />
+<br />
+<%= link_to "Back", "/controlbot" %>
+
