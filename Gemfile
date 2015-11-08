@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 gem 'twitter'
 gem 'carrierwave'
+gem 'rest-client'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

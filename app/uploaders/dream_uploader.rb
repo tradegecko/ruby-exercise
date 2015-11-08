@@ -25,9 +25,10 @@ class DreamUploader < CarrierWave::Uploader::Base
   private
 
   def get_dream_image
-    # dream_scope_client = DreamScopeApi.new
-    # dream_image = dream_scope_client.get_dream_image self.current_path
-    # TODO: save current image to `self.current_path`
+    # TODO: process in background
+    image_to_post = File.new(self.current_path)
+    dream_image = DreamScopeApi.get_dream_image image_to_post
+    File.open(self.current_path, 'wb') { |file| file.write(dream_image) }
     true
   end
 end
