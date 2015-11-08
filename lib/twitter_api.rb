@@ -10,6 +10,12 @@ class TwitterApi
     @client.search(keyword_with_images(keyword), result_type: 'recent').take(100)
   end
 
+  def tweet(message, media, in_reply_to_status_id)
+    @client.update_with_media(message,
+                              media,
+                              {in_reply_to_status_id: in_reply_to_status_id})
+  end
+
   private
 
   def keyword_with_images(keyword)

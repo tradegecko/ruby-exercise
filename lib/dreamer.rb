@@ -6,7 +6,9 @@ class Dreamer
 
   def dream(keyword = 'dream')
     dream_image = image_to_dream(keyword)
-    # tweet dreamed image
+    @client.tweet("RT @#{dream_image.user} #{dream_image.text}"[0...116],
+                  dream_image.image.versions[:dream].file.to_file,
+                  dream_image.twitter_id)
   end
 
   private
