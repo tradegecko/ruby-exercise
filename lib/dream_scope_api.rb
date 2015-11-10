@@ -3,51 +3,19 @@ require 'rest-client'
 #   by uploading an image then downloading the result
 class DreamScopeApi
   BASE_URL = 'https://dreamscopeapp.com/api/images'.freeze
-  RETRY_IN = 30 # seconds
-  TIMEOUT_IN = 300 # seconds
 
-  def self.get_dream_image(image)
-    client = new
-    client.upload image
-    client.result
+  def self.get_dream_image(original_image)
+    new()
+      .upload(original_image)
+      .result
   end
 
   def upload(image)
     response = JSON.parse RestClient.post(BASE_URL, post_data(image))
-    @remote_id = response['uuid']
-  end
-
-  def result
-    attempt_count = 0
-    loop do
-      status = get_image_status(attempt_count += 1)
-      if status['processing_status'] != 0
-        return get_resulting_image(status['filtered_url'])
-      elsif attempt_count * RETRY_IN > TIMEOUT_IN
-        fail 'Taking too long'
-      end
-      sleep_before_retry
-    end
+    RemoteImage.new(response['uuid'])
   end
 
   private
-
-  def get_image_status(count)
-    Rails.logger.info "[DreamScopeApi] Status: #{check_url} (attempt #{count})"
-    JSON.parse RestClient.get(check_url)
-  end
-
-  def get_resulting_image(url)
-    RestClient.get(url)
-  end
-
-  def check_url
-    [BASE_URL, @remote_id].join('/')
-  end
-
-  def sleep_before_retry
-    sleep RETRY_IN unless Rails.env.test?
-  end
 
   def post_data(image)
     {
