@@ -25,8 +25,9 @@ class Dreamer
   end
 
   def find_tweet_with_image(keyword)
-    @client.find_tweets_with_images_by_keyword(keyword).find do |t|
-      !DreamImage.exists? twitter_id: t.id.to_s
+    @client.find_tweets_with_images_by_keyword(keyword).find do |tweet|
+      !DreamImage.exists?(twitter_id: tweet.id.to_s) \
+        && tweet.media.first.present?
     end
   end
 end
