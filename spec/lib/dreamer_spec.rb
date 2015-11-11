@@ -18,5 +18,22 @@ RSpec.describe Dreamer do
     end
   end
 
+  describe '.dream' do
+    let(:media) { instance_double('media', {media_url: 'http://i.huffpost.com/gen/1541850/images/o-ASHAMED-DOG-facebook.jpg'}) }
+    let(:user) { instance_double('user', {screen_name: 'john_doe'})  }
+    let(:tweet_with_image) do
+      instance_double('Twitter::Tweet', id: 42,
+              media: [media],
+              user: user,
+              text: "Sample tweet")
+    end
+    it "tweets with an image" do
+      allow_any_instance_of(TwitterApi).to \
+        receive(:find_tweets_with_images_by_keyword) { [tweet_with_image] }
+      expect_any_instance_of(TwitterApi).to receive(:tweet)
+      Dreamer.dream('dream')
+    end
+  end
+
 
 end
