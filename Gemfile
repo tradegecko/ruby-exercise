@@ -53,4 +53,5 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'rspec-its'
+  gem 'simplecov', :require => false
 end
