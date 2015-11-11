@@ -2,9 +2,9 @@
 
 # Setup
 
-- `cp config/secrets.sample.yml config/secrets.yml`
+- `cp .env.sample .env`
 - Go to [https://apps.twitter.com/](https://apps.twitter.com/) and setup new twitter app
-- Add secrets to `config/secrets.yml` for new twitter app
+- Add secrets from the new twitter app to your `.env` file
 - `bundle install`
 
 # Usage
