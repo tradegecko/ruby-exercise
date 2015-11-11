@@ -13,4 +13,18 @@ Run `bundle exec rake dream["keyword"]` where `keyord` is what you search on twi
 
 # Heroku
 
- TODO
+## Secrets
+
+[Add secrets to Heroku](https://devcenter.heroku.com/articles/config-vars):
+
+```
+SECRET_KEY_BASE
+TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET
+TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_TOKEN_SECRET
+```
+
+## Rake Task
+
+Add `bundle exec rake dream` to [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler).
