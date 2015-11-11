@@ -1,5 +1,6 @@
 # Save photos from tweets and retweet their dream photos
 class Dreamer
+  TWEET_LENGTH = 116
   private_class_method :new
   attr_reader :keyword
 
@@ -13,7 +14,7 @@ class Dreamer
   end
 
   def tweet
-    @client.tweet("RT @#{dream_image.user} #{dream_image.text}"[0...116],
+    @client.tweet("RT @#{dream_image.user} #{dream_image.text}"[0...TWEET_LENGTH],
                   dream_image.image.versions[:dream].file.to_file,
                   dream_image.twitter_id)
   end
