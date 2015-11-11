@@ -1,10 +1,18 @@
 # Save photos from tweets and retweet their dream photos
 class Dreamer
-  def initialize
-    @client = TwitterApi.new
+  private_class_method :new
+  attr_reader :keyword
+
+  def self.dream(keyword)
+    new(keyword).dream
   end
 
-  def dream(keyword = 'dream')
+  def initialize(keyword)
+    @client = TwitterApi.new
+    @keyword = keyword
+  end
+
+  def dream
     dream_image = image_to_dream(keyword)
     @client.tweet("RT @#{dream_image.user} #{dream_image.text}"[0...116],
                   dream_image.image.versions[:dream].file.to_file,
