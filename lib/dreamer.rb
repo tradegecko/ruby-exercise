@@ -4,7 +4,7 @@ class Dreamer
   attr_reader :keyword
 
   def self.dream(keyword)
-    new(keyword).dream
+    new(keyword).tweet
   end
 
   def initialize(keyword)
@@ -12,8 +12,7 @@ class Dreamer
     @keyword = keyword
   end
 
-  def dream
-    dream_image = image_to_dream(keyword)
+  def tweet
     @client.tweet("RT @#{dream_image.user} #{dream_image.text}"[0...116],
                   dream_image.image.versions[:dream].file.to_file,
                   dream_image.twitter_id)
@@ -21,21 +20,22 @@ class Dreamer
 
   private
 
-  def image_to_dream(keyword)
-    if (tweet = find_tweet_with_image(keyword))
-      DreamImage.create! twitter_id: tweet.id.to_s,
-                         remote_image_url: tweet.media.first.media_url.to_s,
-                         user: tweet.user.screen_name,
-                         text: tweet.text
-    else
-      Rails.logger.info 'Nothing to dream at the moment.' && return
+  def dream_image
+    @dream_image ||= begin
+      fail('Nothing to dream at the moment.') unless tweet_with_image
+      DreamImage.create! twitter_id: tweet_with_image.id,
+                         remote_image_url: tweet_with_image.media.first.media_url.to_s,
+                         user: tweet_with_image.user.screen_name,
+                         text: tweet_with_image.text
     end
   end
 
-  def find_tweet_with_image(keyword)
-    @client.find_tweets_with_images_by_keyword(keyword).find do |tweet|
-      !DreamImage.exists?(twitter_id: tweet.id.to_s) \
-        && tweet.media.first.present?
+  def tweet_with_image
+    @tweet_with_image ||= begin
+      @client.find_tweets_with_images_by_keyword(keyword).find do |tweet|
+        !DreamImage.exists?(twitter_id: tweet.id) \
+          && tweet.media.first.present?
+      end
     end
   end
 end
