@@ -14,7 +14,7 @@ class Dreamer
   end
 
   def tweet
-    @client.tweet("RT @#{dream_image.user} #{dream_image.text}"[0...TWEET_LENGTH],
+    @client.tweet(message,
                   dream_image.image.versions[:dream].file.to_file,
                   dream_image.twitter_id)
   end
@@ -29,6 +29,12 @@ class Dreamer
                          user: tweet_with_image.user.screen_name,
                          text: tweet_with_image.text
     end
+  end
+
+  def message
+    # TODO: Refactor into separate model (e.g. tweet composer)
+    s = "RT @#{dream_image.user} #{dream_image.text}"
+    ActiveSupport::Multibyte::Chars.new(s).normalize(:c)[0...TWEET_LENGTH]
   end
 
   def tweet_with_image

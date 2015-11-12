@@ -35,5 +35,15 @@ RSpec.describe Dreamer do
     end
   end
 
-
+  describe "#message" do
+    let(:dream_image) { double('DreamImage', {user: 'some_user', text: text }) }
+    before do
+      allow_any_instance_of(Dreamer).to receive(:dream_image) { dream_image }
+    end
+    subject { Dreamer.send(:new, 'dream').send(:message).length }
+    context "long text" do
+      let(:text) { "e\xCC\x81" * 140 }
+      it { is_expected.to eql 116 }
+    end
+  end
 end
