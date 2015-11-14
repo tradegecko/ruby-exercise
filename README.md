@@ -1,32 +1,30 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-# Overview #
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+# Setup
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
+- `cp .env.sample .env`
+- Go to [https://apps.twitter.com/](https://apps.twitter.com/) and setup new twitter app
+- Add secrets from the new twitter app to your `.env` file
+- `bundle install`
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
+# Usage
 
-Your code should be performant and intuitive.
+Run `bundle exec rake dream["keyword"]` where `keyord` is what you search on twitter
 
-Any questions, please ask.
+# Heroku
 
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
+## Secrets
 
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
+[Add secrets to Heroku](https://devcenter.heroku.com/articles/config-vars):
 
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+```
+SECRET_KEY_BASE
+TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET
+TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_TOKEN_SECRET
+```
+
+## Rake Task
+
+Add `bundle exec rake dream` to [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler).

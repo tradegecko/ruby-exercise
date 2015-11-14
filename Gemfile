@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -39,3 +39,21 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+gem 'twitter'
+gem 'carrierwave'
+gem 'rest-client'
+gem 'airbrake'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
+  gem 'pry-byebug'
+  gem 'dotenv-rails'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+  gem 'rspec-its'
+  gem 'simplecov', :require => false
+end
