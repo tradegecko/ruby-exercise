@@ -42,6 +42,7 @@ gem 'rails_12factor', group: :production
 gem 'twitter'
 gem 'carrierwave'
 gem 'rest-client'
+gem 'airbrake'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

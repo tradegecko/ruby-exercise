@@ -28,6 +28,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    airbrake (4.3.0)
+      builder
+      multi_json
     arel (5.0.1.20140414130214)
     buftok (0.2.0)
     builder (3.2.2)
@@ -213,6 +216,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   carrierwave
   coffee-rails (~> 4.0.0)
   dotenv-rails
