@@ -40,6 +40,8 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
+gem 'twitter'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-byebug'
