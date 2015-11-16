@@ -45,4 +45,6 @@ gem 'twitter'
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-byebug'
+  gem 'vcr'
+  gem 'webmock'
 end
