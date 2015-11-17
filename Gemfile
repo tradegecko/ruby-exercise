@@ -43,7 +43,7 @@ gem 'rails_12factor', group: :production
 gem 'twitter'
 gem 'giphy'
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'pry-byebug'
   gem 'vcr'
