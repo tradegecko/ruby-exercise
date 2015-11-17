@@ -6,7 +6,7 @@ RSpec.describe HttpHelper do
     subject { HttpHelper.download_file(url) }
 
     context 'correct url' do
-      let(:url) { URI('http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4') }
+      let(:url) { URI('http://media3.giphy.com/media/LizJ8r4pDrzmE/giphy.gif') }
 
       it 'returns the downloaded file' do
         VCR.use_cassette('http/download_a_file') do
