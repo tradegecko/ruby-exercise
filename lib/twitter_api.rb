@@ -30,7 +30,11 @@ class TwitterApi
 
   def validate(message, file)
     raise(ArgumentError, "Message and file both can't be empty") if empty_tweet?(file, message)
-    raise(ArgumentError, "Message more than #{MAX_TWEET_MESSAGE_LENGTH} characters") if message.length > MAX_TWEET_MESSAGE_LENGTH
+    raise(ArgumentError, "Message more than #{MAX_TWEET_MESSAGE_LENGTH} characters") if message_exceeds_twitter_limit?(message)
+  end
+
+  def message_exceeds_twitter_limit?(message)
+    !message.blank? && message.length > MAX_TWEET_MESSAGE_LENGTH
   end
 
   def empty_tweet?(file, message)
