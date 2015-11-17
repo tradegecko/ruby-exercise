@@ -1,0 +1,527 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Content-Type:
+      - text/html
+      Date:
+      - Wed, 18 Nov 2015 05:30:10 GMT
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Vary:
+      - Accept-Encoding, User-Agent, X-UA-Device, Cookie
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Nginx-Received:
+      - '1447824610.53'
+      X-Nginx-Responded:
+      - '1447824610.6'
+      X-Skip-Cache:
+      - 'False'
+      X-Url-String:
+      - ''
+      X-User-Slug:
+      - ''
+      X-Varnish:
+      - '1822895867'
+      X-Varnish-Received:
+      - '1447824610.534'
+      X-Varnish-Responded:
+      - '1447824610.609'
+      Content-Length:
+      - '12383'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "\n<!DOCTYPE html>\n<html itemscope itemtype=\"http://schema.org/WebPage\"
+        >\n    <head >\n        <title>Melissa Benoist GIF - Find &amp; Share on GIPHY</title>\n\n
+        \       <meta charset=\"utf-8\" />\n        <meta name=\"idk\" content=\"test\"
+        />\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"><script
+        type=\"text/javascript\">(window.NREUM||(NREUM={})).loader_config={xpid:\"VwQBUlZWGwEAVlJSAwI=\"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function
+        r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var
+        o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if(\"function\"==typeof
+        __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return
+        r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var
+        c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function
+        a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return
+        n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function
+        r(){return{}}var o=\"nr@context\",i=t(\"gos\");e.exports=n()},{gos:\"7eSDFh\"}],ee:[function(t,e){e.exports=t(\"QJf3ax\")},{}],3:[function(t){function
+        e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t(\"ee\"),o=t(1),i={};try{n=localStorage.getItem(\"__nr_flags\").split(\",\"),console&&\"function\"==typeof
+        console.log&&(i.console=!0,-1!==n.indexOf(\"dev\")&&(i.dev=!0),-1!==n.indexOf(\"nr_dev\")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on(\"internal-error\",function(t){e(t.stack)}),i.dev&&r.on(\"fn-err\",function(t,n,r){e(r.stack)}),i.dev&&(e(\"NR
+        AGENT IN DEVELOPMENT MODE\"),e(\"flags: \"+o(i,function(t){return t}).join(\",
+        \")))},{1:24,ee:\"QJf3ax\"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r(\"err\",[s||new
+        UncaughtException(t,e,n)])}catch(f){try{r(\"ierr\",[f,(new Date).getTime(),!0])}catch(u){}}return\"function\"==typeof
+        a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||\"Uncaught
+        error with no additional information\",this.sourceURL=e,this.line=n}function
+        n(t){r(\"err\",[t,(new Date).getTime()])}var r=t(\"handle\"),o=t(6),i=t(\"ee\"),a=window.onerror,s=!1,c=0;t(\"loader\").features.err=!0,t(5),window.onerror=e;try{throw
+        new Error}catch(f){\"stack\"in f&&(t(1),t(2),\"addEventListener\"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on(\"fn-start\",function(){s&&(c+=1)}),i.on(\"fn-err\",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on(\"fn-end\",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on(\"internal-error\",function(t){r(\"ierr\",[t,(new
+        Date).getTime(),!0])})},{1:11,2:10,3:8,4:12,5:3,6:25,ee:\"QJf3ax\",handle:\"D5DuLP\",loader:\"G9z0Bl\"}],5:[function(t){if(window.addEventListener){var
+        e=t(\"handle\"),n=t(\"ee\");t(1),window.addEventListener(\"click\",function(){e(\"inc\",[\"ck\"])},!1),window.addEventListener(\"hashchange\",function(){e(\"inc\",[\"hc\"])},!1),n.on(\"pushState-start\",function(){e(\"inc\",[\"ps\"])})}},{1:9,ee:\"QJf3ax\",handle:\"D5DuLP\"}],6:[function(t){t(\"loader\").features.ins=!0},{loader:\"G9z0Bl\"}],7:[function(t){function
+        e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var
+        n=t(\"ee\"),r=t(\"handle\"),o=t(1),i=t(2);t(\"loader\").features.stn=!0,t(3);var
+        a=Event;n.on(\"fn-start\",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on(\"fn-end\",function(t,e){var
+        n=t[0];n instanceof a&&r(\"bst\",[n,e,this.bstStart,Date.now()])}),o.on(\"fn-start\",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on(\"fn-end\",function(t,e){r(\"bstTimer\",[e,this.bstStart,Date.now(),this.bstType])}),i.on(\"fn-start\",function(){this.bstStart=Date.now()}),i.on(\"fn-end\",function(t,e){r(\"bstTimer\",[e,this.bstStart,Date.now(),\"requestAnimationFrame\"])}),n.on(\"pushState-start\",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on(\"pushState-end\",function(){r(\"bstHist\",[location.pathname+location.hash,this.startPath,this.time])}),\"addEventListener\"in
+        window.performance&&(window.performance.addEventListener(\"webkitresourcetimingbufferfull\",function(){r(\"bstResource\",[window.performance.getEntriesByType(\"resource\")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener(\"resourcetimingbufferfull\",function(){r(\"bstResource\",[window.performance.getEntriesByType(\"resource\")]),window.performance.clearResourceTimings()},!1)),document.addEventListener(\"scroll\",e,!1),document.addEventListener(\"keypress\",e,!1),document.addEventListener(\"click\",e,!1)}},{1:11,2:10,3:9,ee:\"QJf3ax\",handle:\"D5DuLP\",loader:\"G9z0Bl\"}],8:[function(t,e){function
+        n(t){i.inPlace(t,[\"addEventListener\",\"removeEventListener\"],\"-\",r)}function
+        r(t){return t[1]}var o=t(\"ee\").create(),i=t(1)(o),a=t(\"gos\");if(e.exports=o,n(window),\"getPrototypeOf\"in
+        Object){for(var s=document;s&&!s.hasOwnProperty(\"addEventListener\");)s=Object.getPrototypeOf(s);s&&n(s);for(var
+        c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty(\"addEventListener\");)c=Object.getPrototypeOf(c);c&&n(c)}else
+        XMLHttpRequest.prototype.hasOwnProperty(\"addEventListener\")&&n(XMLHttpRequest.prototype);o.on(\"addEventListener-start\",function(t,e){function
+        n(){return s}if(t[1]){var r=t[1];if(\"function\"==typeof r){var s=a(r,\"nr@wrapped\",function(){return
+        i(r,\"fn-\",n,r.name||\"anonymous\")});this.wrapped=t[1]=s,o.emit(\"initEventContext\",[t,e],this.wrapped)}else\"function\"==typeof
+        r.handleEvent&&i.inPlace(r,[\"handleEvent\"],\"fn-\")}}),o.on(\"removeEventListener-start\",function(t){var
+        e=this.wrapped;e&&(t[1]=e)})},{1:26,ee:\"QJf3ax\",gos:\"7eSDFh\"}],9:[function(t,e){var
+        n=t(\"ee\").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,[\"pushState\",\"replaceState\"],\"-\")},{1:26,ee:\"QJf3ax\"}],10:[function(t,e){var
+        n=t(\"ee\").create(),r=t(1)(n);e.exports=n,r.inPlace(window,[\"requestAnimationFrame\",\"mozRequestAnimationFrame\",\"webkitRequestAnimationFrame\",\"msRequestAnimationFrame\"],\"raf-\"),n.on(\"raf-start\",function(t){t[0]=r(t[0],\"fn-\")})},{1:26,ee:\"QJf3ax\"}],11:[function(t,e){function
+        n(t,e,n){t[0]=i(t[0],\"fn-\",null,n)}function r(t,e,n){function r(){return
+        a}this.ctx={};var a={\"nr@context\":this.ctx};o.emit(\"initTimerContext\",[t,n],a),t[0]=i(t[0],\"fn-\",r,n)}var
+        o=t(\"ee\").create(),i=t(1)(o);e.exports=o,i.inPlace(window,[\"setTimeout\",\"setImmediate\"],\"setTimer-\"),i.inPlace(window,[\"setInterval\"],\"setInterval-\"),i.inPlace(window,[\"clearTimeout\",\"clearImmediate\"],\"clearTimeout-\"),o.on(\"setInterval-start\",n),o.on(\"setTimer-start\",r)},{1:26,ee:\"QJf3ax\"}],12:[function(t,e){function
+        n(){f.inPlace(this,p,\"fn-\",o)}function r(t,e){f.inPlace(e,[\"onreadystatechange\"],\"fn-\")}function
+        o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t(\"ee\").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=[\"onload\",\"onerror\",\"onabort\",\"onloadstart\",\"onloadend\",\"onprogress\",\"ontimeout\"];e.exports=a,window.XMLHttpRequest=function(t){var
+        e=new d(t);try{a.emit(\"new-xhr\",[],e),e.hasOwnProperty(\"addEventListener\")&&u.inPlace(e,[\"addEventListener\",\"removeEventListener\"],\"-\",o),e.addEventListener(\"readystatechange\",n,!1)}catch(r){try{a.emit(\"internal-error\",[r])}catch(i){}}return
+        e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,[\"open\",\"send\"],\"-xhr-\",o),a.on(\"send-xhr-start\",r),a.on(\"open-xhr-start\",r)},{1:8,2:26,ee:\"QJf3ax\"}],13:[function(t){function
+        e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var
+        i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new
+        Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f=\"arraybuffer\"===a||\"blob\"===a||\"json\"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var
+        d=t.getResponseHeader(\"X-NewRelic-App-Data\");d&&(e.cat=d.split(\", \").pop())}}else
+        e.status=0;r.cbTime=this.cbTime,o(\"xhr\",[e,r,this.startTime])}}}function
+        n(t){if(\"string\"==typeof t&&t.length)return t.length;if(\"object\"!=typeof
+        t)return void 0;if(\"undefined\"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return
+        t.byteLength;if(\"undefined\"!=typeof Blob&&t instanceof Blob&&t.size)return
+        t.size;if(\"undefined\"!=typeof FormData&&t instanceof FormData)return void
+        0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var
+        n=i(e),r=t.params;r.host=n.hostname+\":\"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t(\"loader\").features.xhr=!0;var
+        o=t(\"handle\"),i=t(2),a=t(\"ee\"),s=[\"load\",\"error\",\"abort\",\"timeout\"],c=s.length,f=t(1),u=window.XMLHttpRequest;t(4),t(3),a.on(\"new-xhr\",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on(\"open-xhr-start\",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on(\"open-xhr-end\",function(t,e){\"loader_config\"in
+        NREUM&&\"xpid\"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader(\"X-NewRelic-ID\",NREUM.loader_config.xpid)}),a.on(\"send-xhr-start\",function(t,e){var
+        r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new
+        Date).getTime(),this.listener=function(t){try{\"abort\"===t.type&&(i.params.aborted=!0),(\"load\"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||\"function\"!=typeof
+        e.onload))&&i.end(e)}catch(n){try{a.emit(\"internal-error\",[n])}catch(r){}}};for(var
+        u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on(\"xhr-cb-time\",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&\"function\"==typeof
+        n.onload||this.end(n)}),a.on(\"xhr-load-added\",function(t,e){var n=\"\"+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on(\"xhr-load-removed\",function(t,e){var
+        n=\"\"+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on(\"addEventListener-end\",function(t,e){e
+        instanceof u&&\"load\"===t[0]&&a.emit(\"xhr-load-added\",[t[1],t[2]],e)}),a.on(\"removeEventListener-end\",function(t,e){e
+        instanceof u&&\"load\"===t[0]&&a.emit(\"xhr-load-removed\",[t[1],t[2]],e)}),a.on(\"fn-start\",function(t,e,n){e
+        instanceof u&&(\"onload\"===n&&(this.onload=!0),(\"load\"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new
+        Date).getTime()))}),a.on(\"fn-end\",function(t,e){this.xhrCbStart&&a.emit(\"xhr-cb-time\",[(new
+        Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:\"XL7HBI\",2:14,3:12,4:8,ee:\"QJf3ax\",handle:\"D5DuLP\",loader:\"G9z0Bl\"}],14:[function(t,e){e.exports=function(t){var
+        e=document.createElement(\"a\"),n=window.location,r={};e.href=t,r.port=e.port;var
+        o=e.href.split(\"://\");return!r.port&&o[1]&&(r.port=o[1].split(\"/\")[0].split(\"@\").pop().split(\":\")[1]),r.port&&\"0\"!==r.port||(r.port=\"https\"===o[0]?\"443\":\"80\"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],\"/\"!==r.pathname.charAt(0)&&(r.pathname=\"/\"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],15:[function(t,e){function
+        n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var
+        r=t(\"handle\"),o=t(1),i=t(2);\"undefined\"==typeof window.newrelic&&(newrelic=window.NREUM);var
+        a=[\"setPageViewName\",\"addPageAction\",\"setCustomAttribute\",\"finished\",\"addToTrace\",\"inlineHit\",\"noticeError\"];o(a,function(t,e){window.NREUM[e]=n(\"api-\"+e)}),e.exports=window.NREUM},{1:24,2:25,handle:\"D5DuLP\"}],gos:[function(t,e){e.exports=t(\"7eSDFh\")},{}],\"7eSDFh\":[function(t,e){function
+        n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return
+        Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return
+        t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function
+        n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var
+        r=t(\"ee\").create();e.exports=n,n.ee=r,r.q={}},{ee:\"QJf3ax\"}],handle:[function(t,e){e.exports=t(\"D5DuLP\")},{}],XL7HBI:[function(t,e){function
+        n(t){var e=typeof t;return!t||\"object\"!==e&&\"function\"!==e?-1:t===window?0:i(t,o,function(){return
+        r++})}var r=1,o=\"nr@id\",i=t(\"gos\");e.exports=n},{gos:\"7eSDFh\"}],id:[function(t,e){e.exports=t(\"XL7HBI\")},{}],G9z0Bl:[function(t,e){function
+        n(){var t=p.info=NREUM.info,e=f.getElementsByTagName(\"script\")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e
+        in t||(t[e]=n)});var n=\"https\"===u.split(\":\")[0]||t.sslForHttp;p.proto=n?\"https://\":\"http://\",a(\"mark\",[\"onload\",i()]);var
+        r=f.createElement(\"script\");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function
+        r(){\"complete\"===f.readyState&&o()}function o(){a(\"mark\",[\"domContent\",i()])}function
+        i(){return(new Date).getTime()}var a=t(\"handle\"),s=t(1),c=window,f=c.document;t(2);var
+        u=(\"\"+location).split(\"?\")[0],d={beacon:\"bam.nr-data.net\",errorBeacon:\"bam.nr-data.net\",agent:\"js-agent.newrelic.com/nr-768.min.js\"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener(\"DOMContentLoaded\",o,!1),c.addEventListener(\"load\",n,!1)):(f.attachEvent(\"onreadystatechange\",r),c.attachEvent(\"onload\",n)),a(\"mark\",[\"firstbyte\",i()])},{1:24,2:15,handle:\"D5DuLP\"}],loader:[function(t,e){e.exports=t(\"G9z0Bl\")},{}],24:[function(t,e){function
+        n(t,e){var n=[],o=\"\",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return
+        n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],25:[function(t,e){function
+        n(t,e,n){e||(e=0),\"undefined\"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return
+        i}e.exports=n},{}],26:[function(t,e){function n(t){return!(t&&\"function\"==typeof
+        t&&t.apply&&!t[i])}var r=t(\"ee\"),o=t(1),i=\"nr@original\",a=Object.prototype.hasOwnProperty;e.exports=function(t){function
+        e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,\"\",[n,i,a],s])}c(e+\"start\",[n,i,a],s);try{return
+        f=t.apply(i,n)}catch(p){throw c(e+\"err\",[n,i,p],s),p}finally{c(e+\"end\",[n,i,f],s)}}return
+        n(t)?t:(e||(e=\"\"),nrWrapper[i]=t,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o=\"\");var
+        a,s,c,f=\"-\"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function
+        c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var
+        n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return
+        t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in
+        t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit(\"internal-error\",e)}catch(n){}}return
+        t||(t=r),e.inPlace=s,e.flag=i,e}},{1:25,ee:\"QJf3ax\"}]},{},[\"G9z0Bl\",4,13,7,6,5]);</script><script
+        type=\"text/javascript\">window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"bam.nr-data.net\",\"queueTime\":0,\"licenseKey\":\"59b3298718\",\"agent\":\"js-agent.newrelic.com/nr-768.min.js\",\"transactionName\":\"YVEGY0tQWUAHBkVQWFgbIkJXUkNaCQseWEdGGgNeX0IZRQ8ARkoNcV0Cc1xFVloKS1ZcQw==\",\"applicationID\":\"2023043\",\"errorBeacon\":\"bam.nr-data.net\",\"applicationTime\":70}</script>\n
+        \       <meta name=\"google-site-verification\" content=\"8mfne8CLOmysP4fUdGDJioWLEGbHMJY4tBsxsQT2eSY\"
+        />\n        <meta name=\"msvalidate.01\" content=\"F8A7FDC3D369E857ACB67C4AB8EBD9A4\"
+        />\n        <meta name=\"alexaVerifyID\" content=\"HMyPJIK-pLEheM5ACWFf6xvnA2U\"
+        />\n        <meta property=\"fb:admins\" content=\"548288355\" />\n        <meta
+        name=\"p:domain_verify\" content=\"61a9a962d47f10756a14a44c1b44d7c8\"/>\n\n
+        \       \n\n        \n            \n                <link rel=\"canonical\"
+        href=\"http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\"/>\n
+        \           \n        \n\n        \n\n        <meta property=\"fb:app_id\"
+        \     content=\"406655189415060\">\n        <meta property=\"og:site_name\"
+        \  content=\"GIPHY\">\n        <meta property=\"og:url\"         content=\"https://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\">\n
+        \       <meta property=\"og:title\"       content=\"Melissa Benoist GIF -
+        Find &amp; Share on GIPHY\">\n        <meta property=\"og:description\" content=\"Discover
+        &amp; Share this Melissa Benoist GIF with everyone you know. GIPHY is how
+        you search, share, discover, and create GIFs.\">\n\n        \n        <meta
+        property=\"og:type\"        content=\"video.other\">\n        <meta property=\"og:image\"
+        \      content=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\">\n
+        \       <meta property=\"og:image:width\"       content=\"245\">\n        <meta
+        property=\"og:image:height\"       content=\"265\">\n        \n        <meta
+        property=\"og:type\"        content=\"video\">\n        <meta property=\"og:image\"
+        \      content=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy-facebook_s.jpg\">\n
+        \       <meta property=\"og:image:width\"       content=\"480\">\n        <meta
+        property=\"og:image:height\"       content=\"270\">\n        <meta property=\"og:video\"
+        \               content=\"http://giphygifs.s3.amazonaws.com/swiphy20141103.swf?api_hostname=&gif_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F11VoHjrmqUCye4%2Fgiphy.gif&giphy_height=265&video_url=http%3A%2F%2Fmedia.giphy.com%2Fmedia%2F11VoHjrmqUCye4%2Fgiphy.mp4&giphyWidth=245&path=%2Fgifs%2Fmelissa-benoist-helpers-11VoHjrmqUCye4&destination_url=http%3A%2F%2Fgiphy.com%2Fgifs%2F11VoHjrmqUCye4&giphyHeight=265&gif_id=11VoHjrmqUCye4&mode=embed&giphy_width=245\">\n
+        \       <meta property=\"og:video:secure_url\"     content=\"https://giphygifs.s3.amazonaws.com/swiphy20141103.swf?api_hostname=&gif_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F11VoHjrmqUCye4%2Fgiphy.gif&giphy_height=265&video_url=http%3A%2F%2Fmedia.giphy.com%2Fmedia%2F11VoHjrmqUCye4%2Fgiphy.mp4&giphyWidth=245&path=%2Fgifs%2Fmelissa-benoist-helpers-11VoHjrmqUCye4&destination_url=http%3A%2F%2Fgiphy.com%2Fgifs%2F11VoHjrmqUCye4&giphyHeight=265&gif_id=11VoHjrmqUCye4&mode=embed&giphy_width=245\">\n
+        \       <meta property=\"og:video:type\"           content=\"application/x-shockwave-flash\">\n
+        \       <meta property=\"og:video:width\"          content=\"470\">\n        <meta
+        property=\"og:video:height\"         content=\"265\">\n\n        <meta name=\"twitter:account_id\"
+        content=\"1020383864\" />\n        <meta name=\"twitter:card\"           content=\"player\">\n
+        \       <meta name=\"twitter:title\"          content=\"Melissa Benoist GIF
+        - Find &amp; Share on GIPHY\">\n        <meta name=\"twitter:creator\"        content=\"@giphy\">\n
+        \       <meta name=\"twitter:site\"           content=\"@giphy\">\n        <meta
+        name=\"twitter:description\"    content=\"Discover &amp; Share this Melissa
+        Benoist GIF with everyone you know. GIPHY is how you search, share, discover,
+        and create GIFs.\">\n        <meta name=\"twitter:image:src\"      content=\"https://media1.giphy.com/media/11VoHjrmqUCye4/giphy-facebook_s.jpg?t=1\">\n
+        \       <meta name=\"twitter:image\"          content=\"https://media1.giphy.com/media/11VoHjrmqUCye4/giphy-facebook_s.jpg?t=1\">\n
+        \       <meta name=\"twitter:domain\"         content=\"giphy.com\">\n\n        \n
+        \       <meta name=\"twitter:player\"         content=\"https://giphy.com/embed/11VoHjrmqUCye4/twitter/iframe\">\n
+        \       <meta name=\"twitter:player:width\"   content=\"435\">\n        <meta
+        name=\"twitter:player:height\"  content=\"470\">\n        \n        <!-- /twitter
+        seo -->\n\n        <meta name=\"viewport\" content=\"width=device-width, user-scalable=1,
+        initial-scale=1.0\">\n        <meta name=\"description\" content=\"Discover
+        &amp; Share this Melissa Benoist GIF with everyone you know. GIPHY is how
+        you search, share, discover, and create GIFs.\"/>\n        <meta name=\"author\"
+        content=\"GIPHY\"/>\n        <meta name=\"keywords\" content=\"melissa benoist,
+        helpers, GIF, Animated GIF\">\n        <meta name=\"pinterest\" content=\"nohover\">\n
+        \       \n        <link rel=\"alternate\" type=\"application/json+oembed\"
+        href=\"http://giphy.com/services/oembed/?url=http://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\"
+        title=\"Melissa Benoist GIF - Find &amp; Share on GIPHY oEmbed Lookup\" />\n
+        \       \n\n        <link rel=\"icon\" type=\"image/png\" href=\"//giphy.com/static/img/favicon.png\"
+        />\n        <meta name=\"apple-mobile-web-app-title\" content=\"GIPHY\">\n
+        \       <link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"//giphy.com/static/img/icons/apple-touch-icon-57x57.png\"/>\n
+        \       <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"//giphy.com/static/img/icons/apple-touch-icon-57x57.png\"
+        />\n\n        <link rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"/static/img/icons/apple-touch-icon-120x120.png\"
+        />\n        <link rel=\"apple-touch-icon\" sizes=\"320x480\" href=\"/static/img/icons/apple-touch-icon-320x480.png\"
+        />\n        <link rel=\"apple-touch-icon\" sizes=\"640x960\" href=\"/static/img/icons/apple-touch-icon-640x960.png\"
+        />\n        <link rel=\"apple-touch-icon\" sizes=\"640x1136\" href=\"/static/img/icons/apple-touch-icon-640x1136.png\"
+        />\n\n        <link rel=\"apple-touch-startup-image\" media=\"(device-width:
+        320px)\" href=\"/static/img/icons/apple-touch-startup-image-320x460.png\">\n
+        \       <link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px)
+        and (-webkit-device-pixel-ratio: 2)\" href=\"/static/img/icons/apple-touch-startup-image-640x920.png\">\n\n
+        \       <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800\"
+        rel=\"stylesheet\" type=\"text/css\"/>\n        \n        <link href=\"https://fonts.googleapis.com/css?family=Cantarell:400\"
+        \              rel=\"stylesheet\" type=\"text/css\"/>\n        \n\n        <script>\n
+        \           var Giphy = Giphy || {};\n            window.STATIC_URL = \"/static/\";\n
+        \           window.ASSET_DOMAIN = \"giphy.com\";\n            window.DOMAIN
+        = \"giphy.com\";\n            window.HOSTNAME = \"\";\n        </script>\n
+        \       <script type=\"application/ld+json\">\n        {\n          \"@context\":
+        \"http://schema.org\",\n          \"@type\": \"WebSite\",\n          \"url\":
+        \"https://giphy.com/\",\n          \"potentialAction\": {\n            \"@type\":
+        \"SearchAction\",\n            \"target\": \"https://giphy.com/search/{search_term_string}\",\n
+        \           \"query-input\": \"required name=search_term_string\"\n          }\n
+        \       }\n        </script>\n        \n        <script type=\"text/javascript\">var
+        _sf_startpt=(new Date()).getTime()</script>\n        <script type=\"text/javascript\"
+        async src=\"//assets.pinterest.com/js/pinit.js\"></script>\n        <script
+        src=\"//platform.tumblr.com/v1/share.js\"></script>\n        <!--[if (gte
+        IE 6)&(lte IE 8)]>\n            <script type=\"text/javascript\" src=\"/static/js/site/third_party/selectivizr-min.js\"></script>\n
+        \           <noscript><link rel=\"stylesheet\" href=\"[fallback css]\" /></noscript>\n
+        \       <![endif]-->\n        \n        \n    <link href=\"//giphy.com/static/css/site/base.css?NmEwYTNkMDRkNWZkZDE1MQ\"
+        rel=\"stylesheet\" type=\"text/css\"/>\n    <script src=\"//giphy.com/static/js/site/header.js?NmEwYTNkMDRkNWZkZDE1MQ\"></script>\n\n
+        \       \n    \n\n    </head>\n    <body  >\n        <!-- Google Tag Manager
+        -->\n        <noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-P5GCKB\"\n
+        \       height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n
+        \       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n
+        \       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n
+        \       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n
+        \       '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n
+        \       })(window,document,'script','dataLayer','GTM-P5GCKB');</script>\n
+        \       <!-- End Google Tag Manager -->\n\n        \n    <div id=\"metadata-example\"></div>\n\n
+        \       \n\n        <div id=\"messages\">\n        \n    </div>\n\n\n\n    \n<script>\n
+        \   window.ACCESS_TOKEN = false;\n    window.fbAsyncInit = function() {\n
+        \       FB.init({\n            appId            : '',\n            xfbml            :
+        true,\n            version        : 'v2.1'\n        });\n    };\n\n    (function(d,
+        s, id){\n         var js, fjs = d.getElementsByTagName(s)[0];\n         if
+        (d.getElementById(id)) {return;}\n         js = d.createElement(s); js.id
+        = id;\n         js.src = \"//connect.facebook.net/en_US/sdk.js\";\n         fjs.parentNode.insertBefore(js,
+        fjs);\n     }(document, 'script', 'facebook-jssdk'));\n</script>\n\n    <div
+        id=\"fb-root\"></div>\n    <script>(function(d, s, id) {\n      var js, fjs
+        = d.getElementsByTagName(s)[0];\n      if (d.getElementById(id)) return;\n
+        \     js = d.createElement(s); js.id = id;\n      js.src = \"//connect.facebook.net/en_US/sdk.js#version=v2.1&xfbml=1&appId=406655189415060\";\n
+        \     fjs.parentNode.insertBefore(js, fjs);\n      }(document, 'script', 'facebook-jssdk'));\n
+        \   </script>\n\n    \n    <!-- HEADER -->\n<div id=\"header\">\n    <div
+        class=\"container_12\" itemscope itemtype=\"http://schema.org/Organization\">\n
+        \       <a itemprop=\"url\" href=\"http://giphy.com/\" class=\"giphy-logo\">\n
+        \           <h4>\n            <img class=\"giphy-logo\" itemprop=\"logo\"
+        id=\"logo-image\" src=\"/static/img/giphy_logo_laser.gif\" width=\"54\" height=\"60\"
+        alt=\"Search Animated GIFs | GIPHY\"/>\n            <span class=\"sprite _005_giphy_logo_txt\"></span>\n
+        \           </h4>\n        </a>\n        <div class=\"nav-wrapper\">\n            <div
+        class=\"nav\" id=\"default-nav\">\n            </div>\n        </div>\n    </div>\n</div>\n<!--
+        /HEADER -->\n\n    \n        \n\n<!-- BROWSE BAR -->\n<div id=\"browsebar\"
+        class=\"container_12\">\n    <a class=\"categories closed \"  href=\"/categories\">\n
+        \       <p>categories</p>\n        <div>\n            <div class=\"color\"></div>\n
+        \       </div>\n        <img class=\"browse-gif\" src=\"/static/img/Door_02_CategoriesV2.gif\"/>\n
+        \   </a>\n    <a class=\"reaction-gifs closed \"  href=\"/stickers\">\n        <p>stickers</p>\n
+        \       <div>\n            <div class=\"color\"></div>\n        </div>\n        <img
+        class=\"browse-gif\" src=\"/static/img/Door_01_Reactions.gif\"/>\n    </a>\n
+        \   <a class=\"artists closed \" href=\"/artists\">\n        <p>artists</p>\n
+        \       <div>\n            <div class=\"color\"></div>\n        </div>\n        <img
+        class=\"browse-gif\" src=\"/static/img/Door_03_Artists.gif\"/>\n    </a>\n
+        \   <a class=\"giphy-tv closed \" href=\"/giphytv\">\n        <p>giphy tv</p>\n
+        \       <div>\n            <div class=\"color\"></div>\n        </div>\n        <img
+        class=\"browse-gif\" src=\"/static/img/Door_04_GiphyTv.gif\"/>\n    </a>\n
+        \   <a class=\"favorites closed \" rel=\"nofollow\" id=\"favorites-nav\" href=\"/favorites\">\n
+        \       <p>favorites</p>\n        <div>\n            <div class=\"color\"></div>\n
+        \       </div>\n        <img class=\"browse-gif\" src=\"/static/img/Door_05_Favorites.gif\"/>\n
+        \   </a>\n</div>\n<!-- /BROWSE BAR -->\n\n        \n            <!-- SEARCH
+        BAR -->\n<div id=\"searchbar\" class=\"searchbar container_12\">\n    <form
+        class=\"search-bar-form\" id=\"searchbarform\" action=\"//giphy.com/search/\"
+        method=\"GET\">\n        \n        <h2 id=\"placeholder\">Search all the GIFs</h2>\n
+        \       <input id=\"search-box\" name=\"q\" autocomplete=\"off\" />\n        <div
+        class=\"autocomplete\"></div>\n        <button id=\"search-button\" type=\"submit\"
+        class=\"\">Search all the GIFs\n            <img src=\"/static/img/Search_Gradient_Grey.png\"
+        data-blur=\"/static/img/Search_Gradient_Grey.png\" data-focus=\"/static/img/search_gradient_slow.gif\"
+        data-submit=\"/static/img/search_gif.gif\"/>\n        </button>\n    </form>\n
+        \   <ul class=\"search-results grid_12\">\n        <li class=\"search-result\">\n
+        \         <div class=\"track\">\n            <div class=\"word\"></div>\n
+        \         </div>\n        </li>\n    </ul>\n</div>\n<!-- /SEARCH BAR -->\n\n
+        \       \n    \n\n    \n\n    \n\n    <div id=\"content\" class=\"container_12\">\n
+        \       \n\n\n<div id=\"gif-detail\" class=\"gif-detail grid_10 no-animate\"
+        itemscope itemtype=\"http://schema.org/Article\">\n    \n    <meta itemprop=\"url\"
+        content=\"http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\">\n
+        \   <meta itemprop=\"keywords\" content=\"GIF, animated GIF, melissa benoist,
+        helpers\">\n    <meta itemprop=\"datePublished\" content=\"July 14, 2015,
+        8:05 a.m.\">\n\n    <script>window.socialShareTitle=\"Melissa Benoist animated
+        GIF\";</script>\n    <!-- GIF -->\n    <div id=\"gif-wrap\" class=\"gif-wrap
+        grid_10\">\n        <div class=\"gif-figure-container\">\n            <div
+        class=\"gif-figure-wrapper\" itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">\n
+        \               <meta itemprop=\"url\" content=\"http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\">\n
+        \               <meta itemprop=\"contentUrl\" content=\"https://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\">\n
+        \               <meta itemprop=\"width\" content=\"245\">\n                <meta
+        itemprop=\"height\" content=\"265\">\n                <meta itemprop=\"embedUrl\"
+        content=\"//giphy.com/embed/11VoHjrmqUCye4\">\n                \n                <meta
+        itemprop=\"name\" content=\"Animated GIF\">\n                \n                <meta
+        itemprop=\"dateCreated\" content=\"July 14, 2015, 8:05 a.m.\">\n                <meta
+        itemprop=\"representativeOfPage\" content=\"True\">\n                <meta
+        itemprop=\"keywords\" content=\"GIF, animated GIF, melissa benoist, helpers\">\n
+        \               <figure class=\"gif-figure\">\n                    \n                    <a
+        target=\"_blank\" rel=\"nofollow\" href=\"http://hqgifhunts4u.tumblr.com/post/78441221504/melissa-benoist-gif-hunt-220-small-medium\">\n
+        \                   \n                    <img\n                        data-original-width=\"245\"\n
+        \                       data-original-height=\"265\"\n                        data-padding-top=\"92\"\n
+        \                       data-id=\"11VoHjrmqUCye4\"\n                        data-image_url=\"https://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\"\n
+        \                       data-bitly_gif_url=\"http://gph.is/1GiJqN7\"\n                        data-mp4_url=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy.mp4\"\n
+        \                       data-still=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy_s.gif\"\n
+        \                       data-preview-image-url=\"http://media.giphy.com/media/11VoHjrmqUCye4/100.gif\"\n
+        \                       data-tumblr_share_url=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy-tumblr.gif\"\n
+        \                       data-gif_id=\"11VoHjrmqUCye4\"\n                        data-absolute-url=\"/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\"\n
+        \                       data-edit-url=\"/home/gifs/melissa-benoist-helpers-11VoHjrmqUCye4/edit/\"\n
+        \                       id=\"gif\"\n                        class=\"a-gif\"\n
+        \                       src=\"https://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\"\n
+        \                       alt=\"melissa benoist helpers\"\n                        \n
+        \                       style=\"width: 416px; height: 450px\"\n                        width
+        = \"416\"\n                        height= \"450\"\n                        \n
+        \                   />\n                    \n                    </a>\n                    \n
+        \                   <figcaption itemprop=\"description\">This GIF has everything:
+        melissa benoist, HELPERS!</figcaption>\n                </figure>\n                <div
+        class=\"gif-hover\">\n                    <div class=\"gif-navigation\">\n
+        \                       <a id=\"share-heart\" class=\"gif-button favorite\"
+        href=\"https://giphy.com/login?next=/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\"></a>\n
+        \                   </div>\n                    <div class=\"gif-arrows\">\n
+        \                       <a class=\"previous-button button purple\" href=\"#\"><i
+        class=\"ss-icon ss-navigateleft\"></i><span class=\"preview\"></span></a>\n
+        \                       <a class=\"next-button button purple\" href=\"#\"><i
+        class=\"ss-icon ss-navigateright\"></i><span class=\"preview\"></span></a>\n
+        \                   </div>\n                    <div class=\"gif-modes\">\n
+        \                       <a class=\"gif-button tv\" href=\"http://tv.giphy.com/melissa
+        benoist\" target=\"_blank\"></a>\n                        <a class=\"gif-button
+        tile\" href=\"/gifs/melissa-benoist-helpers-11VoHjrmqUCye4/tile\"></a>\n                        <a
+        class=\"gif-button fullscreen\" href=\"/gifs/melissa-benoist-helpers-11VoHjrmqUCye4/fullscreen\"></a>\n
+        \                   </div>\n                </div>\n            </div>\n        </div>\n
+        \       <div class=\"gif-source\">\n            \n                \n                \n
+        \                   <div class=\"source\">\n                        <strong
+        class=\"source-label\">Source</strong>\n                        <a class=\"source-link\"
+        rel=\"nofollow\" href=\"http://hqgifhunts4u.tumblr.com/post/78441221504/melissa-benoist-gif-hunt-220-small-medium\"
+        target=\"_blank\">hqgifhunts4u.tumblr.com</a>\n                        <i
+        class=\"ss-icon ss-action\"></i>\n                    </div>\n                \n
+        \           \n        </div>\n    </div>\n\n    \n        <div id=\"gif-actions-wrapper\"
+        class=\"gif-actions grid_10\" data-share-url=\"http://gph.is/1GiJqN7\" data-permalink-url=\"http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\"
+        data-gif-id=\"11VoHjrmqUCye4\">\n    <div class=\"gif-actions-nav clearfix\">\n
+        \       <a class=\"nav-button grid_2 active\" href=\"#gif-share-actions\">Share</a>\n
+        \       <a class=\"nav-button grid_2\" href=\"#gif-advanced-actions\">Advanced</a>\n
+        \   </div>\n    <div class=\"gif-actions-wrapper clearfix\">\n        <div
+        id=\"gif-share-actions\" class=\"share-actions clearfix\">\n            <div
+        class=\"social-actions\">\n                <ul class=\"gif-social-links\"
+        data-share-url=\"http://gph.is/1GiJqN7\" data-permalink-url=\"http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\"
+        data-gif-id=\"11VoHjrmqUCye4\">\n\t<li class=\"social-link\" data-type=\"facebook\"
+        data-popup=\"true\">\n\t\t<a class=\"facebook\" href=\"http://www.facebook.com/sharer/sharer.php?u=http://gph.is/1GiJqN7\"
+        target=\"_blank\"></a>\n\t</li>\n\t<li class=\"social-link\" data-type=\"twitter\"
+        data-popup=\"true\" data-popup-height=\"305\">\n\t\t<a class=\"twitter\" href=\"http://twitter.com/share?url=http://gph.is/1GiJqN7?tc=1&via=giphy\"
+        target=\"_blank\"></a>\n\t</li>\n\t<li class=\"social-link\" data-type=\"pinterest\"
+        data-popup=\"true\" data-popup-width=\"750\">\n\t\t<a class=\"pinterest\"
+        href=\"http://www.pinterest.com/pin/create/link/?url=http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4&media=http://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif&description=via
+        GIPHY\" target=\"_blank\"></a>\n\t</li>\n\t<li class=\"social-link\" data-type=\"tumblr\"
+        data-popup=\"true\">\n\t\t<a class=\"tumblr\" href=\"http://www.tumblr.com/widgets/share/tool?canonicalUrl=http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4&content=http://media.giphy.com/media/11VoHjrmqUCye4/giphy-tumblr.gif&title=&caption=(via
+        <a href='http://gph.is/1GiJqN7'>GIPHY</a>)&clickthroughUrl=http://gph.is/1GiJqN7&posttype=photo&tags=giphy,melissa
+        benoist,helpers\" target=\"_blank\"></a>\n\t</li>\n\t<li class=\"social-link\"
+        data-type=\"instagram\">\n\t\t<a class=\"instagram rad-modal-trigger\" href=\"#\"
+        target=\"_blank\" data-title=\"Share on Instagram\" data-description=\"We're
+        going to create a GIF that you can post to Instagram. Where should we send
+        it?\" data-content=\"#instagram-modal\"></a>\n\t\t<div id=\"instagram-modal\"
+        style=\"display:none\">\n\t\t\t<div class=\"instagram-container clearfix\">\n\t\t\t\t<input
+        class=\"instagram-input inline-input\" type=\"text\" placeholder=\"Enter your
+        email\" />\n\t\t\t\t<button class=\"instagram-send-button save-button button\">Send</button>\n\t\t\t</div>\n\t\t</div>\n\t</li>\n\t<li
+        class=\"social-link\" data-type=\"reddit\" data-popup=\"true\">\n\t\t<a class=\"reddit\"
+        href=\"http://www.reddit.com/submit?url=http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\"
+        target=\"_blank\"></a>\n\t</li>\n</ul>\n            </div>\n            <div
+        class=\"embed-action action clearfix\">\n    <span class=\"action-label\">Iframe
+        Embed</span>\n    <div class=\"action-field\">\n        <input type=\"text\"
+        class=\"selected\" id=\"iframe-embed-code\" spellcheck=\"false\" readonly=\"true\"
+        value='&lt;iframe src=&quot;//giphy.com/embed/11VoHjrmqUCye4&quot; width=&quot;480&quot;
+        height=&quot;519&quot; frameBorder=&quot;0&quot; class=&quot;giphy-embed&quot;
+        allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&quot;http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4&quot;&gt;via
+        GIPHY&lt;/a&gt;&lt;/p&gt;' data-copy=\"true\" />\n    </div>\n</div>\n<div
+        class=\"more-actions\">\n    <div class=\"embed-action action clearfix\">\n
+        \       <span class=\"action-label\">JS Embed</span>\n        <div class=\"action-field\">\n
+        \           <input type=\"text\" id=\"optimized-embed-code\" spellcheck=\"false\"
+        readonly=\"true\" value='<div style=\"max-width: 500px;\" id=\"_giphy_11VoHjrmqUCye4\"></div><script>var
+        _giphy = _giphy || []; _giphy.push({id: \"11VoHjrmqUCye4\",w: 245, h: 265});var
+        g = document.createElement(\"script\"); g.type = \"text/javascript\"; g.async
+        = true;g.src = (\"https:\" == document.location.protocol ? \"https://\" :
+        \"http://\") + \"giphy.com/static/js/widgets/embed.js\";var s = document.getElementsByTagName(\"script\")[0];
+        s.parentNode.insertBefore(g, s);</script>' data-copy=\"true\" />\n        </div>\n
+        \   </div>\n    \n    <div class=\"embed-action action clearfix\">\n        <span
+        class=\"action-label\">HTML5 Embed</span>\n        <div class=\"action-field\">\n
+        \           <input id=\"smart-embed-code\" type=\"text\" readonly=\"true\"
+        value='&lt;iframe src=&quot;//giphy.com/embed/11VoHjrmqUCye4?html5=true&quot;
+        width=&quot;480&quot; height=&quot;519&quot; frameBorder=&quot;0&quot; class=&quot;giphy-embed&quot;
+        allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&quot;http://giphy.com/gifs/melissa-benoist-helpers-11VoHjrmqUCye4&quot;&gt;via
+        GIPHY&lt;/a&gt;&lt;/p&gt;' data-copy=\"true\" />\n        </div>\n    </div>\n
+        \   \n    <div class=\"options-action action clearfix\">\n        <div class=\"autoplay-toggle
+        settings-toggle active\">\n            <span class=\"action-label\">Autoplay</span>\n
+        \           <div class=\"toggle-buttons\">\n                <span class=\"toggle-button
+        toggle-active\">On</span>\n                <span class=\"toggle-button toggle-inactive\">Off</span>\n
+        \           </div>\n        </div>\n        <div class=\"social-toggle settings-toggle
+        active\">\n            <span class=\"action-label\">Social Shares</span>\n
+        \           <div class=\"toggle-buttons\">\n                <span class=\"toggle-button
+        toggle-active\">On</span>\n                <span class=\"toggle-button toggle-inactive\">Off</span>\n
+        \           </div>\n        </div>\n    </div>\n</div>\n        </div>\n        <div
+        id=\"gif-advanced-actions\" class=\"advanced-actions clearfix\">\n            <div
+        class=\"advanced-action-group\">\n    <div class=\"action clearfix\">\n        <p
+        class=\"action-note\">Giphy links preview in Facebook and Twitter. HTML5 links
+        autoselect optimized format.</p>\n        <span class=\"action-label\">Giphy
+        Link</span>\n        <div class=\"action-field\">\n            <input type=\"text\"
+        value=\"http://gph.is/1GiJqN7\" data-copy=\"true\" />\n        </div>\n    </div>\n
+        \   <div class=\"action clearfix\">\n        <span class=\"action-label\">HTML5
+        Video</span>\n        <div class=\"action-field\">\n        \n            <input
+        type=\"text\" value=\"http://giphy.com/gifs/11VoHjrmqUCye4/html5\" data-copy=\"true\"
+        />\n        \n        </div>\n    </div>\n    <div class=\"action clearfix\">\n
+        \       <span class=\"action-label\">Gif Download</span>\n        <div class=\"action-field
+        has-button\">\n            <input type=\"text\" value=\"http://i.giphy.com/11VoHjrmqUCye4.gif\"
+        data-copy=\"true\" />\n            <a class=\"action-button button blue\"
+        href=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\" download=\"giphy.gif\"
+        target=\"_blank\">Download</a>\n        </div>\n    </div>\n</div>\n<div class=\"advanced-action-group
+        tweet-action\">\n    <div id=\"upload-to-twitter\" class=\"action clearfix\">\n
+        \       <span class=\"action-label\">Upload GIF<br /> to Twitter</span>\n
+        \       <div class=\"action-field\">\n            <input class=\"tweet-input\"
+        type=\"hidden\" value=\"http://gph.is/1GiJqN7\" data-original-value=\"http://gph.is/1GiJqN7\"
+        />\n            <div class=\"tweet-text\" contenteditable=\"true\" spellcheck=\"false\"><i
+        contenteditable=\"false\">http://gph.is/1GiJqN7</i>&nbsp;</div>\n            <span
+        class=\"tweet-count\"></span>\n            <div class=\"login-buttons\">\n
+        \               <a class=\"login\" href=\"/login/twitter?next=http://giphy.com/login/twitter/finalize?next=http://giphy.com/gifs/11VoHjrmqUCye4\">Log
+        in</a>\n                <a class=\"logout\" href=\"/logout?next=/gifs/melissa-benoist-helpers-11VoHjrmqUCye4\">Log
+        out</a>\n            </div>\n        </div>\n        <div class=\"preview\">\n
+        \           <img class=\"image-preview\" src=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\"
+        alt=\"\" />\n            <a class=\"tweet-button button blue\" href=\"#\">Tweet</a>\n
+        \       </div>\n    </div>\n</div>\n<div class=\"advanced-action-group shortener-action\">\n
+        \   <div id=\"gif-shortener\" class=\"action clearfix\">\n        <p class=\"action-note\">Short
+        URLs redirect to a specified link while rendering a GIF preview on Facebook
+        and Twitter.</p>\n        <span class=\"action-label\">Gif Shortener</span>\n
+        \       <div class=\"action-field has-button\">\n            <input class=\"gif-shortener-input\"
+        type=\"text\" value=\"\" placeholder=\"Enter a URL to shorten.\" />\n            <a
+        class=\"gif-shortener-button action-button button black disabled\" href=\"http://media.giphy.com/media/11VoHjrmqUCye4/giphy.gif\">Shorten</a>\n
+        \       </div>\n    </div>\n</div>\n        </div>\n    </div>\n</div>\n    \n\n
+        \   <div style=\"clear:both\"></div>\n\n    <div id=\"gif-info-container\">\n
+        \       <div class=\"gif-info-wrapper\">\n            \n<!--  TAGS -->\n\n<div
+        id=\"tags-wrapper\" class=\"tags detail-section grid_10\">\n    <h2 class=\"detail-section-label\">Tags</h2>\n
+        \   \n        \n        <h3 class=\"tag\">\n            <a href=\"/search/melissa-benoist/\">melissa
+        benoist</a>\n        </h3>\n        \n    \n        \n        <h3 class=\"tag\">\n
+        \           <a href=\"/search/helpers/\">helpers</a>\n        </h3>\n        \n
+        \   \n</div>\n\n<!-- /TAGS -->\n\n<!-- INFO BAR -->\n<div style=\"clear: both\"></div>\n<div
+        id=\"metadata-wrapper\" class=\"infobar detail-section grid_10\">\n    \n
+        \       <h1 class=\"detail-section-label\" itemprop=\"headline\">melissa benoist
+        animated GIF</h1>\n    \n    <div>Dimensions: <span class=\"size\">245x265</span></div>\n
+        \   <div>Size: <span class=\"size\">326KB</span></div>\n    \n    <div>Frames:
+        <span class=\"frames\">23</span></div>\n    \n\n</div>\n<!-- /INFO BAR -->\n\n\n
+        \       </div>\n    </div>\n    \n    </div>\n\n    <div id=\"related-container\"
+        class=\"gif-detail-related\"></div>\n</div>\n\n\n    </div>\n    <div style=\"clear:both;
+        margin-bottom: 80px;\"></div>\n\n    \n\n    <!-- FOOTER -->\n<div id=\"footer\">\n
+        \   <div class=\"container_12\">\n        <a href=\"/about\" class=\"nobackbone\">About</a>\n
+        \       <a href=\"/team\" class=\"nobackbone\">Team</a>\n        <a href=\"/partners\"
+        >Partnerships</a>\n        <a href=\"/support\">Support</a>\n        <a href=\"/faq\"
+        class=\"nobackbone\">FAQ</a>\n        <a href=\"/terms\" class=\"nobackbone\"
+        rel=\"nofollow\">Terms</a>\n        <a href=\"/privacy\" class=\"nobackbone\"
+        rel=\"nofollow\">Privacy</a>\n        <a href=\"/dmca\" class=\"nobackbone\">DMCA</a>\n
+        \       <a href=\"https://api.giphy.com\" target=\"_blank\">API</a>\n        <a
+        href=\"/labs\">Labs</a>\n        <a href=\"https://plus.google.com/102326335303951063068\"
+        rel=\"publisher\" target=\"_blank\">Google+</a>\n        <a class=\"tumblr-header
+        social-footer sprite _008_header_tumblr\" target=\"_blank\" rel=\"me\" href=\"http://blog.giphy.com\"></a>\n
+        \       <a class=\"twitter-header social-footer sprite _009_header_twitter\"
+        target=\"_blank\" rel=\"me\" href=\"http://twitter.com/giphy\"></a>\n\t<a
+        class=\"facebook-header social-footer sprite _007_header_facebook\" target=\"_blank\"
+        rel=\"me\" href=\"http://www.facebook.com/thisisgiphy\"></a>\n        <a class=\"mail-header
+        social-footer sprite _006_header_email\" href=\"/subscribe\"></a>\n    </div>\n</div>\n<!--
+        /FOOTER -->\n\n\n\n        <!-- ANALYTICS -->\n        \n            <!--
+        chartbeat -->\n<script type=\"text/javascript\">\n    var _sf_async_config
+        = { uid: 45265, domain: 'giphy.com' };\n    (function() {\n        function
+        loadChartbeat() {\n            window._sf_endpt = (new Date()).getTime();\n
+        \           var e = document.createElement('script');\n            e.setAttribute('language',
+        'javascript');\n            e.setAttribute('type', 'text/javascript');\n            e.setAttribute('src',\n
+        \               ((\"https:\" == document.location.protocol) ? \"https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/\"
+        : \"http://static.chartbeat.com/\") +\n                \"js/chartbeat.js\");\n
+        \           document.body.appendChild(e);\n        };\n        var oldonload
+        = window.onload;\n        window.onload = (typeof window.onload != 'function')
+        ?\n            loadChartbeat : function() { oldonload(); loadChartbeat();
+        };\n    })();\n</script>\n<!-- /chartbeat -->\n\n<!-- Quantcast Tag -->\n<script
+        type=\"text/javascript\">\n    var _qevents = _qevents || [];\n    __qc =
+        undefined;\n    (function() {\n        var elem = document.createElement('script');\n
+        \       elem.src = (document.location.protocol == \"https:\" ? \"https://secure\"
+        : \"http://edge\") + \".quantserve.com/quant.js\";\n        elem.async = true;\n
+        \       elem.type = \"text/javascript\";\n        elem.id = \"quantcast\";\n
+        \       var scpt = document.getElementsByTagName('script')[0];\n        scpt.parentNode.insertBefore(elem,
+        scpt);\n    })();\n    _qevents.push({\n        qacct:\"p-PdxaRL3tyJt0S\"\n
+        \   });\n</script>\n\n<noscript>\n    <div style=\"display:none;\">\n        <img
+        src=\"//pixel.quantserve.com/pixel/p-PdxaRL3tyJt0S.gif\" border=\"0\" height=\"1\"
+        width=\"1\" alt=\"Quantcast\"/>\n    </div>\n</noscript>\n<!-- End Quantcast
+        tag -->\n\n<!-- Start Alexa Certify Javascript -->\n<script type=\"text/javascript\">\n_atrk_opts
+        = { atrk_acct:\"wlIjj1aAkN00Ei\", domain:\"giphy.com\",dynamic: true};\n(function()
+        { var as = document.createElement('script'); as.type = 'text/javascript';
+        as.async = true; as.src = \"https://d31qbv1cthcecs.cloudfront.net/atrk.js\";
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as,
+        s); })();\n</script>\n<noscript><img src=\"https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=wlIjj1aAkN00Ei\"
+        style=\"display:none\" height=\"1\" width=\"1\" alt=\"\" /></noscript>\n<!--
+        End Alexa Certify Javascript -->\n\n\n<!-- ga -->\n<script type=\"text/javascript\">\n
+        \   var _gaq = [];\n    _gaq.push(['_setAccount', 'UA-38174542-1']);\n    _gaq.push(['_trackPageview']);\n\n
+        \   (function() {\n        var ga = document.createElement('script'); ga.type
+        = 'text/javascript'; ga.async = true;\n        ga.src = ('https:' == document.location.protocol
+        ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';\n        var
+        s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
+        s);\n    })();\n</script>\n<!-- /ga -->\n\n        \n        <!-- END ANALYTICS
+        -->\n        \n    <script src=\"//giphy.com/static/js/site/third_party.js?NmEwYTNkMDRkNWZkZDE1MQ\"></script>\n
+        \   <script src=\"//giphy.com/static/js/site/footer.js?NmEwYTNkMDRkNWZkZDE1MQ\"></script>\n\n
+        \       \n    \n\n    <script src=\"//giphy.com/static/js/site/gif_detail.js?NmEwYTNkMDRkNWZkZDE1MQ\"></script>\n\n
+        \       \n    </body>\n    \n        <script>\n            Giphy = Giphy ||
+        {};\n        </script>\n    \n</html>\n"
+    http_version: 
+  recorded_at: Wed, 18 Nov 2015 05:31:16 GMT
+recorded_with: VCR 2.9.3
