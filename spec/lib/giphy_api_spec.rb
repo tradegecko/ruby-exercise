@@ -9,7 +9,9 @@ RSpec.describe GiphyApi do
       let(:keyword) { nil }
       it 'should return a random gif url' do
         VCR.use_cassette('giphy/random_gif_without_a_search_keyword') do
-          expect(subject).to be_a URI
+          url = subject
+          expect(url).to be_a URI
+          expect(url.to_s).to include '.gif'
         end
       end
     end
@@ -19,7 +21,9 @@ RSpec.describe GiphyApi do
         let(:keyword) { 'Hola' }
         it 'should return a random gif url' do
           VCR.use_cassette('giphy/random_search_with_a_gif_result') do
-            expect(subject).to be_a URI
+            url = subject
+            expect(url).to be_a URI
+            expect(url.to_s).to include '.gif'
           end
         end
       end

@@ -9,7 +9,7 @@ class GiphyApi
   end
 
   def fetch_random_gif(keyword=nil)
-    Giphy.random(keyword).url
+    Giphy.random(keyword).image_url
   rescue TypeError
     nil
   end
