@@ -6,7 +6,7 @@ RSpec.describe TwitterApi do
   describe '#fetch_tweets' do
     context 'Some tweets found by the keyword' do
       it 'should return an Array of Twitter::Tweet' do
-        VCR.use_cassette('fetch_tweets_with_results') do
+        VCR.use_cassette('twitter/fetch_tweets_with_results') do
           tweets = subject.fetch_tweets('a_giphy_bot')
 
           expect(tweets).to be_a Array
@@ -17,7 +17,7 @@ RSpec.describe TwitterApi do
 
     context 'No tweets found by the keyword' do
       it 'should return an empty Array' do
-        VCR.use_cassette('fetch_tweets_empty_results') do
+        VCR.use_cassette('twitter/fetch_tweets_empty_results') do
           tweets = subject.fetch_tweets('@SomethingReallyRandomSoThatThereWillBeNoTweetFound')
 
           expect(tweets).to be_a Array
@@ -30,7 +30,7 @@ RSpec.describe TwitterApi do
   describe '#tweet' do
     context 'with proper message' do
       it 'should post the tweet and returns the posted tweet' do
-        VCR.use_cassette('tweet_a_proper_message') do
+        VCR.use_cassette('twitter/tweet_a_proper_message') do
           tweet = subject.tweet('Hola! Everyone')
 
           expect(tweet).to be_a Twitter::Tweet
