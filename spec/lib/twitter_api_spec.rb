@@ -40,14 +40,24 @@ RSpec.describe TwitterApi do
 
     context 'with empty message' do
       it 'should raise an Argument Error' do
-        expect{ subject.tweet('') }.to raise_error(ArgumentError, "Message can't be empty")
+        expect { subject.tweet('') }.to raise_error(ArgumentError, "Message and file both can't be empty")
       end
     end
 
     context 'with long message' do
       it 'should raise an Argument Error' do
         message = 'AReallyLongMessageToBreakTheDefaultMessageLengthOfTwitter' * 3
-        expect{ subject.tweet(message) }.to raise_error(ArgumentError, 'Message more than 140 characters')
+        expect { subject.tweet(message) }.to raise_error(ArgumentError, 'Message more than 140 characters')
+      end
+    end
+
+    context 'tweeting with a file' do
+      it 'should post the tweet and returns the posted tweet' do
+        VCR.use_cassette('twitter/tweet_a_file') do
+          tweet = subject.tweet('',File.new('spec/support/test'))
+
+          expect(tweet).to be_a Twitter::Tweet
+        end
       end
     end
   end
