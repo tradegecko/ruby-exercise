@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.giphy.com/v1/gifs/random?api_key=<giphy_api_key>&tag=Hola
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Nov 2015 03:09:31 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc28507778315d397651af242ab308f7e1447816171; expires=Thu, 17-Nov-16
+        03:09:31 GMT; path=/; domain=.giphy.com; HttpOnly
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Age:
+      - '0'
+      - '0'
+      Cf-Railgun:
+      - 94201447d7 72.26 0.051172 0030 5f99
+      Vary:
+      - Accept-Encoding, Accept-Encoding
+      X-Powered-By:
+      - 11C6MKIw5U2xMc
+      X-Robots-Tag:
+      - noindex
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 24707a1f36f53228-SIN
+    body:
+      encoding: UTF-8
+      string: |2-
+
+        {"data":{"type":"gif","id":"5829F9d6boC1W","url":"http:\/\/giphy.com\/gifs\/5829F9d6boC1W","image_original_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/giphy.gif","image_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/giphy.gif","image_mp4_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/giphy.mp4","image_frames":"2","image_width":"200","image_height":"200","fixed_height_downsampled_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/200_d.gif","fixed_height_downsampled_width":"200","fixed_height_downsampled_height":"200","fixed_width_downsampled_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/200w_d.gif","fixed_width_downsampled_width":"200","fixed_width_downsampled_height":"200","fixed_height_small_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/100.gif","fixed_height_small_still_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/100_s.gif","fixed_height_small_width":"100","fixed_height_small_height":"100","fixed_width_small_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/100w.gif","fixed_width_small_still_url":"http:\/\/media4.giphy.com\/media\/5829F9d6boC1W\/100w_s.gif","fixed_width_small_width":"100","fixed_width_small_height":"100","username":"","caption":""},"meta":{"status":200,"msg":"OK"}}
+    http_version: 
+  recorded_at: Wed, 18 Nov 2015 03:09:32 GMT
+recorded_with: VCR 2.9.3
