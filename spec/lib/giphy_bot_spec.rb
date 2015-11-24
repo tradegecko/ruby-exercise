@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Tasks::TweetRandomGifTask do
+RSpec.describe GiphyBot do
 
-  describe '.run' do
-    subject { Tasks::TweetRandomGifTask.run }
+  describe '#tweet_random_gif' do
+    subject { GiphyBot.tweet_random_gif('holla') }
 
     it 'gets a random gif and tweets it and also saves into DB.' do
       VCR.use_cassette('tasks/a_proper_random_gif_tweeted') do

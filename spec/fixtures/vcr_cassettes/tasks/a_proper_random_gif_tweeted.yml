@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.giphy.com/v1/gifs/random?api_key=<giphy_api_key>&tag=true
+    uri: http://api.giphy.com/v1/gifs/random?api_key=<giphy_api_key>&tag=holla
     body:
       encoding: US-ASCII
       string: ''
