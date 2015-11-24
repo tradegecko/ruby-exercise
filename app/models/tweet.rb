@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-  validates_presence_of :tweet_id
+  validates_presence_of :twitter_ref
 
   belongs_to :gif
 
@@ -17,7 +17,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def tweet_and_save
-    self.update!(tweet_id: self.tweet_to_twitter.id.to_i)
+    self.update!(twitter_ref: self.tweet_to_twitter.id.to_i)
   end
 
   def tweet_to_twitter

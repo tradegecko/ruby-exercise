@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151124235936) do
   end
 
   create_table "tweets", force: true do |t|
-    t.decimal  "tweet_id"
+    t.decimal  "twitter_ref"
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,6 +32,6 @@ ActiveRecord::Schema.define(version: 20151124235936) do
   end
 
   add_index "tweets", ["gif_id"], name: "index_tweets_on_gif_id", using: :btree
-  add_index "tweets", ["tweet_id"], name: "index_tweets_on_tweet_id", using: :btree
+  add_index "tweets", ["twitter_ref"], name: "index_tweets_on_twitter_ref", using: :btree
 
 end
