@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'giphy_bot'
 
 RSpec.describe GiphyBot do
 

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'http_helper'
 
 RSpec.describe HttpHelper do
 

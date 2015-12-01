@@ -1,3 +1,5 @@
+require 'twitter_api'
+
 class Tweet < ActiveRecord::Base
   validates_presence_of :twitter_ref
 

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'giphy_api'
 
 RSpec.describe GiphyApi do
 

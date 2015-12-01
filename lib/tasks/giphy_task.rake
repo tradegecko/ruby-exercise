@@ -1,3 +1,5 @@
+require 'giphy_bot'
+
 namespace :giphy do
 
   desc 'Fetches random gif from Giphy and tweets under @a_giphy_bot'

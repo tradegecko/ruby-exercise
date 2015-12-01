@@ -1,3 +1,6 @@
+require 'giphy_api'
+require 'http_helper'
+
 class Gif < ActiveRecord::Base
   validates_presence_of :url, message: 'No gif found on Giphy server'
   validates :url, uniqueness: {

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'twitter_api'
 
 RSpec.describe TwitterApi do
   subject { TwitterApi.new }
