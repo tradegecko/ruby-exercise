@@ -9,7 +9,6 @@ class Gif < ActiveRecord::Base
   }
 
   has_one :tweet
-  attr_accessor :tmp_file
 
   def self.get_random_gif(keyword)
     Gif.create!(
