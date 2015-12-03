@@ -8,7 +8,15 @@ class HttpHelper
     end
   end
 
+  def self.get_json(uri)
+    JSON.parse(get(uri))
+  end
+
   private
+  def self.get(uri)
+    open(uri).read
+  end
+
   def self.temporary_file_name
     "tmp/#{SecureRandom.hex}"
   end

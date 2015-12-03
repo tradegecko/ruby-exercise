@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.thegamegal.com/wordgenerator/generator.php?category=8&game=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 02 Dec 2015 12:52:20 GMT
+      Content-Type:
+      - text/html; charset="UTF-8"
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding, Cookie
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"words":["baby-sitter","mime","chess","download","vitamin","ski
+        goggles","sneeze","swarm","letter opener","drawback","CD","commercial","mascot","tiptoe","shampoo","myth","bedbug","chestnut","caviar","pail","world","fireside","cloak","biscuit","oar","lap","dryer
+        sheets","plank","shrink ray","wedding cake","boa constrictor","dashboard","ditch","saddle","catalog","password","wig","brand","diagonal","moth","cape","bobsled","speakers","safe","applause","sunburn","knight","sheep
+        dog","dizzy","welder","hydrogen","comfy","recycle","macaroni","post office","beanstalk","houseboat","season","swamp","pro","yolk","gold","baguette","newsletter","ringleader","point","wooly
+        mammoth","punk","dream","sweater vest","Heinz 57","jungle","chef","goblin","barber","hail","laser","deep","Internet","coach","extension
+        cord","wind","baseboards","lung","chime","water buffalo","rubber","dent","rind","half","peasant","leak","cabin","darts","bonnet","pocket","grandpa","wax","cell
+        phone charger","logo","glue stick","salmon","retail","dripping","firefighter","bleach","drip","koala","wag","hurdle","wobble","fog","macho","full","fireman
+        pole","crust","yardstick","taxi","shrew","cardboard","clog","vegetarian","quicksand","cheerleader","pizza
+        sauce","traffic jam","fabric","orbit","loveseat","crow''s nest","raft","pharmacist","pigpen","mast","time
+        machine","foil","hot tub","important","banister","bride","drain","fiddle","professor","think","cruise","zoo","dance","cliff","snag","bruise","picnic","rib","glitter","husband","birthday","darkness","gasoline","bookend","dorsal","puppet","scream","avocado","landscape","sponge","sleep","migrate","whisk","exercise","jazz","sushi","mirror","nightmare","dust
+        bunny","double","sandbox","s''mores","shower curtain","kneel","lace","hut","ping
+        pong","dentist","baggage","rim","bargain","handle","bald","zipper","mold","drought","neighborhood","lie","ceiling
+        fan","honk","pilot","juggle","germ","fizz","plow","ivy","runt"]}'
+    http_version: 
+  recorded_at: Wed, 02 Dec 2015 12:52:19 GMT
+recorded_with: VCR 2.9.3
