@@ -8,7 +8,7 @@ RSpec.describe TheGameGalApi do
 
     it 'get random strings' do
       VCR.use_cassette('tasks/fetch_random_words') do
-        expect(subject.count).to be 5
+        expect(subject.count).to be 2
         expect(subject).to all( be_a(String))
       end
     end
