@@ -44,3 +44,4 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sidekiq'
 gem 'twitter'
 gem 'http'
+gem 'redis'
