@@ -21,5 +21,6 @@ module RubyExercise
     # config.i18n.default_locale = :de
 
     config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
