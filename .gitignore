@@ -17,3 +17,6 @@
 
 # Ignore OS System files
 .DS_Store
+
+# Env
+.env
