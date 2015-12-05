@@ -43,3 +43,4 @@ gem 'rails_12factor', group: :production
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sidekiq'
 gem 'twitter'
+gem 'http'
