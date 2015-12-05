@@ -11,6 +11,10 @@ class TwitterClient
     @client.search(query_str, {result_type: 'recent', count: 1})
   end
 
+  def tweet_dreamed_image(status, media, options = {})
+    @client.update_with_media(status, media, options)
+  end
+
   private
 
   def build_query_str keyword
