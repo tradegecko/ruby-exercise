@@ -1,8 +1,11 @@
 class DreamscopeappClient
   BASE_URL = "https://dreamscopeapp.com/api/images".freeze
 
+  attr_reader :filter
+
   def initialize file_path
-    form = { form: { filter: FILTERS.sample, image: HTTP::FormData::File.new(file_path) } }
+    @filter = FILTERS.sample
+    form = { form: { filter: @filter, image: HTTP::FormData::File.new(file_path) } }
     response_hash = JSON.parse(HTTP.post(BASE_URL, form).to_s)
     @pulling_url = BASE_URL +  '/' + response_hash['uuid']
   end
