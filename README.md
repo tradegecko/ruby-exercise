@@ -1,7 +1,7 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 # Overview #
 
-A Rails app that finds the most recent tweet with images by a single keyword and then process them with deep dreaming algorithm, and lastly tweet new images at [@deepdreaming_](https://twitter.com/deepdreaming_).
+A Rails app that finds the most recent tweet with images by a single keyword and then process the image with deep dreaming algorithm, and lastly tweet new images at [@deepdreaming_](https://twitter.com/deepdreaming_).
 
 # Setup
 
@@ -40,3 +40,13 @@ DREAM_KEYWORD
 ## Rake Task with Heroku Scheduler
 
 Add `rake deep_dream` to [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler).
+
+## Potential improvements
+
+* Handle http connection exception (when internet connectivity is bad)
+* Store processed tweets id so that we could guarantee there is no duplications
+
+## Credits
+
+* [Deep Dreaming Algorithm](http://googleresearch.blogspot.sg/2015/07/deepdream-code-example-for-visualizing.html)
+* [dreamscopeapp](https://dreamscopeapp.com/)
