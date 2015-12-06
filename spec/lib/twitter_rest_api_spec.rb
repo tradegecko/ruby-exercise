@@ -1,8 +1,8 @@
 require 'rails_helper'
-require 'twitter_api'
+require 'twitter_rest_api'
 
-RSpec.describe TwitterApi do
-  subject { TwitterApi.new }
+RSpec.describe TwitterRestApi do
+  subject { TwitterRestApi.new }
 
   describe '#fetch_tweets' do
     context 'Some tweets found by the keyword' do

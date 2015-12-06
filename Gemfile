@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
-gem 'twitter'
+gem 'twitter', '~> 5.14.0'
 gem 'giphy'
 
 group :test do

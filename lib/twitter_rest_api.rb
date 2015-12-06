@@ -1,6 +1,6 @@
 require 'twitter'
 
-class TwitterApi
+class TwitterRestApi
 
   DEFAULT_TWEET_COUNT=100
   MAX_TWEET_MESSAGE_LENGTH=140

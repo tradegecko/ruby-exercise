@@ -1,4 +1,5 @@
-require 'twitter_api'
+require 'twitter_rest_api'
+require 'twitter_streaming_api'
 require 'the_game_gal_api'
 
 class Tweet < ActiveRecord::Base
@@ -7,7 +8,7 @@ class Tweet < ActiveRecord::Base
   belongs_to :gif
 
   def twitter_api
-    @twitter_api ||= TwitterApi.new
+    @twitter_api ||= TwitterRestApi.new
   end
 
   def self.tweet_random_words
