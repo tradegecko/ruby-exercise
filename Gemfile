@@ -45,3 +45,4 @@ gem 'sidekiq'
 gem 'twitter'
 gem 'http'
 gem 'redis'
+gem 'rspec-rails', '~> 3.0', :groups => [:development, :test]
