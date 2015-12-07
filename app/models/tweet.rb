@@ -38,7 +38,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.reply_to_the_stream(keyword)
-    twitter_streaming_api.stream(keyword) { |tweet| reply_to_tweet(tweet, keyword) }
+    twitter_streaming_api.stream(keyword) { |tweet| reply_to_tweet(tweet, keyword) unless Tweet.exists?(twitter_ref: tweet.id.to_i) }
   end
 
   def self.reply_to_tweet(tweet, streaming_search_word)
