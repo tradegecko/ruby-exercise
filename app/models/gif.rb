@@ -12,14 +12,15 @@ class Gif < ActiveRecord::Base
 
   def self.get_random_gif(keyword)
     Gif.create!(
-    keyword: keyword,
-        url: GiphyApi.new.fetch_random_gif(keyword).to_s
+      keyword: keyword,
+      url: GiphyApi.new.fetch_random_gif(keyword).to_s
     )
   rescue ActiveRecord::RecordInvalid => errors
     Rails.logger.error errors.to_s
+    return nil
   end
 
   def file
-    File.new(HttpHelper.download_file(self.url).path)
+    @file ||= File.new(HttpHelper.download_file(self.url).path)
   end
 end

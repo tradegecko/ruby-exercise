@@ -18,9 +18,10 @@ class TwitterRestApi
     @client.search(with_search_suffix(keyword), result_type: 'recent').take(DEFAULT_TWEET_COUNT)
   end
 
-  def tweet(message, file=nil)
-    validate(message, file)
-    file.nil? ? @client.update(message) : @client.update_with_media(message, file)
+  def tweet(tweet)
+    validate(tweet.message, tweet.file)
+    tweet.file.nil? ? @client.update(tweet.message, in_reply_to_status_id: tweet.in_reply_to_tweet_id.to_i) :
+        @client.update_with_media(tweet.message, tweet.file, in_reply_to_status_id: tweet.in_reply_to_tweet_id.to_i)
   end
 
   private

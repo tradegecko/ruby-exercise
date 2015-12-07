@@ -43,9 +43,10 @@ gem 'rails_12factor', group: :production
 gem 'twitter', '~> 5.14.0'
 gem 'giphy'
 
+gem 'pry-byebug', group: [:test, :development]
+
 group :test do
   gem 'rspec-rails'
-  gem 'pry-byebug'
   gem 'vcr'
   gem 'webmock'
 end
