@@ -22,7 +22,7 @@ class Tweet < ActiveRecord::Base
 
   def self.tweet_random_gif(keyword, in_reply_to_tweet_id=nil, replying_to_user_handle=nil)
     random_gif = Gif.get_random_gif(keyword)
-    (Rails.logger.info "Gif not found for #{keyword}.." && return) unless random_gif
+    (puts "Gif not found for #{keyword}.." && return) unless random_gif
     tweet_and_save({gif: random_gif, in_reply_to_tweet_id: in_reply_to_tweet_id, replying_to_user_handle: replying_to_user_handle})
   end
 
@@ -30,7 +30,7 @@ class Tweet < ActiveRecord::Base
     tweet = Tweet.create(params)
     tweet.update!(twitter_ref: tweet.tweet_to_twitter.id.to_i)
   rescue ActiveRecord::RecordInvalid => errors
-    Rails.logger.error errors.to_s
+    puts errors.to_s
   end
 
   def tweet_to_twitter
@@ -42,7 +42,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.reply_to_tweet(tweet, streaming_search_word)
-    Rails.logger.info "Got a Tweet - Ref: #{tweet.id}, Text: #{tweet.text}"
+    puts "Got a Tweet - Ref: #{tweet.id}, Text: #{tweet.text}"
     tweet_random_gif(get_keyword_from(tweet.dup, streaming_search_word), tweet.id.to_i, tweet.user.screen_name)
   end
 

@@ -23,7 +23,7 @@ RSpec.describe Tweet, :type => :model do
 
         it 'raise an exception' do
           VCR.use_cassette('app/model/tweets/random_search_with_empty_result') do
-            expect(Rails.logger).to receive(:error).with('Validation failed: Url No gif found on Giphy server')
+            expect(STDOUT).to receive(:puts).with('Validation failed: Url No gif found on Giphy server')
             expect { subject.tweet_random_gif(keyword) }.not_to change(Tweet, :count)
           end
         end
@@ -38,7 +38,7 @@ RSpec.describe Tweet, :type => :model do
 
             # Second tweet with same content
             allow_any_instance_of(GiphyApi).to receive(:fetch_random_gif).and_return(URI(first_tweet.gif.url))
-            expect(Rails.logger).to receive(:error).with('Validation failed: Url Gif already tweeted')
+            expect(STDOUT).to receive(:puts).with('Validation failed: Url Gif already tweeted')
             expect { subject.tweet_random_gif(keyword) }.not_to change(Tweet, :count)
           end
         end

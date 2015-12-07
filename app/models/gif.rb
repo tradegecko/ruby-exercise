@@ -16,7 +16,7 @@ class Gif < ActiveRecord::Base
       url: GiphyApi.new.fetch_random_gif(keyword).to_s
     )
   rescue ActiveRecord::RecordInvalid => errors
-    Rails.logger.error errors.to_s
+    puts errors.to_s
     return nil
   end
 
