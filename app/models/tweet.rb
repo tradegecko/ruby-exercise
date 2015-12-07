@@ -15,9 +15,9 @@ class Tweet < ActiveRecord::Base
     @twitter_streaming_api ||= TwitterStreamingApi.new
   end
 
-  def self.tweet_random_words
+  def self.tweet_random_words(keyword)
     fetch_random_words = TheGameGalApi.fetch_random_words
-    fetch_random_words.each { |word| tweet_and_save({text: word })}
+    fetch_random_words.each { |word| tweet_and_save({text: "#{word} ##{keyword}" })}
   end
 
   def self.tweet_random_gif(keyword, in_reply_to_tweet_id=nil, replying_to_user_handle=nil)

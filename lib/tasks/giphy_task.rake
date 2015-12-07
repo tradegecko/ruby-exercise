@@ -7,9 +7,9 @@ namespace :giphy do
   end
 
   desc 'Fetches random gif from Giphy and tweets under @a_giphy_bot'
-  task :tweet_random_words do
+  task :tweet_random_words, [:keyword] do |t, args|
     Rails.logger.info 'Starting a task to tweet some random words ...'
-    Tweet.tweet_random_words
+    Tweet.tweet_random_words(args.keyword || 'a_giphy_bot')
     Rails.logger.info 'Finished the task of tweeting some random words.'
   end
 

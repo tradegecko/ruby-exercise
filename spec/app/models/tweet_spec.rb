@@ -47,11 +47,12 @@ RSpec.describe Tweet, :type => :model do
   end
 
   describe '#tweet_random_words' do
-    subject { Tweet.tweet_random_words }
+    subject { Tweet.tweet_random_words('random_tweets') }
 
     it 'Tweets random words to twitter' do
       VCR.use_cassette('app/model/tweets/random_words') do
         expect { subject }.to change(Tweet, :count).by(2)
+        expect(Tweet.last.text).to include '#random_tweets'
       end
     end
   end
