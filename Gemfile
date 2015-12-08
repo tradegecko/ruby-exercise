@@ -39,3 +39,15 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+
+gem 'twitter', '~> 5.14.0'
+gem 'giphy'
+
+gem 'pry-byebug', group: [:test, :development]
+
+group :test do
+  gem 'rspec-rails'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'factory_girl_rails'
+end

@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/search/tweets.json?count=100&q=a_giphy_bot%20-RT&result_type=recent
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="<twitter_consumer_key>", oauth_nonce="89d20d96260e8a1df9008c317ad2f8cd",
+        oauth_signature="XSyH6NXT5WyK3dG8J3j%2FeMMjhI8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447773381", oauth_token="<twitter_access_token>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '894'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 17 Nov 2015 15:16:26 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 17 Nov 2015 15:16:26 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A144777338646084141; Domain=.twitter.com; Path=/; Expires=Thu,
+        16-Nov-2017 15:16:26 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 576f126db464d5a6380b34314e256cb0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '177'
+      X-Rate-Limit-Reset:
+      - '1447774003'
+      X-Response-Time:
+      - '48'
+      X-Transaction:
+      - f7d1dbc804c50208
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"statuses":[{"metadata":{"iso_language_code":"es","result_type":"recent"},"created_at":"Tue
+        Nov 17 11:42:27 +0000 2015","id":666582167263145984,"id_str":"666582167263145984","text":"Hola","source":"\u003ca
+        href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":4266344534,"id_str":"4266344534","name":"a_giphy_bot","screen_name":"a_giphy_bot","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Tue
+        Nov 17 09:40:58 +0000 2015","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":1,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"es"}],"search_metadata":{"completed_in":0.027,"max_id":666582167263145984,"max_id_str":"666582167263145984","query":"a_giphy_bot+-RT","refresh_url":"?since_id=666582167263145984&q=a_giphy_bot%20-RT&result_type=recent&include_entities=1","count":100,"since_id":0,"since_id_str":"0"}}'
+    http_version: 
+  recorded_at: Tue, 17 Nov 2015 15:16:26 GMT
+recorded_with: VCR 2.9.3

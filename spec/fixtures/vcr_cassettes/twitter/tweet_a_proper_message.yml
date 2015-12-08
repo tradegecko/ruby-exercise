@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=Hola%21+Everyone
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="<twitter_consumer_key>", oauth_nonce="ece82b289d9c84309afbff5fb89b8e9a",
+        oauth_signature="swNw2gl5wJz7LOwBtybw2jhm4VA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447776151", oauth_token="<twitter_access_token>", oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '738'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 17 Nov 2015 16:02:36 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 17 Nov 2015 16:02:36 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A144777615595824500; Domain=.twitter.com; Path=/; Expires=Thu,
+        16-Nov-2017 16:02:36 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - eb4cbe657458a986e72adf5a5c3a82f0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '69'
+      X-Transaction:
+      - 058504882cdd6370
+      X-Tsa-Request-Body-Time:
+      - '306'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"Tue Nov 17 16:02:35 +0000 2015","id":666647632522182656,"id_str":"666647632522182656","text":"Hola!
+        Everyone","source":"\u003ca href=\"https:\/\/twitter.com\/a_giphy_bot\" rel=\"nofollow\"\u003ea_giphy_bot\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":4266344534,"id_str":"4266344534","name":"a_giphy_bot","screen_name":"a_giphy_bot","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Tue
+        Nov 17 09:40:58 +0000 2015","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":2,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"}'
+    http_version: 
+  recorded_at: Tue, 17 Nov 2015 16:02:36 GMT
+recorded_with: VCR 2.9.3

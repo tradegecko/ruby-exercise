@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/search/tweets.json?count=100&q=@SomethingReallyRandomSoThatThereWillBeNoTweetFound%20-RT&result_type=recent
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="<twitter_consumer_key>", oauth_nonce="1261297f9c4dec4c0467f06cf2848211",
+        oauth_signature="eK1bNhsbpvt109RTR6WAJq9DkpA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447773386", oauth_token="<twitter_access_token>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '253'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 17 Nov 2015 15:16:29 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 17 Nov 2015 15:16:29 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A144777338960788947; Domain=.twitter.com; Path=/; Expires=Thu,
+        16-Nov-2017 15:16:29 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 4225d0ae8fd305e99d0c97db4842e9a2
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '176'
+      X-Rate-Limit-Reset:
+      - '1447774003'
+      X-Response-Time:
+      - '25'
+      X-Transaction:
+      - c83f8925cf1cf946
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"statuses":[],"search_metadata":{"completed_in":0.01,"max_id":666635955298635776,"max_id_str":"666635955298635776","query":"%40SomethingReallyRandomSoThatThereWillBeNoTweetFound+-RT","refresh_url":"?since_id=666635955298635776&q=%40SomethingReallyRandomSoThatThereWillBeNoTweetFound%20-RT&result_type=recent&include_entities=1","count":100,"since_id":0,"since_id_str":"0"}}'
+    http_version: 
+  recorded_at: Tue, 17 Nov 2015 15:16:29 GMT
+recorded_with: VCR 2.9.3

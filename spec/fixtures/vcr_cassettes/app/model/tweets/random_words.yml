@@ -1,0 +1,202 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.thegamegal.com/wordgenerator/generator.php?category=8&game=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 03 Dec 2015 07:01:01 GMT
+      Content-Type:
+      - text/html; charset="UTF-8"
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding, Cookie
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"words":["shower curtain","dent","sandbox","salmon","mast","scream","lace","sweater
+        vest","double","hurdle","wag","peasant","taxi","crow''s nest","avocado","birthday","juggle","shampoo","pail","retail","sneeze","baseboards","season","macho","houseboat","s''mores","boa
+        constrictor","dryer sheets","fizz","diagonal","darts","world","CD","banister","gold","think","pilot","point","hut","wedding
+        cake","sponge","dentist","wind","sheep dog","picnic","password","yolk","runt","koala","bargain","raft","clog","pizza
+        sauce","Heinz 57","gasoline","orbit","punk","welder","shrew","chestnut","dizzy","bald","rind","important","plow","oar","bride","landscape","cheerleader","laser","chime","rubber","hail","drip","hydrogen","fog","zoo","post
+        office","pro","vegetarian","rib","comfy","sunburn","quicksand","coach","sleep","honk","vitamin","logo","myth","pharmacist","swamp","wobble","snag","hot
+        tub","shrink ray","cardboard","fireman pole","drawback","fiddle","yardstick","migrate","drain","Internet","darkness","lie","ping
+        pong","sushi","mirror","nightmare","ski goggles","drought","bleach","foil","beanstalk","caviar","deep","goblin","firefighter","baby-sitter","cruise","cloak","catalog","handle","zipper","plank","bonnet","mime","puppet","fabric","exercise","loveseat","safe","lap","ivy","swarm","time
+        machine","chess","wooly mammoth","download","fireside","barber","glitter","macaroni","whisk","knight","chef","bookend","bedbug","cabin","leak","letter
+        opener","pigpen","bobsled","jungle","dorsal","saddle","dust bunny","water
+        buffalo","full","newsletter","jazz","baguette","kneel","moth","pocket","neighborhood","mascot","husband","ringleader","commercial","applause","dance","ceiling
+        fan","traffic jam","speakers","wig","mold","professor","germ","rim","wax","brand","extension
+        cord","baggage","ditch","cliff","crust","half","dripping","biscuit","lung","cape","bruise","glue
+        stick","recycle","grandpa","dream","tiptoe","cell phone charger","dashboard"]}'
+    http_version: 
+  recorded_at: Thu, 03 Dec 2015 07:01:01 GMT
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=pocket
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="<twitter_consumer_key>", oauth_nonce="5fb9e48c0b5031fbaa7765084a3ab99f",
+        oauth_signature="E%2B8mUuZdEqM%2FOl1yPBjKvCkxpNg%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1449126061", oauth_token="<twitter_access_token>", oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '739'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 03 Dec 2015 07:01:02 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 03 Dec 2015 07:01:02 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144912606217959372; Domain=.twitter.com; Path=/; Expires=Sat,
+        02-Dec-2017 07:01:02 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 4bb97b9ad3ef90c19c3ef7ae5f5cd83a
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '113'
+      X-Transaction:
+      - 2416b09fc188888c
+      X-Tsa-Request-Body-Time:
+      - '2'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"Thu Dec 03 07:01:02 +0000 2015","id":672309549617942528,"id_str":"672309549617942528","text":"pocket","source":"\u003ca
+        href=\"https:\/\/twitter.com\/a_giphy_bot\" rel=\"nofollow\"\u003ea_giphy_bot\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":4266344534,"id_str":"4266344534","name":"a_giphy_bot","screen_name":"a_giphy_bot","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Tue
+        Nov 17 09:40:58 +0000 2015","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":7,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"}'
+    http_version: 
+  recorded_at: Thu, 03 Dec 2015 07:01:02 GMT
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=rib
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="<twitter_consumer_key>", oauth_nonce="77cbf8fe6dec50b1783f73538afa0a7c",
+        oauth_signature="6o%2FsObz2Vn6ruy9oxxXfmQYfbBs%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1449126062", oauth_token="<twitter_access_token>", oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '737'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 03 Dec 2015 07:01:03 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 03 Dec 2015 07:01:03 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144912606310189607; Domain=.twitter.com; Path=/; Expires=Sat,
+        02-Dec-2017 07:01:03 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 33fa1627bdf954d15e2c004f33b79e82
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '92'
+      X-Transaction:
+      - f14730c69668c846
+      X-Tsa-Request-Body-Time:
+      - '1'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"Thu Dec 03 07:01:03 +0000 2015","id":672309553464119296,"id_str":"672309553464119296","text":"rib","source":"\u003ca
+        href=\"https:\/\/twitter.com\/a_giphy_bot\" rel=\"nofollow\"\u003ea_giphy_bot\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":4266344534,"id_str":"4266344534","name":"a_giphy_bot","screen_name":"a_giphy_bot","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Tue
+        Nov 17 09:40:58 +0000 2015","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":8,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_4_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"und"}'
+    http_version: 
+  recorded_at: Thu, 03 Dec 2015 07:01:03 GMT
+recorded_with: VCR 2.9.3
