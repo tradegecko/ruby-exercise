@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.5'
 # Use pg as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -39,3 +39,10 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'sidekiq'
+gem 'twitter'
+gem 'http'
+gem 'redis'
+gem 'rspec-rails', '~> 3.0', :groups => [:development, :test]

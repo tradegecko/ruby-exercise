@@ -1,32 +1,52 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 # Overview #
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+A Rails app that finds the most recent tweet with images by a single keyword and then process the image with deep dreaming algorithm, and lastly tweet new images at [@deepdreaming_](https://twitter.com/deepdreaming_).
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
+# Setup
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
+* `cp .env.sample .env`
+* Go to [https://apps.twitter.com/](https://apps.twitter.com/) and setup new twitter app
+* Add secrets from the new twitter app to your `.env` file
+* `bundle`
 
-Your code should be performant and intuitive.
 
-Any questions, please ask.
+## Usage
+Update `DREAM_KEYWORD` environment variable when changing searched keyword, default value is `dream`.
 
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
+## Gem Used 
+* `sidekiq` for job processing
+* `http` for high performance http handling
+* `twitter` for interacting with twitter
 
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
 
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+## Heroku Addons 
+* `Heroku Scheduler` for simple rake task invoking
+* `Redis To Go` for supporting `sidekiq`
+
+
+## Secrets
+
+[Add secrets to Heroku](https://devcenter.heroku.com/articles/config-vars):
+
+```
+TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET
+TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_TOKEN_SECRET
+DREAM_KEYWORD
+```
+
+## Rake Task with Heroku Scheduler
+
+Add `rake deep_dream` to [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler).
+
+## Potential improvements
+
+* Handle http connection exception (when internet connectivity is bad)
+* Store processed tweets id so that we could guarantee there is no duplications
+
+## Credits
+
+* [Deep Dreaming Algorithm](http://googleresearch.blogspot.sg/2015/07/deepdream-code-example-for-visualizing.html)
+* [dreamscopeapp](https://dreamscopeapp.com/)
