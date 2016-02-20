@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  respond_status_id: 1
+  tweet_text: MyString
+
+two:
+  respond_status_id: 1
+  tweet_text: MyString

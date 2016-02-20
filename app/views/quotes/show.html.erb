@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @quote.author %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @quote.content %>
+</p>
+
+<p>
+  <strong>Hashtags:</strong>
+  <%= @quote.hashtags %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>
