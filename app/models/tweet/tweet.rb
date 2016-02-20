@@ -55,20 +55,20 @@ class Tweet
     end
 
     translator = Translator.new
-    tweets_to_respond.each do |x|
-      response_tweet_str = generate_respond_tweet(x, translator)
+    begin
+      tweets_to_respond.each do |x|
+        response_tweet_str = generate_respond_tweet(x, translator)
 
-      # respond the tweet
-      begin
+        # respond the tweet
         retweet = @client.update("@#{x.user.screen_name} #{response_tweet_str}", in_reply_to_status_id: x.id)
         TweetRespondHistory.create(:respond_status_id => retweet.in_reply_to_status_id, tweet_text: retweet.text)
-
-        return RequestStatus.new(true, retweet.text)
-      rescue StandardError => e
-        return RequestStatus.new(false, e.message)
       end
 
+    rescue StandardError => e
+      return RequestStatus.new(false, e.message)
     end
+
+    return RequestStatus.new(true, "responding to #{tweets_to_respond.size}")
   end
 
 
