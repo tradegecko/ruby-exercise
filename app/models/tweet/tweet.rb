@@ -2,14 +2,13 @@ require 'twitter'
 
 class Tweet
 
-  #TODO To move these setup into env-specific files. Dev keys only.
   def initialize()
     @my_quotes = Quote.all
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = 'Y4nrwPMb6csBxfwD7DCPWTomZ'
-      config.consumer_secret = 'Dt0WthIqye9YpBYl8vRs5NEnX9XZvf0s4BH55hbWLIdNIItwPw'
-      config.access_token = '4925659820-kvvktWT7nPITRF5Vh7EPBAAfv0PajDF3m0PUbkH'
-      config.access_token_secret = 'M5a7IjAsN9QwaWJWe5jhLh2KI5kKxSPfryTWDtfKBG09V'
+      config.consumer_key = ENV['consumer_key']
+      config.consumer_secret = ENV['consumer_secret']
+      config.access_token = ENV['access_token']
+      config.access_token_secret = ENV['access_token_secret']
     end
   end
 
@@ -32,7 +31,6 @@ class Tweet
   # @return RequestStatus
   def tweet_random_quote
     random_quote = generate_random_quote
-    puts "haha" + random_quote
     tweet random_quote
   end
 
@@ -129,7 +127,7 @@ class Tweet
       end
     end
 
-    default =  "Stay hungry. Stay foolish. ~ Steve Jobs #nothingbetterfound #lol"
+    default = "Stay hungry. Stay foolish. ~ Steve Jobs #nothingbetterfound #lol"
     return default
   end
 

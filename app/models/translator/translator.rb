@@ -4,22 +4,19 @@ require 'json'
 class Translator
   attr_reader :supported_langs, :supported_lang_codes, :supported_langs_hash
 
+  #Constants & API keys
+  API_KEY_YANDEX = ENV['yandex_api_key']
+  YANDEX_ENDPOINT = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+  YANDEX_TRANSLATE_CODE_KEY = "code"
+  YANDEX_TRANSLATE_TEXT_KEY = "text"
+  YANDEX_TRANSLATE_MESSAGE_KEY_KEY = "message"
+
   def initialize()
     all_langs = YandexLanguage.all;
     @supported_langs = all_langs
     @supported_langs_hash = all_langs.map { |l| [l.code, l.language] }
     @supported_lang_codes = Hash[all_langs.map { |l| [l.code, l.language] }].keys
   end
-
-
-  #TODO To move these into env-specific files. Dev keys only.
-  #Constant keys
-  API_KEY_YANDEX = "trnsl.1.1.20160220T002124Z.6611cfab5a9c31ae.94d42334594d99371e8b5ee8ce6c75b61c1b5122"
-  YANDEX_ENDPOINT = "https://translate.yandex.net/api/v1.5/tr.json/translate"
-  YANDEX_TRANSLATE_CODE_KEY = "code"
-  YANDEX_TRANSLATE_TEXT_KEY = "text"
-  YANDEX_TRANSLATE_MESSAGE_KEY_KEY = "message"
-
 
   # Translate to a specific language using Yandex
   # Params:
