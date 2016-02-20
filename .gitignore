@@ -19,8 +19,9 @@
 /.idea
 
 # Ignore ENV files
-/config/env.development.yml
 /config/env.production.yml
 /config/env.test.yml
+config/env.development.yml
+
 
 

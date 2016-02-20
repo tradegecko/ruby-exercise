@@ -38,15 +38,19 @@ class Tweet
   # Params:
   # @return RequestStatus
   def respond_tweet
-    last_respond = TweetRespondHistory.all.last
+    last_respond = TweetRespondHistory.all.order("respond_status_id DESC").first
+    puts last_respond
 
     # get tweets to respond by retrieve last responded tweet in db and from twitter retrieve more recent tweets
     # drawback to possibly enhance: if manually answer via Twitter (not via this twitterbot, duplicate reply)
     tweets_to_respond = nil;
     if last_respond && last_respond.respond_status_id?
+      puts last_respond.respond_status_id
+      puts "get from timeline with id"
       tweets_to_respond = @client.mentions_timeline(:since_id => last_respond.respond_status_id)
     else
-      tweets_to_respond = @client.mentions_timeline.take(100)
+      puts "get all 20 max"
+      tweets_to_respond = @client.mentions_timeline.sort_by { |a| a.in_reply_to_status_id.to_s }.reverse
     end
 
     # check if any recent tweets needs responding
