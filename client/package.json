@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
-    "preinstall": "gulp default",
     "test": "gulp test",
     "postinstall": "cd client && bower install --config.interactive=false && gulp build"
   },
