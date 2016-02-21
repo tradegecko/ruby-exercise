@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall": "gulp default",
     "test": "gulp test",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "cd client && bower install --config.interactive=false && gulp build"
   },
   "dependencies": {
     "browser-sync": "~2.9.11",
@@ -52,5 +52,9 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "./client/bower_components"
+  ]
 }
