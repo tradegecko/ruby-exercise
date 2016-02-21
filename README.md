@@ -1,32 +1,22 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 # Overview #
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+Task: Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
+'An Tweetie Bot' by: anthedung
+Website https://atweetbot.herokuapp.com
 
-Your code should be performant and intuitive.
+**Core fuctionalities**
 
-Any questions, please ask.
+*Heroku Scheduler*
+- Tweet a random inspring quote every 1 hour by @TgkTweetie 
+- Respond to unresponded tweets (mentioned @TgkTweetie) by translating the text to something else
 
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
+*Web app*
+- Browse all the quotes in the database
+- Add a new quote of your choice into the DB for future tweet
 
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
+Thanks for the fun weekend :). Your comments are greatly appreciated!
 
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+Contact: anthedung@gmail.com
