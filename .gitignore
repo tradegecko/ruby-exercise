@@ -23,5 +23,7 @@
 /config/env.test.yml
 config/env.development.yml
 
+# Ignore build path
+build/
 
 

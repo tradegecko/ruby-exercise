@@ -17,12 +17,15 @@
       .state('quotes', {
         url: '/quotes',
         templateUrl: 'app/components/articles/articles.html',
-        controller: 'ArticlesController'
+        controller: 'ArticlesController',
+        controllerAs: 'vm'
       })
       .state('new', {
         url: '/new',
         templateUrl: 'app/components/articles/articles_new.html',
-        controller: 'ArticlesController'
+        controller: 'ArticlesController',
+        controllerAs: 'vm'
+
       })
       .state('aboutme', {
         url: '/aboutme',

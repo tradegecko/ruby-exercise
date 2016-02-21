@@ -2,36 +2,35 @@
   'use strict';
 
   angular.module('angularRails')
-    .controller('ArticlesController', function ($scope, $http, $mdToast, Articles) {
-
+    .controller('ArticlesController', function ($http, $mdToast, $log, Articles) {
+      var vm = this;
       Articles.query(function (res) {
-        $scope.articles = res;
+        vm.articles = res;
       });
        
-      $scope.showSuccess = function($event) {
-	    $mdToast.showSimple('Quote saved! May the luck be ever in your favor (to see it).');
-	  };
+      vm.showSuccess = function($event) {
+      $mdToast.showSimple('Quote saved! May the luck be ever in your favor (to see it).');
+    };
 
-	  $scope.showError = function($event) {
-	    $mdToast.showSimple('Sorry... Something wrong with the Ruby guys. I will kick his ass!');
-	  };
+    vm.showError = function($event) {
+      $mdToast.showSimple('Sorry... Something wrong with the Ruby guys. I will kick his ass!');
+    };
 
-	  $scope.showInvalid = function($event) {
-	    $mdToast.showSimple("Sorry. You quote's length should be from 0 - 140 characters");
-	  };
+    vm.showInvalid = function($event) {
+      $mdToast.showSimple("Sorry. You quote's length should be from 0 - 140 characters");
+    };
 
-      $scope.submitForm = function(quote) {
-        console.log("posting data....");
-        console.log(quote)
+      vm.submitForm = function(quote) {
+        $log("posting data....");
+        $log(quote)
         if (quote == null || quote.content == null || quote.content.length == 0 || quote.content.length > 140) {
-        	$scope.showInvalid();
+          vm.showInvalid();
         } else {
-	        $http.post('/api/quotes', JSON.stringify(quote)).success(function(){
-	        	var result = quote.content + " ~ " + quote.author + " #" + quote.hashtags
-	        	$scope.showSuccess()
-	        }).error(function(){
-	        	$scope.showError()
-	        });
+          $http.post('/api/quotes', JSON.toJson(quote)).success(function(){
+            vm.showSuccess()
+          }).error(function(){
+            vm.showError()
+          });
         }
        };
     });
