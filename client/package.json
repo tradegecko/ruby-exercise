@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
+    "preinstall": "gulp default",
     "test": "gulp test",
-    "postinstall": "gulp default"
+    "postinstall": "bower install && gulp build"
   },
   "dependencies": {
     "browser-sync": "~2.9.11",
