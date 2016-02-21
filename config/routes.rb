@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope '/api' do
-    resources :quotes, except: [:new, :edit], defaults: {format: :json}
+    resources :quotes, defaults: {format: :json}
   end
   
 

@@ -9,8 +9,8 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-var proxyMiddleware = require('http-proxy-middleware');
 var exec = require('child_process').exec;
+var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
@@ -26,8 +26,8 @@ function browserSyncInit(baseDir, browser) {
     baseDir: baseDir,
     routes: routes,
     middleware: [
-        proxyMiddleware('/api', { target: 'http://localhost:3000' })
-      ]
+    proxyMiddleware('/api', { target: 'http://localhost:3000' })
+  ]
   };
 
   /*
@@ -62,6 +62,7 @@ gulp.task('serve', ['watch'], function () {
 
 // anthe 
 gulp.task('serve:full-stack', ['rails', 'serve']);
+
 
 gulp.task('serve:dist', ['build'], function () {
   browserSyncInit(conf.paths.dist);

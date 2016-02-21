@@ -1,0 +1,31 @@
+<div layout="column" ng-cloak class="md-inline-form">
+
+  <h3 align="center"> An Interesting Quote </h3>
+  <md-content layout-padding>
+    <div>
+      <form name="quoteForm" ng-controller="ArticlesController" ng-submit="submitForm(quote)">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Author</label>
+            <input ng-model="quote.author">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Hashtags (e.g. life, death, love)</label>
+            <input ng-model="quote.hashtags">
+          </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+          <label>Quote</label>
+          <input ng-model="quote.content">
+        </md-input-container>
+
+        {{result}}
+        <br>
+        
+        <md-button class="md-raised primary" type="submit"> Save it </md-button>
+      </form>
+    </div>
+  </md-content>
+
+  <h4 align="center"> ... and An Tweetie Bot will do the job ;) </h4>
+</div>

@@ -19,12 +19,8 @@ gulp.task('scripts', function() {
 });
 
 function buildScripts() {
-  return gulp.src(path.join(conf.paths.src, '/app/**/*.coffee'))
-    .pipe($.sourcemaps.init())
-    .pipe($.coffeelint())
-    .pipe($.coffeelint.reporter())
-    .pipe($.coffee()).on('error', conf.errorHandler('CoffeeScript'))
-    .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')))
+  return gulp.src(path.join(conf.paths.src, '/app/**/*.js'))
+    .pipe($.eslint())
+    .pipe($.eslint.format())
     .pipe($.size())
 };

@@ -3,9 +3,34 @@
     "version": "1.0.2",
     "props": {
       "angularVersion": "~1.4.2",
-      "angularModules": [],
+      "angularModules": [
+        {
+          "key": "animate",
+          "module": "ngAnimate"
+        },
+        {
+          "key": "cookies",
+          "module": "ngCookies"
+        },
+        {
+          "key": "touch",
+          "module": "ngTouch"
+        },
+        {
+          "key": "sanitize",
+          "module": "ngSanitize"
+        },
+        {
+          "key": "messages",
+          "module": "ngMessages"
+        },
+        {
+          "key": "aria",
+          "module": "ngAria"
+        }
+      ],
       "jQuery": {
-        "key": "jqLite"
+        "key": "jquery2"
       },
       "resource": {
         "key": "angular-resource",
@@ -20,17 +45,17 @@
         "module": "ngMaterial"
       },
       "cssPreprocessor": {
-        "key": "node-sass",
-        "extension": "scss"
+        "key": "noCssPrepro",
+        "extension": "css"
       },
       "jsPreprocessor": {
-        "key": "coffee",
-        "extension": "coffee",
-        "srcExtension": "coffee"
+        "key": "noJsPrepro",
+        "extension": "js",
+        "srcExtension": "js"
       },
       "htmlPreprocessor": {
-        "key": "jade",
-        "extension": "jade"
+        "key": "noHtmlPrepro",
+        "extension": "html"
       },
       "bootstrapComponents": {
         "name": null,
