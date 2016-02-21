@@ -29,8 +29,8 @@
     vm.toggleList = toggleUsersList;
     
     vm.submitForm = function(quote) {
-      $log.debug('toggle left is done');("posting data....");
-      $log.debug('toggle left is done');(quote)
+      $log.debug("posting data....");
+      $log.debug('toggle left is done');
       if (quote == null || quote.content == null || quote.content.length == 0 || quote.content.length > 140) {
         vm.showInvalid();
       } else {
