@@ -7,7 +7,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var runSeq = require('run-sequence')
+// var runSeq = require('run-sequence')
 var wrench = require('wrench');
 
 /**
@@ -31,6 +31,6 @@ gulp.task('default', ['clean'], function () {
 
 
 
-gulp.task('heroku:production', function(){
-  runSeq('clean', 'build', 'minify')
-})
+// gulp.task('heroku:production', function(){
+//   runSeq('clean', 'build', 'minify')
+// })
