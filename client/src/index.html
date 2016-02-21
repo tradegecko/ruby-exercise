@@ -19,20 +19,24 @@
       <link rel="stylesheet" href="./assets/app.css"/>
    </head>
    <body ng-cloak layout="column">
-      <md-toolbar md-scroll-shrink>
+
+      <md-toolbar md-scroll-shrink ng-controller="ArticlesController as vm">
          <h4 align="center">
             <md-icon md-svg-icon="./assets/svg/social-twitter-circular-button.svg" class="avatar"></md-icon>
             An Tweetie Bot - Fun time credit to 
-            <acme-malarkey extra-values="['Ruby on Rails', 'AngularJS', 'Yeoman', 'Gulp Angular team', 'Flaticon', 'TradeGecko']" >
+            <acme-malarkey extra-values="['Ruby on Rails', 'AngularJS', 'Yeoman', 'Gulp Angular team', 'Flaticon', 'TradeGecko', 'Heroku']" >
             </acme-malarkey>
             &#9829;
          </h4>
+         <md-button id="main" class="menu" hide-gt-sm ng-click="vm.toggleList()" aria-label="Show User List" >
+           <md-icon md-svg-icon="./assets/svg/menu.svg" ></md-icon>
+         </md-button>
       </md-toolbar>
-      <div layout="row" flex>
-         <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+      <div layout="row" flex >
+         <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" 
             md-component-id="left"
-            ng-click="ul.toggleList()" aria-label="Show User List"
-            md-is-locked-open="$mdMedia('gt-sm')">
+            ng-click="vm.toggleList()" aria-label="Show User List"
+            md-is-locked-open="$mdMedia('gt-sm')" >
             <md-list>
                <md-list-item>
                   <md-button href="#quotes" ng-class="">

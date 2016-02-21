@@ -27,10 +27,10 @@
         'logo': 'angular-material.png'
       },
       {
-        'title': 'BrowserSync',
-        'url': 'http://browsersync.io/',
-        'description': 'Time-saving synchronised browser testing.',
-        'logo': 'browsersync.png'
+        'title': 'Heroku',
+        'url': 'http://heroku.com/',
+        'description': 'Platform as a service (PaaS).',
+        'logo': 'heroku.png'
       },
       {
         'title': 'GulpJS',
