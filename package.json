@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
-    "preinstall": "gulp default",
     "test": "gulp test",
     "postinstall": "cd client && bower install --config.interactive=false && gulp build"
   },
@@ -51,7 +50,7 @@
     "wrench": "~1.5.8"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "5.5.0"
   },
   "cacheDirectories": [
     "node_modules",
