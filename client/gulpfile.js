@@ -7,6 +7,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var runSeq = require('run-sequence')
 var wrench = require('wrench');
 
 /**
@@ -27,3 +28,9 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
+
+
+
+gulp.task('heroku:production', function(){
+  runSeq('clean', 'build', 'minify')
+})
