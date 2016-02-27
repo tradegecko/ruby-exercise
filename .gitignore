@@ -26,4 +26,7 @@ config/env.development.yml
 # Ignore build path
 build/
 
+# Ignore AngularJS
+client/
+package.json
 
