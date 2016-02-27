@@ -3,8 +3,13 @@
 
 Task: Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
 
-
 'An Tweetie Bot' by: anthedung
+
+V2.0 RoR focus
+Website http://atweetbotmin.herokuapp.com
+
+
+V1.0 RoR + Angular
 Website https://atweetbot.herokuapp.com
 
 **Core fuctionalities**
