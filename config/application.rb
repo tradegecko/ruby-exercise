@@ -12,6 +12,7 @@ module RubyExercise
     # load Models in models/subfolder
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{*/}')]
 
+    PAGINATION_PAGE_DEFAULT = 5;
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

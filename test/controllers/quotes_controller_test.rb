@@ -46,4 +46,9 @@ class QuotesControllerTest < ActionController::TestCase
 
     assert_redirected_to quotes_path
   end
+
+  test "should not save quote without content" do
+    quote = Quote.new
+    assert_not quote.save, "Saved the quote without a title"
+  end
 end

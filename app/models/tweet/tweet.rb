@@ -12,19 +12,19 @@ class Tweet
     end
   end
 
+
   # tweet with a specific content specified
   # Params:
   # +tweet_content+:: body of tweet
   # @return RequestStatus
   def tweet(tweet_content = "Hola! Nothing to tweet about?")
-    begin
-      response = @client.update(tweet_content);
+    response = @client.update(tweet_content)
+    return RequestStatus.new(true, response.text)
 
-      return RequestStatus.new(true, response.text)
-    rescue StandardError => e
-      return RequestStatus.new(false, e.message)
-    end
+  rescue StandardError => e
+    return RequestStatus.new(false, e.message)
   end
+
 
   # tweet hourly with a random quote from the database
   # Params:
@@ -34,49 +34,36 @@ class Tweet
     tweet random_quote
   end
 
+
   # respond to tweet by translating to a random language
   # Params:
   # @return RequestStatus
   def respond_tweet
-    last_respond = TweetRespondHistory.all.order("respond_status_id DESC").first
-    puts last_respond
-
     # get tweets to respond by retrieve last responded tweet in db and from twitter retrieve more recent tweets
     # drawback to possibly enhance: if manually answer via Twitter (not via this twitterbot, duplicate reply)
-    tweets_to_respond = nil;
-    if last_respond && last_respond.respond_status_id?
-      puts last_respond.respond_status_id
-      puts "get from timeline with id"
-      tweets_to_respond = @client.mentions_timeline(:since_id => last_respond.respond_status_id)
-    else
-      puts "get all 20 max"
-      tweets_to_respond = @client.mentions_timeline.sort_by { |a| a.in_reply_to_status_id.to_s }.reverse
-    end
+    tweets_to_respond = retrieve_tweets_from_mentions_timeline
 
-    # check if any recent tweets needs responding
-    if tweets_to_respond && tweets_to_respond.empty?
+    # processing tweets_to_respond
+    if tweets_to_respond.is_a? RequestStatus
+      # check if return RequestStatus instead then return the status
+      return tweets_to_respond
+    elsif tweets_to_respond && tweets_to_respond.empty?
+      # check if any recent tweets needs responding
       return RequestStatus.new(false, "No tweet to respond!")
-    end
-
-    translator = Translator.new
-    begin
-      tweets_to_respond.each do |x|
-        response_tweet_str = generate_respond_tweet(x, translator)
-
-        # respond the tweet
-        retweet = @client.update("@#{x.user.screen_name} #{response_tweet_str}", in_reply_to_status_id: x.id)
-        TweetRespondHistory.create(:respond_status_id => retweet.in_reply_to_status_id, tweet_text: retweet.text)
+    else
+      # execute respond on retrieved tweets
+      begin
+        execute_respond_on_tweets tweets_to_respond
+      rescue StandardError => e
+        return RequestStatus.new(false, e.message)
       end
-
-    rescue StandardError => e
-      return RequestStatus.new(false, e.message)
     end
 
     return RequestStatus.new(true, "responding to #{tweets_to_respond.size}")
   end
 
 
-  # helper methods
+  # helper private methods
   # generate tweet's body by translating - reuse translator
   def generate_respond_tweet x, translator
     # regex to remove first tag only
@@ -86,8 +73,9 @@ class Tweet
     translate_response = nil
     random_lang = nil
     3.times do
-      random_lang = translator.supported_langs.sample;
+      random_lang = translator.supported_langs.sample
       translate_response = translator.translate_with_yandex(text_removed_tags, random_lang.code)
+      # puts translate_response
       if translate_response.status
         break
       end
@@ -110,8 +98,6 @@ class Tweet
     @my_quotes = Quote.all
 
     # retry 3 times if found quote <= 140 character limit
-    tweet_body = nil
-
     3.times do
       sample = @my_quotes.to_a.sample
       tags = put_hash_tag sample.hashtags
@@ -126,8 +112,8 @@ class Tweet
       puts tweet_body.size
       if tweet_body.size <= 140
         return tweet_body
-      else
-        puts tweet_body
+        # else
+        #   puts tweet_body
       end
     end
 
@@ -135,6 +121,40 @@ class Tweet
     return default
   end
 
+  # execute respond on specific tweets in arguments
+  # 1. generate tweet content
+  # 2. post the tweet
+  # 3. save the respond record
+  def execute_respond_on_tweets tweets_to_respond
+    translator = Translator.new
+    tweets_to_respond.each do |x|
+      # generate tweet
+      response_tweet_str = generate_respond_tweet(x, translator)
 
-  private :put_hash_tag, :generate_respond_tweet, :generate_random_quote
+      # post the tweet
+      retweet = @client.update("@#{x.user.screen_name} #{response_tweet_str}", in_reply_to_status_id: x.id)
+
+      # insert new retweet record
+      TweetRespondHistory.create(:respond_status_id => retweet.in_reply_to_status_id, tweet_text: retweet.text)
+    end
+  end
+
+  # retrieve tweets from mentions in timeline
+  # 1. get last respond object from TweetRespondHistory
+  # 2. if object exist, get mentions_timeline only for tweets since after biggest id
+  # 3. else retrieve response (max 20) from twitters, sorting oldest to most recent
+  # return RequestStatus if operation fails (network failure, etc) else tweets_to_respond object
+  def retrieve_tweets_from_mentions_timeline
+    last_respond = TweetRespondHistory.order("respond_status_id DESC").first
+    if last_respond && last_respond.respond_status_id?
+      tweets_to_respond = @client.mentions_timeline(:since_id => last_respond.respond_status_id)
+    else
+      tweets_to_respond = @client.mentions_timeline.sort_by { |a| a.in_reply_to_status_id.to_s }.reverse
+    end
+    return tweets_to_respond
+  rescue StandardError => e
+    return RequestStatus.new(false, e.message)
+  end
+
+  private :put_hash_tag, :generate_respond_tweet, :generate_random_quote, :execute_respond_on_tweets, :retrieve_tweets_from_mentions_timeline
 end

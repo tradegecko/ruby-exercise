@@ -12,7 +12,7 @@ class Translator
   YANDEX_TRANSLATE_MESSAGE_KEY_KEY = "message"
 
   def initialize()
-    all_langs = YandexLanguage.all;
+    all_langs = YandexLanguage.all
     @supported_langs = all_langs
     @supported_langs_hash = all_langs.map { |l| [l.code, l.language] }
     @supported_lang_codes = Hash[all_langs.map { |l| [l.code, l.language] }].keys
@@ -22,16 +22,20 @@ class Translator
   # Params:
   # +text+:: body of tweet to be translated
   # +lang+:: language to be translated to (for simplicity, original language is auto-detected by Yandex)
-  # @return translated message if successful or false
+  # @return RequestStatus
   def translate_with_yandex (text, lang)
-    params_str = "?key=#{API_KEY_YANDEX}&text='#{text}'&lang=#{lang}"
-    translate_uri = YANDEX_ENDPOINT + params_str
+    params_str = {
+        key: API_KEY_YANDEX,
+        text: text,
+        lang: lang
+    }.to_query
+    translate_uri = YANDEX_ENDPOINT + "?" + params_str
 
     # get translation
     begin
       response_str = HTTP.get(translate_uri).to_s
     rescue StandardError => e
-      return RequestStatus.new(true, e.message)
+      return RequestStatus.new(false, e.message)
     end
 
     response_hash = JSON.parse(response_str)
@@ -43,7 +47,4 @@ class Translator
     end
   end
 
-  def is_supported_language_by_code?(code)
-    @supported_lang_codes.include? code
-  end
 end

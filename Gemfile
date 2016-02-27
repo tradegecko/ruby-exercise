@@ -43,3 +43,5 @@ gem 'rails_12factor', group: :production
 gem 'twitter'
 
 gem 'http'
+
+gem 'will_paginate'

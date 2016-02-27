@@ -1,11 +1,17 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token
+
+  # default values
+  PAGINATION_PAGE_DEFAULT = 5
 
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all.order("id DESC")
+    @quotes = Quote
+                  .paginate(
+                      :page => params[:page],
+                      :per_page => PAGINATION_PAGE_DEFAULT)
+                  .order('id DESC')
   end
 
   # GET /quotes/1
@@ -63,13 +69,13 @@ class QuotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_quote
-      @quote = Quote.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_quote
+    @quote = Quote.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def quote_params
-      params.require(:quote).permit(:author, :content, :hashtags)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def quote_params
+    params.require(:quote).permit(:author, :content, :hashtags)
+  end
 end

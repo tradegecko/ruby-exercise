@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  author: MyString
-  content: MyText
-  hashtags: MyString
+  author: "Ashley Corleone"
+  content: "Unit test is awesome"
+  hashtags: "test"
 
-two:
-  author: MyString
-  content: MyText
-  hashtags: MyString
+one:
+  author: "Corleone Sweet"
+  content: "Functional test is also awesome"
+  hashtags: "test"

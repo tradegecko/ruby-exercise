@@ -2,15 +2,10 @@ require 'test_helper'
 
 class TranslatorTest < ActiveSupport::TestCase
 
-  test "the successful" do
-    response = Translator.new.translate_with_yandex('I love you', 'zh')
-    puts response
-    assert (response.status)
+  test "translation" do
+    response = Translator.new.translate_with_yandex("Let's have a party with Angular tomorrow?", 'zh')
+    # puts response
+    assert(response.status, response.message)
   end
 
-  test "the failure" do
-    response = Translator.new.translate_with_yandex('I love you', 'zhe')
-    puts response
-    assert (!response.status)
-  end
 end
