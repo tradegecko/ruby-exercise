@@ -14,3 +14,19 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Igore IDE files
+/.idea
+
+# Ignore ENV files
+/config/env.production.yml
+/config/env.test.yml
+config/env.development.yml
+
+# Ignore build path
+build/
+
+# Ignore AngularJS
+client/
+package.json
+

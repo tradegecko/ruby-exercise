@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author: "Ashley Corleone"
+  content: "Unit test is awesome"
+  hashtags: "test"
+
+one:
+  author: "Corleone Sweet"
+  content: "Functional test is also awesome"
+  hashtags: "test"

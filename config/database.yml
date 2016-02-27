@@ -3,15 +3,21 @@ development:
   encoding: unicode
   database: twitter_bot_development
   pool: 5
+  username: <%= ENV['db_username'] %>
+  password: <%= ENV['db_password'] %>
 
 test:
   adapter: postgresql
   encoding: unicode
   database: twitter_bot_test
   pool: 5
+  username: <%= ENV['db_username'] %>
+  password: <%= ENV['db_password'] %>
 
 production:
   adapter: postgresql
   encoding: unicode
   database: twitter_bot_production
   pool: 5
+  username: <%= ENV['db_username'] %>
+  password: <%= ENV['db_password'] %>
