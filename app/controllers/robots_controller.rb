@@ -27,7 +27,7 @@ class RobotsController < ApplicationController
   	if Rails.env.development?
       return 'Singapore'
     else
-      request.location.city
+      request.remote_ip
     end 
   end
 
