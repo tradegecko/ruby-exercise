@@ -6,12 +6,12 @@ class TwitterClient
 
 	def post_tweet(result)
 		coordinate(result)
-		@client.update("Visitor from #{result}: The weather is #{@forecast.summary} and #{@forecast.temperature} celcius")
+		@client.update("Visitor from #{result}: The weather is #{@forecast.summary} and #{@forecast.temperature} celsius")
 	end
 
 	def random_post_tweet
 		coordinate(nil)
-		@client.update("Today's Random City: #{@city}'s weather is #{@forecast.summary} and #{@forecast.temperature} celcius")
+		@client.update("Today's Random City: #{@city}'s weather is #{@forecast.summary} and #{@forecast.temperature} celsius")
 	end
 
 	def coordinate(result)
