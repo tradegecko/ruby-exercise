@@ -23,7 +23,7 @@ class TwitterClient
 			location[0].city.empty? ? @city = 'Unknown City' : @city = location[0].city
 		else
 			location = Geocoder.search(result)
-			@city = result
+			@city = location[0].city
 		end
 		lat, long = location[0].latitude, location[0].longitude
 		@forecast = ForecastIO.forecast(lat, long, params: { units: 'si' }).currently
