@@ -7,9 +7,10 @@ class TwitterClient
 	end
 
 	def post_tweet
-		result = request_ip
-		coordinate(result)
-		@client.update("Visitor from #{result}: The weather is #{@forecast.summary} and #{@forecast.temperature} celcius")
+		puts request.location
+		# result = request_ip
+		# coordinate(result)
+		# @client.update("Visitor from #{result}: The weather is #{@forecast.summary} and #{@forecast.temperature} celcius")
 	end
 
 	def random_post_tweet
