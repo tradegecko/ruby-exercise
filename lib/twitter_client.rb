@@ -22,7 +22,6 @@ class TwitterClient
 			end		
 			location[0].city.empty? ? @city = 'Unknown City' : @city = location[0].city
 		else
-			location = Geocoder.search(result)
 			@city = result
 		end
 		lat, long = location[0].latitude, location[0].longitude
