@@ -10,11 +10,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'twitter'
+gem 'aasm'
 
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-its'
   gem 'dotenv-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
