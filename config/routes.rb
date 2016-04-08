@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'robots#index'
 
+  get '/send_weather' => 'robots#send_weather'
+  get '/weather_send' => 'robots#weather_send'
+  
+  get '/random_send_weather' => 'robots#random_send_weather'
+  get '/random_weather_send' => 'robots#random_weather_send'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
