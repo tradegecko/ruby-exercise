@@ -4,7 +4,8 @@ class RobotsController < ApplicationController
 
   def send_weather
   	client = TwitterClient.new
-  	client.post_tweet
+  	result = request_ip
+  	client.post_tweet(result)
   	redirect_to weather_send_path
   end
 
@@ -18,6 +19,16 @@ class RobotsController < ApplicationController
   end
 
   def random_weather_send
+  end
+
+  private
+
+  def request_ip
+  	if Rails.env.development?
+      return 'Singapore'
+    else
+      request.location.city
+    end 
   end
 
 end

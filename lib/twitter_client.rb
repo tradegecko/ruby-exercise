@@ -1,13 +1,11 @@
 class TwitterClient
-
-	include ApplicationHelper
 	
 	def initialize
 		@client = twitter_credentials
 	end
 
-	def post_tweet
-		result = request_ip
+	def post_tweet(result)
+		# result = request_ip
 		coordinate(result)
 		@client.update("Visitor from #{result}: The weather is #{@forecast.summary} and #{@forecast.temperature} celcius")
 	end
