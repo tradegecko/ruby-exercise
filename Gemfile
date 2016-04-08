@@ -39,9 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'byebug'
-
 gem 'rails_12factor', group: :production
-
 gem 'twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'geocoder'
