@@ -38,7 +38,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'byebug'
 gem 'rails_12factor', group: :production
 gem 'twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
