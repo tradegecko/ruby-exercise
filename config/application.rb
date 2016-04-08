@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module RubyExercise
   class Application < Rails::Application
+    config.autoload_paths << File.join(Rails.root, "app", "classes")
     config.generators do |generate|
       generate.helper false
       generate.javascript_engine false
