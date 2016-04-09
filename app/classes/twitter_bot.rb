@@ -38,15 +38,16 @@ class TwitterBot
     end
   end
 
-  def gather_tweet_data
-    @client.search("#kpop", :result_type => "recent").take(50).collect do |tweet|
+  def gather_tweet_data count=10
+    @client.search("#kpop", :result_type => "recent").take(count).collect do |tweet|
       text = tweet.text.dup
       unwanted = []
       unwanted += extract_urls(text)
       unwanted += extract_hashtags(text)
       unwanted += extract_mentioned_screen_names(text)
-      unwanted += ['@', '#', 'https://t.', 'https://…']
+      unwanted += ['@', '#']
       unwanted.each {|u| text.gsub!(u, '')}
+      next if text =~ /http/
       TweetData.create(content: text, hashtag: 'kpop')
     end
   end
