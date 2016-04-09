@@ -4,7 +4,7 @@ RSpec.describe Tweet, type: :model do
   subject(:tweet) { build :tweet }
 
   it { is_expected.to be_valid }
-  its(:aasm_state) { is_expected.to eql "new" }
+  its(:aasm_state) { is_expected.to eql "untweeted" }
 
   describe 'Validations' do
     context 'when content is empty' do
