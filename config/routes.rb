@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'robots#index'
+  resources :tweets, only: [:new, :create]
 
-  resources :tweets
+  root to: 'tweets#new'
 end
