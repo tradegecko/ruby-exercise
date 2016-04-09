@@ -24,7 +24,7 @@ RSpec.describe TweetsController, type: :controller do
   describe "POST #create" do
     context "if invalid" do
       before do
-        post :create, tweets: { content: '' }
+        post :create, tweet: { content: '' }
       end
       it "should render #new" do
         expect(response).to render_template 'tweets/new'
@@ -38,17 +38,17 @@ RSpec.describe TweetsController, type: :controller do
     context "if valid" do
       it "should create new tweet" do
         expect{
-          post :create, tweets: { content: 'New content' }
+          post :create, tweet: { content: 'New content' }
         }.to change(Tweet, :count).by 1
       end
 
       it "should have correct redirect" do
-        post :create, tweets: { content: 'New content' }
+        post :create, tweet: { content: 'New content' }
         expect(response).to redirect_to root_path
       end
 
       it "should have correct flash" do
-        post :create, tweets: { content: 'New content' }
+        post :create, tweet: { content: 'New content' }
         expect(flash[:notice]).to eql 'Tweet submitted'
       end
     end

@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(params.require(:tweets).permit(:content))
+    @tweet = Tweet.new(params.require(:tweet).permit(:content))
     if @tweet.save
       redirect_to root_path, notice: 'Tweet submitted'
     else
