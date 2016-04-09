@@ -10,10 +10,14 @@ class Tweet < ActiveRecord::Base
 
   aasm do
     state :untweeted, initial: true
-    state :tweeted
+    state :tweeted, before_enter: :update_tweeted_on
 
     event :tweet do
       transitions from: :untweeted, to: :tweeted
     end
+  end
+
+  def update_tweeted_on
+    self.tweeted_on = Time.now
   end
 end
