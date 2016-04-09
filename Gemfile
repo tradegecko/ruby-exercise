@@ -39,3 +39,10 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+
+# Twitter
+gem 'twitter'
+
+# Use dontenv for environment variables 
+gem 'dotenv-rails', :groups => [:development, :test]
+
