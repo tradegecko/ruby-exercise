@@ -11,17 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408161909) do
+ActiveRecord::Schema.define(version: 20160409113242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "mentions", force: true do |t|
+    t.string   "content"
+    t.string   "sender_twitter_id"
+    t.string   "mention_tweet_id"
+    t.string   "reply_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "aasm_state"
+  end
+
   create_table "tweets", force: true do |t|
-    t.string   "content",    null: false
+    t.string   "content",                    null: false
     t.datetime "tweeted_on"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "aasm_state"
+    t.boolean  "reply",      default: false
+    t.integer  "mention_id"
   end
 
 end

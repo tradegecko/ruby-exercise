@@ -15,4 +15,33 @@ RSpec.describe Tweet, type: :model do
       it { is_expected.not_to be_valid }
     end
   end
+
+  describe "Associations" do
+    it "should belongs_to Mention" do
+      mention = create :mention
+      mention.tweets << subject
+      expect(subject.mention).to eql mention
+    end
+  end
+
+  describe "Scope" do
+    describe "#unsent" do
+      it "should not include reply tweets" do
+        tweet = create :tweet, reply: true
+        expect(Tweet.unsent).not_to include tweet
+      end
+    end
+
+    describe "#unreplied" do
+      it "should include reply tweets" do
+        tweet = create :tweet, reply: true
+        expect(Tweet.unreplied).to include tweet
+      end
+
+      it "should only include reply tweets" do
+        tweet = create :tweet, reply: false
+        expect(Tweet.unreplied).not_to include tweet
+      end
+    end
+  end
 end

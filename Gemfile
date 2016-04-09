@@ -20,10 +20,15 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'letter_opener'
   gem 'launchy'
   gem 'spring'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+  gem 'database_cleaner'
 end
 
 group :development do

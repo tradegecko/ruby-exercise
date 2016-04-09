@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/account/verify_credentials.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Authorization:
+      - OAuth oauth_consumer_key="ijUJ89bOfpiYT9TajorP2gejR", oauth_nonce="82e73d7194ea027c6b7c0bc7fabeb1f0",
+        oauth_signature="M9gfEXRWMOKN8MkNo%2FNbENMlh2c%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1460215225", oauth_token="718430871443759105-1uk0t6RzJH2BIT5accZjUI4gfNaojrS",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '728'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 09 Apr 2016 15:20:26 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sat, 09 Apr 2016 15:20:26 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A146021522679632550; Domain=.twitter.com; Path=/; Expires=Mon,
+        09-Apr-2018 15:20:26 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write-directmessages
+      X-Connection-Hash:
+      - fa9c5e9d50d3d2470be1d2b38be6720e
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '15'
+      X-Rate-Limit-Remaining:
+      - '12'
+      X-Rate-Limit-Reset:
+      - '1460215892'
+      X-Response-Time:
+      - '32'
+      X-Transaction:
+      - 4c3adb938c49c366
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      - BouncerExempt
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":718430871443759105,"id_str":"718430871443759105","name":"daebakbot","screen_name":"daebakbot","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Fri
+        Apr 08 13:30:42 +0000 2016","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":62,"lang":"en","status":{"created_at":"Sat
+        Apr 09 15:19:35 +0000 2016","id":718820660655497218,"id_str":"718820660655497218","text":"Content
+        1","entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"truncated":false,"source":"\u003ca
+        href=\"http:\/\/daebakbot.herokuapp.com\" rel=\"nofollow\"\u003eDaebakbot\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"F5F8FA","profile_background_image_url":null,"profile_background_image_url_https":null,"profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_2_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_2_normal.png","profile_link_color":"2B7BB9","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false}'
+    http_version: 
+  recorded_at: Sat, 09 Apr 2016 15:20:27 GMT
+recorded_with: VCR 3.0.1

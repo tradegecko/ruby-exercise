@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe TwitterBot do
+describe TwitterBot, :vcr, record: :once do
 
   before do
     @bot = TwitterBot.new
@@ -22,5 +22,11 @@ describe TwitterBot do
     tweet.tweet!
     @bot.tweet
     expect(@client.home_timeline.first.text).not_to eql tweet.content
+  end
+
+  describe '#sync_mentioned' do
+    it 'saves mentions to Mention' do 
+     #TODO: Find a way to mock unread mentions and use it to test because it changes everytime
+    end
   end
 end
