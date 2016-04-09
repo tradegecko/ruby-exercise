@@ -1,6 +1,8 @@
 class TweetsController < ApplicationController
   def new
     @tweet = Tweet.new
+    @unsent = Tweet.unsent
+    @unreplied = Tweet.unreplied
   end
 
   def create

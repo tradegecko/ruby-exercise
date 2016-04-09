@@ -22,8 +22,7 @@ class TwitterBot
     return if Tweet.unreplied.empty?
     Tweet.unreplied.each do |tweet|
       mention = tweet.mention
-      mentioner = client.user mention.sender_twitter_id.to_i
-      @client.update "@#{mentioner.screen_name} #{tweet.content}", in_reply_to_status_id: mention.mention_tweet_id.to_i
+      @client.update "@#{mention.screen_name} #{tweet.content}", in_reply_to_status_id: mention.mention_tweet_id.to_i
       tweet.tweet!
     end
   rescue StandardError => e
@@ -34,7 +33,7 @@ class TwitterBot
     @client.mentions_timeline.each do |tweet|
       next if tweet.user.id == @client.current_user.id
       next if Mention.exists? mention_tweet_id: tweet.id.to_s
-      Mention.create(content: tweet.text, mention_tweet_id: tweet.id.to_s, sender_twitter_id: tweet.user.id.to_s )
+      Mention.create(content: tweet.text, mention_tweet_id: tweet.id.to_s, screen_name: tweet.user.screen_name )
     end
   end
 end

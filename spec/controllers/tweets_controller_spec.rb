@@ -8,7 +8,7 @@ RSpec.describe TweetsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
     
-    context "assigns" do
+    context "assigns @tweet" do
       it "is a tweet" do
         get :new
         expect(assigns[:tweet]).to be_a Tweet
@@ -17,6 +17,26 @@ RSpec.describe TweetsController, type: :controller do
       it "is new record" do
         get :new
         expect(assigns[:tweet]).to be_new_record
+      end
+    end
+
+    context "assigns @unsent" do
+      it "is an unsent tweets" do
+        t1 = create :tweet
+        t2 =  create :tweet
+        get :new
+        expect(assigns[:unsent]).to include t1
+        expect(assigns[:unsent]).to include t2
+      end
+    end
+
+    context "assigns @unreplied" do
+      it "is an unsent tweets" do
+        t1 = create :tweet, reply: true
+        t2 =  create :tweet, reply: true
+        get :new
+        expect(assigns[:unreplied]).to include t1
+        expect(assigns[:unreplied]).to include t2
       end
     end
   end

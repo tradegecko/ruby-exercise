@@ -5,3 +5,35 @@
   <%= f.submit 'Submit', class: 'btn btn-default pull-right'%>
 <% end %>
 
+<div class="col-xs-12">
+  <div class="col-xs-12 col-sm-6">
+    <div class="header">
+      <h4 class="text-muted">Unsent</h4>
+      <hr>
+    </div>
+    <% if @unsent.present? %>
+      <% @unsent.each do |tweet| %>
+        <p><%= tweet.content %></p>
+        <hr>
+      <% end %>
+    <% else %>
+      <p>No unsent tweet</p>
+      <hr>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <h4 class="text-muted">Unreplied</h4>
+    <hr>
+    <% if @unreplied.present? %>
+      <% @unreplied.each do |tweet| %>
+        <small>To: @<%= tweet.mention.screen_name %></small>
+        <p><%= tweet.content %></p>
+        <hr>
+      <% end %>
+    <% else %>
+      <p>No unreplied tweet</p>
+      <hr>
+    <% end %>
+  </div>
+</div>
+
