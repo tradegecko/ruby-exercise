@@ -48,7 +48,7 @@ class MarkovChain
     word      = start_word || random_word
     sentences = ''
     until sentences.count('.') == count
-      sentences << words(rand(20) + 5, word).capitalize << '. '
+      sentences << words(rand(10) + 3, word).capitalize << '. '
       word = get(word)
     end
     sentences.split(" ").join(" ")
