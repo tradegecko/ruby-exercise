@@ -1,4 +1,5 @@
 class TwitterBot
+  include Twitter::Extractor
   attr_reader :client
 
   def initialize
@@ -34,6 +35,19 @@ class TwitterBot
       next if tweet.user.id == @client.current_user.id
       next if Mention.exists? mention_tweet_id: tweet.id.to_s
       Mention.create(content: tweet.text, mention_tweet_id: tweet.id.to_s, screen_name: tweet.user.screen_name )
+    end
+  end
+
+  def gather_tweet_data
+    @client.search("#kpop", :result_type => "recent").take(50).collect do |tweet|
+      text = tweet.text.dup
+      unwanted = []
+      unwanted += extract_urls(text)
+      unwanted += extract_hashtags(text)
+      unwanted += extract_mentioned_screen_names(text)
+      unwanted += ['@', '#', 'https://t.', 'https://…']
+      unwanted.each {|u| text.gsub!(u, '')}
+      TweetData.create(content: text, hashtag: 'kpop')
     end
   end
 end
