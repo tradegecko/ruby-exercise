@@ -10,8 +10,9 @@ class TwitterBot
     end
   end
 
-  def tweet message: nil
-    message ||= Tweet.untweeted.last.content if Tweet.untweeted.last
-    @client.update message if message
+  def tweet
+    return unless Tweet.untweeted.last
+    @client.update Tweet.untweeted.last.content
+    Tweet.untweeted.last.tweet!
   end
 end

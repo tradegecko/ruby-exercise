@@ -11,12 +11,6 @@ describe TwitterBot do
     expect(@client.current_user.id.to_s).to eql ENV['bot_id']
   end
 
-  it 'can send tweet' do
-    message ||= 'Test Status ' + Time.now.to_s
-    @bot.tweet message: message
-    expect(@client.home_timeline.first.text).to eql message
-  end
-
   it "will tweet the oldest Tweet that hasn't been tweeted yet" do
     tweet = create :tweet
     @bot.tweet
