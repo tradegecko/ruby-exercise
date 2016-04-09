@@ -6,6 +6,10 @@ RSpec.describe Tweet, type: :model do
   it { is_expected.to be_valid }
   its(:aasm_state) { is_expected.to eql "untweeted" }
 
+  before do
+    create :tweet_datum
+  end
+
   describe 'Validations' do
     context 'when content is empty' do
       before do

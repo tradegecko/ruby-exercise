@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe Mention, type: :model do
   subject(:mention) { build :mention }
 
+  before do
+    create :tweet_datum
+  end
+
   it { is_expected.to be_valid }
 
   its(:aasm_state) { is_expected.to eql "unanalyzed" }

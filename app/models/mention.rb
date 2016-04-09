@@ -22,7 +22,7 @@ class Mention < ActiveRecord::Base
 
   def perform_analysis
     # perform some kind of analysis here
-    self.reply_content = "I don't know what to say"
+    self.reply_content = TweetData.generate
   end
 
   def prepare_reply

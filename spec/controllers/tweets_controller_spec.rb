@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe TweetsController, type: :controller do
+  before do
+    create :tweet_datum
+  end
 
   describe "GET #new" do
     it "returns http success" do

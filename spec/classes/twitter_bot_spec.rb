@@ -5,6 +5,7 @@ describe TwitterBot, :vcr, record: :once do
   before do
     @bot = TwitterBot.new
     @client = @bot.client
+    create :tweet_datum
   end
 
   it 'have correct user' do 
