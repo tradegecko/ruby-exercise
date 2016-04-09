@@ -1,4 +1,7 @@
-<%= form_for(@tweet) do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
+<%= form_for @tweet, html: { class: 'new_tweet form' } do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Submit', class: 'btn btn-default pull-right'%>
 <% end %>
+

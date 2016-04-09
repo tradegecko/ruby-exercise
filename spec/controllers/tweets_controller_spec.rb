@@ -49,7 +49,7 @@ RSpec.describe TweetsController, type: :controller do
 
       it "should have correct flash" do
         post :create, tweet: { content: 'New content' }
-        expect(flash[:notice]).to eql 'Tweet submitted'
+        expect(flash[:success]).to eql 'Tweet submitted'
       end
     end
   end
