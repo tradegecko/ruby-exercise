@@ -5,3 +5,5 @@ namespace :twitter_bot do
     bot.tweet
   end
 end
+
+task twitter_bot: 'twitter_bot:send_tweet'
