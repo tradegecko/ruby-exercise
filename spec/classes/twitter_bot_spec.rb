@@ -13,7 +13,20 @@ describe TwitterBot do
 
   it 'can send tweet' do
     message ||= 'Test Status ' + Time.now.to_s
-    @bot.tweet(message)
+    @bot.tweet message: message
     expect(@client.home_timeline.first.text).to eql message
+  end
+
+  it "will tweet the oldest Tweet that hasn't been tweeted yet" do
+    tweet = create :tweet
+    @bot.tweet
+    expect(@client.home_timeline.first.text).to eql tweet.content
+  end
+
+  it 'will not tweet the Tweet that has been tweeted' do
+    tweet = create :tweet
+    tweet.tweet!
+    @bot.tweet
+    expect(@client.home_timeline.first.text).not_to eql tweet.content
   end
 end
