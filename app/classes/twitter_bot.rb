@@ -12,9 +12,11 @@ class TwitterBot
   end
 
   def tweet
-    return unless tweet = Tweet.unsent.last
-    @client.update tweet.content
-    tweet.tweet!
+    return if tweet = Tweet.unsent.empty?
+    Tweet.unsent.each do |tweet|
+      @client.update tweet.content
+      tweet.tweet!
+    end
   rescue StandardError => e
     puts "StandardError: #{e}"
   end
