@@ -43,6 +43,7 @@ gem 'rails_12factor', group: :production
 # Twitter
 gem 'twitter'
 
-# Use dontenv for environment variables 
-gem 'dotenv-rails', :groups => [:development, :test]
-
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'dotenv-rails'
+end
