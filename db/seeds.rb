@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+[
+  { code: 'MYR', name: 'Malaysian Ringgit' },
+  { code: 'SGD', name: 'Singapore Dollar' },
+  { code: 'GBP', name: 'Great British Pound' }
+].each do |currency|
+  Currency.create(code: currency[:code], name: currency[:name])
+end
+
