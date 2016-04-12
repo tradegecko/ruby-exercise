@@ -1,0 +1,4 @@
+<%= form_for(@tweet_form, url: robots_path, remote: true) do |f| %>
+  <%= f.collection_select :currency_id, @currencies, :id, :name, prompt: true %>
+  <%= f.submit "Convert and Tweet" %>
+<% end%>
