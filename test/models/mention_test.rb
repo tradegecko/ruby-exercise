@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RobotsControllerTest < ActionController::TestCase
+class MentionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

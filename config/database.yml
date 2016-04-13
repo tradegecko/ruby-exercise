@@ -1,17 +1,1 @@
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: twitter_bot_development
-  pool: 5
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: twitter_bot_test
-  pool: 5
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: twitter_bot_production
-  pool: 5
+../.openshift/config/database.yml
