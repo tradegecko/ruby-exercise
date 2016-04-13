@@ -1,7 +1,7 @@
 class Gif
   def self.get_trending(limit = nil) #if no limit will get 25 due to the API
     url = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
-    url << "&limit=" << limit.to_s unless limit
+    url << "&limit=" << limit.to_s if limit
     response = HTTParty.get(url)
     if response.success?
       if response["data"].empty?
