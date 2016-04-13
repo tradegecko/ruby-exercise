@@ -39,3 +39,16 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+
+# Twitter api client
+gem 'twitter'
+
+# scheduler
+gem 'whenever'
+
+# http requests
+gem 'unirest'
+
+group :test do
+  gem 'shoulda'
+end

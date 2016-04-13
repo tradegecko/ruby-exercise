@@ -36,4 +36,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # quotes api config
+  config.quote_api = OpenStruct.new
+  config.quote_api.url = 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous'
+  config.quote_api.headers = {
+      'X-Mashape-Key' => Rails.application.secrets.quote_api_key,
+      'Content-Type' => 'application/x-www-form-urlencoded',
+      'Accept' => 'application/json'
+  }
+
+  # response api config
+  config.dialogue_api = OpenStruct.new
+  config.dialogue_api.url = 'http://api.wolframalpha.com/v2/query'
 end

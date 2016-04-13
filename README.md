@@ -1,32 +1,16 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 # Overview #
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+This initial version of the bot will respond to questions when mentioned in a tweet and will tweet famous quotes
+every hour.
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
+## Settings ##
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
+Please make sure the secret file is filed with your different API keys.
 
-Your code should be performant and intuitive.
+## Next step ##
 
-Any questions, please ask.
+I intend to add a mood analyses to the bot, such that it analyses the mood (positive / negative) of the person that
+mentioned the bot.
 
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
-
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
-
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+I also read an article about a bot that participated in all the tweeter contests it could find, and I would like to
+give also give that a try.
