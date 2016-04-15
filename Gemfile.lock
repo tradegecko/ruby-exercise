@@ -82,7 +82,6 @@ GEM
     multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.1.0)
-    pg (0.18.4)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -154,7 +153,6 @@ DEPENDENCIES
   crack
   httpclient
   jbuilder (~> 2.0)
-  pg
   rails (= 4.1.6)
   rails_12factor
   sdoc (~> 0.4.0)
