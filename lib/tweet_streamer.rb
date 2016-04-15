@@ -23,18 +23,20 @@ TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track
   tweet = obj.attrs
 
   user = tweet[:user][:screen_name]
-  request = tweet[:text].gsub(twitter_handle, "").strip
-  begin
-    photo_details = Flickr.search(request)
-    temp_file_name = SecureRandom.hex(10)
+  if "@#{user}" != twitter_handle #preventing infinite loop
+    request = tweet[:text].gsub(twitter_handle, "").strip
+    begin
+      photo_details = Flickr.search(request)
+      temp_file_name = SecureRandom.hex(10)
 
-    open(photo_details[:photo_url]) do |f|
-      File.open("/tmp/#{temp_file_name}.jpg","wb") { |file| file.puts f.read }
+      open(photo_details[:photo_url]) do |f|
+        File.open("/tmp/#{temp_file_name}.jpg", "wb") { |file| file.puts f.read }
+      end
+
+      tweet_client.update_with_media("@#{user} #{photo_details[:flickr_url]}", File.new("/tmp/#{temp_file_name}.jpg"))
+    rescue
+      tweet_client.update_with_media("@#{user} Couldn't find what you are looking for. How about some potatoes instead.", File.new(File.join(root, "lib", "potatoes.jpg")))
     end
-
-    tweet_client.update_with_media("@#{user} #{photo_details[:flickr_url]}", File.new("/tmp/#{temp_file_name}.jpg"))
-  rescue
-    tweet_client.update_with_media("@#{user} Couldn't find what you are looking for. How about some potatoes instead.", File.new(File.join(root, "lib", "potatoes.jpg")))
   end
 
 end
