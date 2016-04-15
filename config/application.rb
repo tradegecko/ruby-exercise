@@ -19,5 +19,7 @@ module RubyExercise
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.FLICKR_API_KEY = "f90aaa0af048900362f6138e23a81084"
   end
 end
