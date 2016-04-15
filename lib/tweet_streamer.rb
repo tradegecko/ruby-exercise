@@ -22,6 +22,7 @@ twitter_handle = "@FindRandomFlick"
 TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track(twitter_handle) do |obj|
   tweet = obj.attrs
 
+  p tweet
   user = tweet[:user][:screen_name]
   if "@#{user}" != twitter_handle #preventing infinite loop
     request = tweet[:text].gsub(twitter_handle, "").strip
@@ -33,9 +34,15 @@ TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track
         File.open("/tmp/#{temp_file_name}.jpg", "wb") { |file| file.puts f.read }
       end
 
-      tweet_client.update_with_media("@#{user} #{photo_details[:flickr_url]}", File.new("/tmp/#{temp_file_name}.jpg"))
+      tweet_client.update_with_media(
+      "@#{user} #{photo_details[:flickr_url]}",
+      File.new("/tmp/#{temp_file_name}.jpg"),
+      in_reply_to_status_id: tweet[:id])
     rescue
-      tweet_client.update_with_media("@#{user} Couldn't find what you are looking for. How about some potatoes instead.", File.new(File.join(root, "lib", "potatoes.jpg")))
+      tweet_client.update_with_media(
+      "@#{user} Couldn't find what you are looking for. How about some potatoes instead.",
+      File.new(File.join(root, "lib", "potatoes.jpg")),
+      in_reply_to_status_id: tweet[:id])
     end
   end
 
