@@ -19,7 +19,7 @@ tweet_client = Twitter::REST::Client.new do |conf|
 end
 
 twitter_handle = "@FindRandomFlick"
-TweetStream::Daemon.new("tweet_streamer", log_output: true).track(twitter_handle) do |obj|
+TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track(twitter_handle) do |obj|
   tweet = obj.attrs
 
   user = tweet[:user][:screen_name]
