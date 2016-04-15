@@ -1,1 +1,1 @@
-worker: ruby lib/tweet_streamer.rb start
+worker: ruby ./lib/tweet_streamer.rb start
