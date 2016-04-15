@@ -1,13 +1,26 @@
 class Flickr
+  # class for searching photos in Flickr API and return a single random
+  # picture with short url, title, photo url and owner.
 
+  # Search method.
+  # Step 1: Find the total number of results for the search.
+  # Step 2: Redo the search with a random page number within the total pages count.
   def self.search(category)
+    logger.debug "New Flickr search with #{category}"
     all_photos = api_search(category, 1)
     pages = all_photos["pages"].to_i
-    raise "No photos found" if pages == 0
+    if pages == 0
+      logger.fatal "No photos in the result for #{category}"
+      raise "No photos found"
+    end
 
     photos = api_search(category, rand(1...pages))
 
-    raise "Photos missing in response" if photos["photo"].nil?
+    # Need to investigate further on why sometimes the result doesn't have 'photo' attr at all.
+    if photos["photo"].nil?
+      logger.fatal "No photo attr in the response field for #{category}"
+      raise "Photos missing in response"
+    end
     photo = photos["photo"][rand(0...photos["photo"].length)]
     {
       title: photo["title"],
@@ -26,11 +39,17 @@ class Flickr
     }
 
     response = HTTPClient.get("https://api.flickr.com/services/rest", options)
-    raise "Unknown error" if(response.status_code != 200)
-    results = Crack::XML.parse(response.body)
+    if(response.status_code != 200)
+      logger.fatal "API failure. #{response.attrs}"
+      raise "Unknown error"
+    end
+    result = Crack::XML.parse(response.body)
 
-    raise "Unknown error" if results["rsp"]["err"]
-    results["rsp"]["photos"]
+    if result["rsp"]["err"]
+      logger.fatal "API failure. #{result}"
+      raise "Unknown error"
+    end
+    result["rsp"]["photos"]
   end
 
   # src: https://github.com/hanklords/flickraw/blob/master/lib/flickraw/api.rb
@@ -49,11 +68,11 @@ class Flickr
     r
   end
 
-  def self.url_short(r)
-    URL_SHORT + base58(r["id"])
+  def self.url_short(photo)
+    URL_SHORT + base58(photo["id"])
   end
 
-  def self.photo_url(r)
-    PHOTO_SOURCE_URL % [r["farm"], r["server"], r["id"], r["secret"], "",   "jpg"]
+  def self.photo_url(photo)
+    PHOTO_SOURCE_URL % [photo["farm"], photo["server"], photo["id"], photo["secret"], "",   "jpg"]
   end
 end

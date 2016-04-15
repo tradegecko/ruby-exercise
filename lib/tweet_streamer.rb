@@ -29,6 +29,8 @@ TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track
       photo_details = Flickr.search(search_request)
       temp_file_name = SecureRandom.hex(10)
 
+      # Download the flickr photo and upload the photo in tweet for maximum impact.
+      # (Twitter does not allow uploading image from an URL)
       open(photo_details[:photo_url]) do |f|
         File.open("/tmp/#{temp_file_name}.jpg", "wb") { |file| file.puts f.read }
       end
