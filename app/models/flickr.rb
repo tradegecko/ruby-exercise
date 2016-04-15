@@ -20,7 +20,7 @@ class Flickr
   private
   def self.api_search(category, page_number)
     options = {
-      api_key: Rails.configuration.FLICKR_API_KEY, method: "flickr.photos.search",
+      api_key: Rails.application.secrets.FLICKR_API_KEY, method: "flickr.photos.search",
       tags: category, tags_mode: "all", safe_mode: 1,
       page: page_number, extras: "owner_name"
     }
