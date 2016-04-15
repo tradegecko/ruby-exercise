@@ -11,7 +11,8 @@ class Flickr
     photo = photos["photo"][rand(0...photos["photo"].length)]
     {
       title: photo["title"],
-      flickr_photo: url_short(photo),
+      flickr_url: url_short(photo),
+      photo_url: photo_url(photo),
       owner: photo["ownername"]
     }
   end
@@ -35,6 +36,7 @@ class Flickr
   # src: https://github.com/hanklords/flickraw/blob/master/lib/flickraw/api.rb
   BASE58_ALPHABET="123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ".freeze
   URL_SHORT='https://flic.kr/p/'.freeze
+  PHOTO_SOURCE_URL='https://farm%s.staticflickr.com/%s/%s_%s%s.%s'.freeze
 
   def self.base58(id)
     id = id.to_i
@@ -49,5 +51,9 @@ class Flickr
 
   def self.url_short(r)
     URL_SHORT + base58(r["id"])
+  end
+
+  def self.photo_url(r)
+    PHOTO_SOURCE_URL % [r["farm"], r["server"], r["id"], r["secret"], "",   "jpg"]
   end
 end

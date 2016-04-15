@@ -8,5 +8,6 @@ gem "spring", group: :development
 gem "twitter"
 gem "httpclient"
 gem "crack"
+gem "tweetstream"
 
 gem "rails_12factor", group: :production
