@@ -34,7 +34,7 @@ TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track
       end
 
       tweet_client.update_with_media(
-      "@#{user} #{photo_details[:flickr_url]}",
+      "@#{user} #{photo_details[:flickr_url]}. \"#{photo_details[:title]}\" -#{photo_details[:owner]}",
       File.new("/tmp/#{temp_file_name}.jpg"),
       in_reply_to_status_id: tweet[:id])
     rescue
