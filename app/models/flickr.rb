@@ -6,11 +6,11 @@ class Flickr
   # Step 1: Find the total number of results for the search.
   # Step 2: Redo the search with a random page number within the total pages count.
   def self.search(category)
-    logger.debug "New Flickr search with #{category}"
+    Rails.logger.debug "New Flickr search with #{category}"
     all_photos = api_search(category, 1)
     pages = all_photos["pages"].to_i
     if pages == 0
-      logger.fatal "No photos in the result for #{category}"
+      Rails.logger.fatal "No photos in the result for #{category}"
       raise "No photos found"
     end
 
@@ -18,7 +18,7 @@ class Flickr
 
     # Need to investigate further on why sometimes the result doesn't have 'photo' attr at all.
     if photos["photo"].nil?
-      logger.fatal "No photo attr in the response field for #{category}"
+      Rails.logger.fatal "No photo attr in the response field for #{category}"
       raise "Photos missing in response"
     end
     photo = photos["photo"][rand(0...photos["photo"].length)]
@@ -40,13 +40,13 @@ class Flickr
 
     response = HTTPClient.get("https://api.flickr.com/services/rest", options)
     if(response.status_code != 200)
-      logger.fatal "API failure. #{response.attrs}"
+      Rails.logger.fatal "API failure. #{response.attrs}"
       raise "Unknown error"
     end
     result = Crack::XML.parse(response.body)
 
     if result["rsp"]["err"]
-      logger.fatal "API failure. #{result}"
+      Rails.logger.fatal "API failure. #{result}"
       raise "Unknown error"
     end
     result["rsp"]["photos"]
