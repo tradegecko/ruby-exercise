@@ -15,8 +15,8 @@ class Flickr
     end
 
     photos = api_search(category, rand(1...pages))
-
-    # Need to investigate further on why sometimes the result doesn't have 'photo' attr at all.
+    photos = all_photos if photos["photo"].nil? # revert to original set if the new response doesnt have photos.
+    # throw error if there are no photos in the response at all.
     if photos["photo"].nil?
       Rails.logger.fatal "No photo attr in the response field for #{category}"
       raise "Photos missing in response"

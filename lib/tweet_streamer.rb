@@ -1,7 +1,6 @@
 require "open-uri"
 require "securerandom"
-root = File.expand_path(File.join(File.dirname(__FILE__), ".."))
-require File.join(root, "config", "environment")
+require Rails.root.join("config", "environment")
 
 TweetStream.configure do |conf|
   conf.consumer_key        = Rails.application.secrets.TWITTER_CONSUMER_KEY
@@ -19,14 +18,23 @@ tweet_client = Twitter::REST::Client.new do |conf|
 end
 
 twitter_handle = "@FindRandomFlick"
-TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track(twitter_handle) do |obj|
+logger = nil
+daemon = TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true})
+daemon.on_inited do
+  logger = Logger.new(Rails.root.join('log', 'stream.log'))
+  Rails.logger = logger
+end
+daemon.track(twitter_handle) do |obj|
   tweet = obj.attrs
+  logger.debug tweet
   user = tweet[:user][:screen_name]
   if "@#{user}" != twitter_handle #preventing infinite loop
     search_request = tweet[:text].gsub(twitter_handle, "").strip
 
     begin
       photo_details = Flickr.search(search_request)
+
+      logger.debug "Tweeting with Flick result: #{photo_details}"
       temp_file_name = SecureRandom.hex(10)
 
       # Download the flickr photo and upload the photo in tweet for maximum impact.
@@ -42,7 +50,7 @@ TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true}).track
     rescue
       tweet_client.update_with_media(
       "@#{user} Couldn't find what you are looking for. How about some potatoes instead.",
-      File.new(File.join(root, "lib", "potatoes.jpg")),
+      File.new(Rails.root.join("lib", "potatoes.jpg")),
       in_reply_to_status_id: tweet[:id])
     end
   end
