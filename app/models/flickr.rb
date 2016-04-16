@@ -68,10 +68,12 @@ class Flickr
     r
   end
 
+  # Ref: https://www.flickr.com/services/api/misc.urls.html
   def self.url_short(photo)
     URL_SHORT + base58(photo["id"])
   end
 
+  # Ref: https://www.flickr.com/services/api/misc.urls.html
   def self.photo_url(photo)
     PHOTO_SOURCE_URL % [photo["farm"], photo["server"], photo["id"], photo["secret"], "",   "jpg"]
   end
