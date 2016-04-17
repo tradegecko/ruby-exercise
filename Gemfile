@@ -39,3 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+
+gem 'json', '~> 1.8.2'
+
+gem 'twitter'
