@@ -43,3 +43,6 @@ gem 'rails_12factor', group: :production
 gem 'json', '~> 1.8.2'
 
 gem 'twitter'
+
+gem 'rspec-support', '~> 3.4.1'
+gem 'rspec', '~> 3.0'
