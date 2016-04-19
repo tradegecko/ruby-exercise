@@ -3,9 +3,10 @@ class Twitterbot
 
   #Post is a local method that serch for tweet with hastag #sad.
   #The method will favorite the tweet and post a respond to the user.
-  def post
-    twitter_client.search("#sad").take(1).each do |tweet|
-        puts "#{tweet.user.screen_name}: #{tweet.text}"
+  def post(number = 1)
+    results = twitter_client.search("#sad")
+    return unless results.try(:any?)
+    results.take(number).each do |tweet|
         twitter_client.favorite(tweet)
         twitter_client.update("@#{tweet.user.screen_name} Happiness is the art of never holding in your mind the memory of any unpleasant thing that has passed.")
     end
