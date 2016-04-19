@@ -27,6 +27,11 @@ end
 daemon.track(twitter_handle) do |obj|
   tweet = obj.attrs
   logger.debug tweet
+
+  # default tweet message and tweet image
+  tweet_message = "@#{user} Couldn't find what you are looking for. How about some potatoes instead."
+  image_file = File.new(Rails.root.join("lib", "potatoes.jpg"))
+
   user = tweet[:user][:screen_name]
   if "@#{user}" != twitter_handle #preventing infinite loop
     search_request = tweet[:text].gsub(twitter_handle, "").strip
@@ -43,16 +48,14 @@ daemon.track(twitter_handle) do |obj|
         File.open("/tmp/#{temp_file_name}.jpg", "wb") { |file| file.puts f.read }
       end
 
-      tweet_client.update_with_media(
-      "@#{user} #{photo_details[:flickr_url]}. \"#{photo_details[:title]}\" -#{photo_details[:owner]}",
-      File.new("/tmp/#{temp_file_name}.jpg"),
-      in_reply_to_status_id: tweet[:id])
-    rescue
-      tweet_client.update_with_media(
-      "@#{user} Couldn't find what you are looking for. How about some potatoes instead.",
-      File.new(Rails.root.join("lib", "potatoes.jpg")),
-      in_reply_to_status_id: tweet[:id])
+      tweet_message = "@#{user} #{photo_details[:flickr_url]}. \"#{photo_details[:title]}\" -#{photo_details[:owner]}"
+      image_file = File.new("/tmp/#{temp_file_name}.jpg")
+
+    rescue StandardError => err
+      logger.error(err.message)
     end
+
+    tweet_client.update_with_media(tweet_message, image_file, in_reply_to_status_id: tweet[:id])
   end
 
 end
