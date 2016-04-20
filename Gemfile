@@ -42,6 +42,7 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 
 gem 'twitter', '~> 5.16.0'
+gem 'tweetstream'
 gem 'puma'
 gem "rspec-rails", group: [:development, :test]
 gem 'fuubar', group: [:development, :test]
