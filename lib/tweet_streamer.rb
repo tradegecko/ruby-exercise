@@ -20,10 +20,23 @@ end
 twitter_handle = "@FindRandomFlick"
 logger = nil
 daemon = TweetStream::Daemon.new("tweet_streamer", {log_output: true, ontop: true})
+
 daemon.on_inited do
   logger = Logger.new(Rails.root.join('log', 'stream.log'))
+  logger.info "Connection established."
   Rails.logger = logger
 end
+
+# reconnecting is handled by TweetStream gem as per twitter guidelines:
+# ref: https://dev.twitter.com/streaming/overview/connecting
+daemon.on_reconnect do |timeout, retries|
+  logger.info "Reconnecting after a timeout of #{timeout}. Retry attempt: #{retries}"
+end
+
+daemon.on_error do |error|
+  logger.fatal "Error in TwitterStream: #{error}"
+end
+
 daemon.track(twitter_handle) do |obj|
   tweet = obj.attrs
   logger.debug tweet
@@ -54,6 +67,7 @@ daemon.track(twitter_handle) do |obj|
       image_file = File.new(Rails.root.join("lib", "potatoes.jpg"))
     end
 
+    logger.debug "Tweeting with #{tweet_message} with image_file: #{image_file.path}"
     tweet_client.update_with_media(tweet_message, image_file, in_reply_to_status_id: tweet[:id])
   end
 

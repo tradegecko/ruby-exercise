@@ -38,6 +38,7 @@ class Flickr
       page: page_number, extras: "owner_name"
     }
 
+    # HTTPClient has a default timeout of 60 sec after with a timeout error is raised.
     response = HTTPClient.get("https://api.flickr.com/services/rest", options)
     if(response.status_code != 200)
       Rails.logger.fatal "API failure. #{response.attrs}"
