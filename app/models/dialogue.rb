@@ -13,7 +13,7 @@ class Dialogue
       )
     rescue Timeout::Error
       warn 'Dialogue API timed out...'
-      return I18n.t('dialogue.unknown')
+      return "Uhm, I'm afraid I don't know..."
     end
 
     # answer body (should) look like this : http://products.wolframalpha.com/api/explorer.html
@@ -25,12 +25,12 @@ class Dialogue
         message = "#{response_hash['queryresult']['pod'][1]['subpod']['plaintext']} - http://www.wolframalpha.com"
 
         if message.length > Rails.application.config.tweet.default_length - reserved_space
-          return I18n.t('dialogue.too_long')
+          return '"I have discovered a truly remarkable proof which this margin is too small to contain." Try http://www.wolframalpha.com'
         else
           return message
         end
       else
-        return I18n.t('dialogue.unknown')
+        return "Uhm, I'm afraid I don't know..."
       end
     end
 

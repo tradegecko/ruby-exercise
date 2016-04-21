@@ -30,7 +30,7 @@ class DialogueTest < ActionController::TestCase
     end
 
     should 'answer unknown if the api does not return an answer' do
-      assert_equal I18n.t('dialogue.unknown'), Dialogue.respond_to('azergerbrznsrnyetntynbetnhtehntenzefgerhrz')
+      assert_equal "Uhm, I'm afraid I don't know...", Dialogue.respond_to('azergerbrznsrnyetntynbetnhtehntenzefgerhrz')
     end
   end
 end

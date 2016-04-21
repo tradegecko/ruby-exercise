@@ -49,6 +49,9 @@ gem 'whenever'
 # http requests
 gem 'unirest'
 
+# sentiment text analysis
+gem 'sentimental'
+
 group :test do
   gem 'shoulda'
 end
