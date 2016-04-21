@@ -75,4 +75,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # quotes api config
+  config.quote_api = OpenStruct.new
+  config.quote_api.url = 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous'
+  config.quote_api.headers = {
+      'X-Mashape-Key' => Rails.application.secrets.quote_api_key,
+      'Content-Type' => 'application/x-www-form-urlencoded',
+      'Accept' => 'application/json'
+  }
+
+  # response api config
+  config.dialogue_api = OpenStruct.new
+  config.dialogue_api.url = 'http://api.wolframalpha.com/v2/query'
 end

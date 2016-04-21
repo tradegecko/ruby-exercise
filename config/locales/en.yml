@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+  dialogue:
+    unknown: Uhm, I'm afraid I don't know...
+    too_long: '"I have discovered a truly remarkable proof which this margin is too small to contain." Try http://www.wolframalpha.com'
+  tweet:
+    mood:
+      happy: You seem like a happy tweeter : )
+      unhappy: Why are you in such a bad mood?
+    error:
+      WolframAlpha: "Oh no, I seem to have no more credit for the WolframAlpha api :'("
