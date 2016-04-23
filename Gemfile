@@ -46,3 +46,6 @@ gem 'tweetstream'
 gem 'puma'
 gem "rspec-rails", group: [:development, :test]
 gem 'fuubar', group: [:development, :test]
+gem 'foreman', group: :development
+gem 'byebug', group: :development
+#gem 'awesome_print', group: :development
