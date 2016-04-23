@@ -1,6 +1,5 @@
 require 'tweetstream'
 require 'twitterclient'
-#require 'byebug'
 
 class TwitterListener
   
@@ -63,9 +62,7 @@ class TwitterListener
           next 
         end
         
-        puts "tweet from: #{tweet.user.screen_name} to: #{tweet.in_reply_to_screen_name.inspect}"
-        #byebug
-        #that bit me... -> https://twittercommunity.com/t/twitter-status-update-in-reply-to-status-id-is-null-always/18910
+        puts "tweet from: #{tweet.user.screen_name} to: #{tweet.in_reply_to_screen_name}"
         TwitterClient[:main].update "@#{tweet.user.screen_name} Hello There :D", in_reply_to_status: tweet 
         TwitterClient[:main].update "@#{tweet.user.screen_name} Hello There2 :D", in_reply_to_status: tweet
       rescue Exception => e
