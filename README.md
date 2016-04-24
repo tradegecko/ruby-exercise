@@ -22,6 +22,10 @@ Requires the following environment variables to be set
 * TWITTER_MAIN_ACCESS_TOKEN
 * TWITTER_MAIN_ACCESS_TOKEN_SECRET
 
+**Example quiz conversations**
+* https://twitter.com/vigneshwaranr/status/724299513607933953
+* https://twitter.com/Rubytest10/status/724301043899727873
+
 **Screenshot**
 
 ![pq screenshot](https://raw.githubusercontent.com/vigneshwaranr/ruby-exercise/master/public/screenshot.jpg)
