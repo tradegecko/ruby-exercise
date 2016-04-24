@@ -46,7 +46,7 @@ RSpec.describe Pokemon, type: :model do
   describe ".get_by_nationalno" do
     #require 'byebug'; byebug
     it "should get and create a pokemon not in db" do
-      exclude_nationalnos = Pokemon.cached_nationalnos
+      exclude_nationalnos = Pokemon.nationalnos_in_db
       count = Pokemon.count
       pokemon = Pokemon.random_pokemon exclude_nationalnos
 
@@ -55,6 +55,30 @@ RSpec.describe Pokemon, type: :model do
 
       Pokemon.get_by_nationalno pokemon.nationalno
       expect(Pokemon.count).to eq(count + 1)
+    end
+
+  end
+
+  describe "#imagefilepath" do
+
+    it "should raise error for invalid Pokemon" do
+      pokemon = FactoryGirl.build :pokemon, nationalno: 0
+      expect(pokemon).not_to be_valid
+      expect {
+        pokemon.imagefilepath
+      }.to raise_error(RuntimeError)
+    end
+
+    let(:nationalno) { Pokemon.random_nationalno }
+    it "should download and return if file doesn't exist already" do
+      filepath = Pokemon.imagefilepath(nationalno)
+      File.delete filepath if File.file? filepath
+
+      pokemon = Pokemon.get_by_nationalno nationalno
+      expect(pokemon).to be_valid
+
+      imagefilepath = pokemon.imagefilepath
+      expect(File.file? imagefilepath).to eq true
     end
 
   end
