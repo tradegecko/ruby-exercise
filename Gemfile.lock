@@ -32,6 +32,13 @@ GEM
     buftok (0.2.0)
     builder (3.2.2)
     byebug (8.2.4)
+    coffee-rails (4.0.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.8.0)
     cookiejar (0.3.0)
     daemons (1.2.3)
     diff-lcs (1.2.5)
@@ -53,6 +60,7 @@ GEM
     equalizer (0.0.10)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
+    execjs (2.2.2)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.7.0)
@@ -145,6 +153,12 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     ruby-progressbar (1.7.5)
+    sass (3.2.19)
+    sass-rails (4.0.3)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.2.0)
+      sprockets (~> 2.8, <= 2.11.0)
+      sprockets-rails (~> 2.0)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -161,6 +175,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    turbolinks (2.5.2)
+      coffee-rails
     tweetstream (2.6.1)
       daemons (~> 1.1)
       em-http-request (>= 1.1.1)
@@ -180,6 +196,9 @@ GEM
       simple_oauth (~> 0.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.5.3)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
@@ -189,6 +208,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  coffee-rails (~> 4.0.0)
   factory_girl_rails
   faker
   foreman
@@ -200,9 +220,12 @@ DEPENDENCIES
   rails (= 4.1.6)
   rails_12factor
   rspec-rails
+  sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  turbolinks
   tweetstream
   twitter (~> 5.16.0)
+  uglifier (>= 1.3.0)
 
 BUNDLED WITH
    1.11.2
