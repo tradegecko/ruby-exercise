@@ -15,12 +15,12 @@ class PokeQuizzer
     return unless tweet.is_a? Twitter::Tweet
     ActiveRecord::Base.connection_pool.with_connection do
       begin
-      pokequiz = PokeQuiz.find_by_screenname tweet.user.screen_name
-      return self.handle_new_gamer tweet if pokequiz.nil?
-      
-      # row present
-      return self.handle_live_game_session tweet, pokequiz if pokequiz.status == PokeQuiz::Status::LIVE
-      return self.handle_returning_gamer tweet, pokequiz if pokequiz.status == PokeQuiz::Status::COMPLETED
+        pokequiz = PokeQuiz.find_by_screenname tweet.user.screen_name
+        return self.handle_new_gamer tweet if pokequiz.nil?
+        
+        # row present
+        return self.handle_live_game_session tweet, pokequiz if pokequiz.status == PokeQuiz::Status::LIVE
+        return self.handle_returning_gamer tweet, pokequiz if pokequiz.status == PokeQuiz::Status::COMPLETED
       rescue Exception => e
         puts "Exception while handling tweet #{e.message}"
         puts e.backtrace.inspect
