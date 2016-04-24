@@ -1,5 +1,5 @@
 require 'faker'
-require 'byebug'
+#require 'byebug'
 FactoryGirl.define do
   factory :pokemon do |f|
     f.nationalno { Pokemon.random_nationalno }

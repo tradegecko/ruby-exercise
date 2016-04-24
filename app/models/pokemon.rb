@@ -4,7 +4,7 @@ require 'open-uri'
 
 class Pokemon < ActiveRecord::Base
   
-  MAX_NO_OF_POKEMONS=720
+  MAX_NO_OF_POKEMONS=150 #Can be upto 720 but first 150 are popular and easily playable
 
   validates :nationalno,
               presence: true,
@@ -35,7 +35,7 @@ class Pokemon < ActiveRecord::Base
   def self.random_nationalno *excluded_numbers
     loop do
       num = rand 1..MAX_NO_OF_POKEMONS
-      break num unless excluded_numbers[0..20].include? num
+      break num unless excluded_numbers.first(20).include? num
     end
   end
 
@@ -55,7 +55,7 @@ class Pokemon < ActiveRecord::Base
 
   def imagefilepath
     raise "Invalid" if not valid?
-    filepath = Pokemon.imagefilepath nationalno
+    filepath = Pokemon.imagefilepath self.nationalno
     #puts "filepath #{filepath}"
 
     return filepath if File.file? filepath

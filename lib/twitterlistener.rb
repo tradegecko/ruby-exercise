@@ -1,5 +1,6 @@
 require 'tweetstream'
 require 'twitterclient'
+require 'pokequizzer'
 
 class TwitterListener
   
@@ -12,8 +13,8 @@ class TwitterListener
       config.oauth_token        = ENV['TWITTER_MAIN_ACCESS_TOKEN']
       config.oauth_token_secret = ENV['TWITTER_MAIN_ACCESS_TOKEN_SECRET']
       config.auth_method        = :oauth
-      puts config.to_yaml
-      puts ENV.to_yaml
+      #puts config.to_yaml
+      #puts ENV.to_yaml
     end
 
     @@stream = TweetStream::Client.new
@@ -44,27 +45,29 @@ class TwitterListener
       
       # don't block the event loop
       # https://dev.twitter.com/streaming/overview/connecting#Disconnections
-      EM.defer self.handler(tweet) 
+      EM.defer self.dispatch_to_handler(tweet)
       
     end
+
+    # hit Control + C to stop
+    Signal.trap("INT")  { EM.stop }
+    Signal.trap("TERM") { EM.stop }
 
   end
 
 
-  def self.handler tweet
+  def self.dispatch_to_handler tweet
     Proc.new {
 
       begin
         next unless tweet.is_a? Twitter::Tweet
 
-        if tweet.user.screen_name == ENV['TWITTER_SCREENNAME']
-          puts "My own tweet so ignoring"
-          next 
-        end
+        next if tweet.user.screen_name == ENV['TWITTER_SCREENNAME']
         
         puts "tweet from: #{tweet.user.screen_name} to: #{tweet.in_reply_to_screen_name}"
-        TwitterClient[:main].update "@#{tweet.user.screen_name} Hello There :D", in_reply_to_status: tweet 
-        TwitterClient[:main].update "@#{tweet.user.screen_name} Hello There2 :D", in_reply_to_status: tweet
+        PokeQuizzer.handle tweet
+        #TwitterClient[:main].update "@#{tweet.user.screen_name} Hello There :D", in_reply_to_status: tweet 
+        #TwitterClient[:main].update "@#{tweet.user.screen_name} Hello There2 :D", in_reply_to_status: tweet
       rescue Exception => e
         puts "Error while processing #{tweet}"
         puts e.message

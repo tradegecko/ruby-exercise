@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423181631) do
+ActiveRecord::Schema.define(version: 20160424093249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "poke_quizzes", force: true do |t|
+    t.string   "screenname"
+    t.integer  "statusid",       limit: 8
+    t.integer  "lastpokemonno"
+    t.boolean  "returninggamer"
+    t.integer  "status"
+    t.integer  "totalans"
+    t.integer  "wrongans"
+    t.string   "addinfo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "poke_quizzes", ["screenname"], name: "index_poke_quizzes_on_screenname", unique: true, using: :btree
 
   create_table "pokemons", force: true do |t|
     t.integer  "nationalno"
