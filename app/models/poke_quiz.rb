@@ -39,8 +39,9 @@ class PokeQuiz < ActiveRecord::Base
                             statusid:      statusid,
                             lastpokemonno: Pokemon.random_pokemon.nationalno, #gets from api and creates the row dynamically and returns no. :)
                             addinfo:       Array.new
-    pokequiz.addinfo << pokequiz.lastpokemonno unless pokequiz.addinfo.include? pokequiz.lastpokemonno
-    pokequiz.create!
+    pokequiz.addinfo << pokequiz.lastpokemonno
+    pokequiz.save!
+    pokequiz
   end
 
   def renew_game! new_statusid

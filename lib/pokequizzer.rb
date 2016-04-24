@@ -11,16 +11,21 @@ class PokeQuizzer
   #  return
   def self.handle tweet
     #require 'byebug'; byebug
+    puts "hi"
     return unless tweet.is_a? Twitter::Tweet
-    pokequiz = PokeQuiz.find_by_screenname tweet.user.screen_name    
-    return self.handle_new_gamer tweet if pokequiz.nil?
-    
-    # row present
-    return self.handle_live_game_session tweet, pokequiz if pokequiz.status == PokeQuiz::Status::LIVE
-    return self.handle_returning_gamer tweet, pokequiz if pokequiz.status == PokeQuiz::Status::COMPLETED
-  rescue Exception => e
-      puts "Exception while handling tweet #{e.message}"
-      puts e.backtrace.inspect
+    ActiveRecord::Base.connection_pool.with_connection do
+      begin
+      pokequiz = PokeQuiz.find_by_screenname tweet.user.screen_name
+      return self.handle_new_gamer tweet if pokequiz.nil?
+      
+      # row present
+      return self.handle_live_game_session tweet, pokequiz if pokequiz.status == PokeQuiz::Status::LIVE
+      return self.handle_returning_gamer tweet, pokequiz if pokequiz.status == PokeQuiz::Status::COMPLETED
+      rescue Exception => e
+        puts "Exception while handling tweet #{e.message}"
+        puts e.backtrace.inspect
+      end
+    end #connection
   end
 
 
@@ -51,13 +56,15 @@ class PokeQuizzer
       pokemonname = pokequiz.pokemon.name.downcase
       iscorrectanswer = true
 
-      unless tweet.text.downcase.include? pokemonname
+      if tweet.text.downcase.include? pokemonname
+        puts "#{msg} with a right answer"
+      else
         puts "#{msg} with a wrong answer"
         pokequiz.wrongans += 1
         iscorrectanswer = false
       end
 
-      puts "#{msg} with a right answer"
+      
 
       return self.handle_end_of_game pokequiz, iscorrectanswer if pokequiz.end_of_game?
 
