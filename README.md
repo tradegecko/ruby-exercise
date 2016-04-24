@@ -1,32 +1,27 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-# Overview #
+## PokeQwiz ##
+#### A pokemon quiz implementation using a twitter account ####
 
-Write a simple Ruby app that tweets about something of your choice every hour or responds when tweeted at.
+**Features**
+* Handles multiple quiz sessions with different accounts simultaneously
+* Can support upto 720 available pokemons
+* Caches data locally to prevent network calls
+* Replies with different texts to avoid robotic response
 
-We have provided an example rails app here as it facilitates hosting on Heroku, but you are welcome to use any solution in Ruby.
+**TODO**
+* Complete test code for everything
+* Add support for 'help' and 'report' commands
+* Add more non-robotic response feel
 
-There is no one way to complete this exercise as long as the minimum requirements are met.
-When you are finished, please send us a pull request of the finished product.
-A clean Git History (with relevant commit messages) is a bonus.
+**Configuration**
 
-Your code should be performant and intuitive.
+Requires the following environment variables to be set
+* TWITTER_SCREENNAME _#Important to set it to the quiz account. Otherwise results in endless loop._
+* TWITTER_CONSUMER_KEY
+* TWITTER_CONSUMER_SECRET
+* TWITTER_MAIN_ACCESS_TOKEN
+* TWITTER_MAIN_ACCESS_TOKEN_SECRET
 
-Any questions, please ask.
+**Screenshot**
 
-Notes:
-  - There are various twitter API gems available, no need to write your own access.
-      - Search https://www.ruby-toolbox.com for more info on your options.
-
-  - Heroku Scheduler is a simple Heroku add-on for background jobs.
-
-  - The point of this isn't to stress about what to tweet, so some examples are:
-    - Find anagrams in others tweets
-    - Look for accidental haiku in tweets and reformat then retweet
-    - Looks for song lyrics in tweets and posts song names
-    - Grabs tweets, puts it through a text-to-speech api and posts a link to the audio
-    - Two bots playing chess together.
-    - Random words from a dictionary
-    - @reply a sample image of a colour if you tweet a hexcode at the bot.
-    - Snowball poems 
-    - Sports results
-    - Battleships
+![pq screenshot](https://raw.githubusercontent.com/vigneshwaranr/ruby-exercise/master/public/screenshot.jpg)
