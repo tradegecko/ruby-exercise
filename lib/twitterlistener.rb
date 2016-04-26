@@ -17,30 +17,30 @@ class TwitterListener
       #puts ENV.to_yaml
     end
 
-    @@stream = TweetStream::Client.new
+    stream = TweetStream::Client.new
 
-    @@stream.on_inited do
+    stream.on_inited do
       puts "stream on_init"
     end
 
-    @@stream.on_error do |msg|
+    stream.on_error do |msg|
       puts "stream on_error #{msg.inspect}"
     end
 
-    @@stream.on_reconnect do |timeout, retries|
+    stream.on_reconnect do |timeout, retries|
       puts "stream on_reconnect timeout - #{timeout} retries - #{retries}"
       #puts caller
     end
     
-    @@stream.on_unauthorized do
+    stream.on_unauthorized do
      puts "on_unauthorized"
     end
 
-    @@stream.on_enhance_your_calm do
+    stream.on_enhance_your_calm do
      puts "Rate limit exceeded"
     end
 
-    @@stream.userstream do |tweet|
+    stream.userstream do |tweet|
       puts "[userstream] received status: #{tweet.id}"
       
       # don't block the event loop

@@ -8,16 +8,12 @@ class TwitterClient
 
   def self.[](sym)
     return unless sym.is_a? Symbol
-    all[sym] ||= self.create(sym.to_s.upcase)
+    @@all ||= Hash.new
+    @@all[sym] ||= create(sym.to_s.upcase)
   end
 
-  def self.all
-    @@clients ||= Hash.new
-  end
-
-  
   class << self
-    protected
+    private
     def create key
       puts "Creating client for #{key}"
       Twitter::REST::Client.new do |config|

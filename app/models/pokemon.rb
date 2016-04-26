@@ -70,7 +70,7 @@ class Pokemon < ActiveRecord::Base
   end
 
   class << self
-    protected
+    private
     def poke_endpoint nationalno
       #daily rate limit of 300 requests per resource per IP address..
       "http://pokeapi.co/api/v2/pokemon/#{nationalno}/"

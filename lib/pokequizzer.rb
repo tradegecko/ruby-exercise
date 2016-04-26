@@ -11,16 +11,15 @@ class PokeQuizzer
   #  return
   def self.handle tweet
     #require 'byebug'; byebug
-    puts "hi"
     return unless tweet.is_a? Twitter::Tweet
     ActiveRecord::Base.connection_pool.with_connection do
       begin
         pokequiz = PokeQuiz.find_by_screenname tweet.user.screen_name
-        return self.handle_new_gamer tweet if pokequiz.nil?
+        return handle_new_gamer tweet if pokequiz.nil?
         
         # row present
-        return self.handle_live_game_session tweet, pokequiz if pokequiz.status == PokeQuiz::Status::LIVE
-        return self.handle_returning_gamer tweet, pokequiz if pokequiz.status == PokeQuiz::Status::COMPLETED
+        return handle_live_game_session tweet, pokequiz if pokequiz.status == PokeQuiz::Status::LIVE
+        return handle_returning_gamer tweet, pokequiz if pokequiz.status == PokeQuiz::Status::COMPLETED
       rescue Exception => e
         puts "Exception while handling tweet #{e.message}"
         puts e.backtrace.inspect
@@ -30,7 +29,7 @@ class PokeQuizzer
 
 
   class << self
-    protected
+    private
 
     def handle_new_gamer tweet
       screenname = tweet.user.screen_name
@@ -38,7 +37,7 @@ class PokeQuizzer
 
       puts "#{screenname} is a new gamer"
       pokequiz = PokeQuiz.new_game screenname, statusid
-      self.reply_for_new_game pokequiz
+      reply_for_new_game pokequiz
     end
 
     def handle_returning_gamer tweet, pokequiz
@@ -46,7 +45,7 @@ class PokeQuizzer
       new_statusid = tweet.id
       puts "#{screenname} is a returning gamer"
       pokequiz.renew_game! new_statusid
-      self.reply_for_new_game pokequiz, first: false #returning game
+      reply_for_new_game pokequiz, first: false #returning game
     end
 
     def handle_live_game_session tweet, pokequiz
@@ -64,17 +63,15 @@ class PokeQuizzer
         iscorrectanswer = false
       end
 
-      
+      return handle_end_of_game pokequiz, iscorrectanswer if pokequiz.end_of_game?
 
-      return self.handle_end_of_game pokequiz, iscorrectanswer if pokequiz.end_of_game?
-
-      return self.handle_next_question pokequiz, iscorrectanswer
+      return handle_next_question pokequiz, iscorrectanswer
     end
 
     def handle_end_of_game pokequiz, iscorrectanswer
       pokequiz.status = PokeQuiz::Status::COMPLETED
       pokequiz.save!
-      self.reply_for_end_of_game pokequiz, iscorrectanswer
+      reply_for_end_of_game pokequiz, iscorrectanswer
     end
 
 
@@ -84,7 +81,7 @@ class PokeQuizzer
       correctanswer = pokequiz.pokemon.name
       pokequiz.prepare_next_question!
       
-      self.reply_for_next_question pokequiz, iscorrectanswer, correctanswer
+      reply_for_next_question pokequiz, iscorrectanswer, correctanswer
     end
 
 
@@ -98,7 +95,7 @@ class PokeQuizzer
         intro = ["Welcome back @#{pokequiz.screenname}!", "Hey @#{pokequiz.screenname}! How do you do?"].sample
         msg = "#{intro} Let's have another quiz! What's this Pokemon?"
       end
-      self.reply msg, pokequiz.statusid, File.new(pokequiz.pokemon.imagefilepath)
+      reply msg, pokequiz.statusid, File.new(pokequiz.pokemon.imagefilepath)
     end
 
     def reply_for_next_question pokequiz, iscorrectanswer, correctanswer
@@ -109,7 +106,7 @@ class PokeQuizzer
       end
 
       msg << ["Try this..", "How about this?"].sample
-      self.reply msg, pokequiz.statusid, File.new(pokequiz.pokemon.imagefilepath)
+      reply msg, pokequiz.statusid, File.new(pokequiz.pokemon.imagefilepath)
     end
 
     def reply_for_end_of_game pokequiz, iscorrectanswer
@@ -130,7 +127,7 @@ class PokeQuizzer
         msg << " Please try again next time :/"
       end
 
-      self.reply msg, pokequiz.statusid
+      reply msg, pokequiz.statusid
     end
 
 
