@@ -1,14 +1,20 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: twitter_bot_development
   pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: twitter_bot_development
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: twitter_bot_test
-  pool: 5
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 production:
   adapter: postgresql
