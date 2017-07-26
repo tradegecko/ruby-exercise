@@ -1,0 +1,1 @@
+TwitterAdapter.start_streaming
