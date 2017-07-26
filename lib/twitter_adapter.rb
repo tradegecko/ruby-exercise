@@ -24,8 +24,6 @@ class TwitterAdapter
 
   def self.start_streaming
     streaming_client.user do |object|
-      puts ?**10
-      puts object.class.name
       case object
       when Twitter::Tweet
         puts object.text
@@ -37,5 +35,7 @@ class TwitterAdapter
         warn object.name
       end
     end
+  rescue
+    warn 'Streaming failed.'
   end
 end
